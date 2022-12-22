@@ -105,7 +105,12 @@
 				<version>8.0.0</version>
 				<configuration>
 					<user>postgres</user>
-					<password>qwerty</password>
+					<password>admin</password>
+					<sqlMigrationSeparator>__</sqlMigrationSeparator>
+					<locations>
+						<location>filesystem:src/main/resources/flyway_scripts</location>
+					</locations>
+					<mixed>true</mixed> <!--> needed to create sequence <!-->
 					<url>jdbc:postgresql://localhost:5432/klpn</url>
 					<schemas>
 						<schema>public</schema>
