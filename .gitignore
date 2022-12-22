@@ -12,12 +12,22 @@ target/
 .settings
 .springBeans
 .sts4-cache
+!**/src/main/resources/
+pom.xml
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+
+### APP PROPERTIES ###
+project.properties
+*.properties
+./src/main/resources/application.properties
+./src/main/resources/application.yaml
+.application.properties
+application.properties
 
 ### NetBeans ###
 /nbproject/private/
@@ -31,3 +41,42 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
