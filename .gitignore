@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 dependency-reduced-pom.xml
+resources/application.properties
+resources/application.yaml
 
 ### STS ###
 .apt_generated
