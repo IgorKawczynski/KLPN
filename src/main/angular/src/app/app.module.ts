@@ -13,6 +13,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { MatchComponent } from './match/match.component';
 import { TeamComponent } from './team/team.component';
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TeamComponent } from './team/team.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
