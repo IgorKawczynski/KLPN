@@ -109,15 +109,17 @@ yarn-error.log
 
 # Visual Studio Code
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+!./src/main/angular/.vscode/settings.json
+!./src/main/angular/.vscode/tasks.json
+!./src/main/angular/.vscode/launch.json
+!./src/main/angular/.vscode/extensions.json
+./src/main/angular/history/*
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
+./src/main/angular/.angular/cache
+/src/main/angular/.angular/cache
+./src/main/angular/.angular/sass-cache/
+/src/main/angular/.angular/sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
