@@ -10,7 +10,15 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-public class Student extends User {
+public class Student {
+
+    @Id
+    @Column(name = "id")
+    private Long id;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
+    private User user;
 
     private Integer indexNumber;
     @Enumerated(EnumType.STRING)
@@ -24,16 +32,8 @@ public class Student extends User {
     private Team team;
 
     public Student(Long id, Integer indexNumber) {
-        super(id);
+        this.id = id;
         this.indexNumber = indexNumber;
-        this.isAccepted = false;
-    }
-
-    public Student(Long id, Integer indexNumber, Role role, Position position) {
-        super(id);
-        this.indexNumber = indexNumber;
-        this.role = role;
-        this.position = position;
         this.isAccepted = false;
     }
 

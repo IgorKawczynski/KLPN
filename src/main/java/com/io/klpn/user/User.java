@@ -4,14 +4,11 @@ import com.io.klpn.basic.BasicEntity;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
 public class User extends BasicEntity {
 
     private String firstName;
@@ -28,11 +25,6 @@ public class User extends BasicEntity {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.isAdmin = false;
-    }
-
-    // constructor which will be used in Student class constructor
-    public User(Long id) {
-        this.id = id;
     }
 
 }
