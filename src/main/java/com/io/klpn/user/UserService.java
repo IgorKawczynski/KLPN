@@ -6,6 +6,7 @@ import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserResponseDto;
+import com.io.klpn.user.dtos.UserUpdateDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -17,6 +18,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserValidator userValidator;
+    private final UserEditor userEditor;
     private final StudentService studentService;
 
     public ErrorsListDto registerUser(UserCreateDto userCreateDto) {
@@ -48,10 +50,28 @@ public class UserService {
         return errorsList;
     }
 
-    public UserResponseDto getUserById(Long userId) {
-        var user = userRepository.findById(userId)
+    public UserResponseDto getUserResponseDto(Long userId) {
+        return getUserById(userId).toResponseDto();
+    }
+
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User with given id doesn't exists!"));
-        return user.toResponseDto();
+    }
+
+    public ErrorsListDto updateUserField(UserUpdateDto userUpdateDto) {
+        var errorsList = new ErrorsListDto();
+
+        try {
+            var user = getUserById(userUpdateDto.id());
+            userEditor.changeUserFieldValue(user, userUpdateDto.fieldName(), userUpdateDto.value());
+            userRepository.save(user);
+        }
+        catch (IllegalArgumentException | StringValidatorException exception) {
+            errorsList.addError(exception.getMessage());
+        }
+
+        return errorsList;
     }
 
 }

@@ -3,6 +3,7 @@ package com.io.klpn.user;
 import com.io.klpn.basic.ErrorsListDto;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserResponseDto;
+import com.io.klpn.user.dtos.UserUpdateDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public UserResponseDto getUserById(@PathVariable Long userId) {
-        return userService.getUserById(userId);
+        return userService.getUserResponseDto(userId);
     }
 
     @PostMapping("")
@@ -27,6 +28,11 @@ public class UserController {
     @PostMapping("/update-to-student")
     public ErrorsListDto updateToStudent(@RequestBody UserUpdateToStudentDto userUpdateToStudentDto) {
         return userService.updateToStudent(userUpdateToStudentDto);
+    }
+
+    @PatchMapping("")
+    public ErrorsListDto updateUserField(@RequestBody UserUpdateDto userUpdateDto) {
+        return userService.updateUserField(userUpdateDto);
     }
 
     @DeleteMapping("/{userId}")
