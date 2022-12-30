@@ -14,6 +14,7 @@ import { TransferComponent } from './transfer/transfer.component';
 import { MatchComponent } from './match/match.component';
 import { TeamComponent } from './team/team.component';
 import { ButtonModule } from "primeng/button";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ButtonModule } from "primeng/button";
     ReservationComponent,
     TransferComponent,
     MatchComponent,
-    TeamComponent
+    TeamComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
