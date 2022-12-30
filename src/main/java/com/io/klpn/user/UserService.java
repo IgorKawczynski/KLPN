@@ -1,5 +1,6 @@
 package com.io.klpn.user;
 
+import com.io.klpn.basic.ErrorsListDto;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.user.dtos.UserCreateDto;
 import lombok.RequiredArgsConstructor;
@@ -12,18 +13,19 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserValidator userValidator;
 
-    public String registerUser(UserCreateDto userCreateDto) {
-        String message = "Successfully registered an user";
+    public ErrorsListDto registerUser(UserCreateDto userCreateDto) {
+        var errorsList = new ErrorsListDto();
 
         try {
             var user = userValidator.createUser(userCreateDto);
             userRepository.save(user);
+            errorsList.add("Successfully registered an user");
         }
         catch(StringValidatorException exception) {
-            message = exception.getMessage();
+            errorsList.add(exception.getMessage());
         }
 
-        return message;
+        return errorsList;
     }
 
 }
