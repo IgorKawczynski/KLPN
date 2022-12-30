@@ -1,5 +1,6 @@
 package com.io.klpn.basic;
 
+import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import org.springframework.stereotype.Component;
 
@@ -16,21 +17,33 @@ public class ValidatorService {
     public static final Integer MIN_LENGTH_3 = 3;
 
     public void validateString(String fieldName, String fieldValue, String regex, Integer maxLength) {
-        if(!fieldValue.matches(regex)) {
+        if (!fieldValue.matches(regex)) {
             throw new StringValidatorException(String.format("%s contains illegal characters!", fieldName));
         }
-        if(fieldValue.length() > maxLength || fieldValue.length() < MIN_LENGTH_3) {
+        if (fieldValue.length() > maxLength || fieldValue.length() < MIN_LENGTH_3) {
             throw new StringValidatorException(String.format("%s must be between %d to %d chars length!", fieldName, MIN_LENGTH_3, maxLength));
         }
     }
 
     public void validatePhoneNumber(String phoneNumber) {
-        if(!phoneNumber.matches(PHONE_NUMBER_REGEX)) {
+        if (!phoneNumber.matches(PHONE_NUMBER_REGEX)) {
             throw new StringValidatorException("Phone number must contain only digits!");
         }
 
-        if(phoneNumber.length() != MAX_LENGTH_9) {
+        if (phoneNumber.length() != MAX_LENGTH_9) {
             throw new StringValidatorException("Phone number must be 9 digits length!");
+        }
+    }
+
+    public void validateIntegerLessThan(Integer integerToValidate, Integer lessThanValue) {
+        if (integerToValidate.compareTo(lessThanValue) < 0) {
+            throw new IntegerValidatorException(String.format("%d must be bigger than %d", integerToValidate, lessThanValue));
+        }
+    }
+
+    public void validateIntegerBiggerThan(Integer integerToValidate, Integer biggerThanValue) {
+        if (integerToValidate.compareTo(biggerThanValue) > 0) {
+            throw new IntegerValidatorException(String.format("%d must be lower than %d", integerToValidate, biggerThanValue));
         }
     }
 
