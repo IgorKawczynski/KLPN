@@ -7,6 +7,7 @@ import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,4 +36,14 @@ public class UserService {
         return studentService.createStudent(user.id(), user.indexNumber());
     }
 
+    public ErrorsListDto deleteUser(Long userId) {
+        var errorsList = new ErrorsListDto();
+        try {
+            userRepository.deleteById(userId);
+        }
+        catch (EmptyResultDataAccessException exception) {
+            errorsList.addError("User with given id doesn't exists!");
+        }
+        return errorsList;
+    }
 }

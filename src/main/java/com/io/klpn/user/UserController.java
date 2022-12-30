@@ -23,4 +23,9 @@ public class UserController {
         return userService.updateToStudent(userUpdateToStudentDto);
     }
 
+    @DeleteMapping("/{userId}")
+    public ErrorsListDto deleteUser(@PathVariable Long userId) {
+        return userService.deleteUser(userId);
+    }
+
 }
