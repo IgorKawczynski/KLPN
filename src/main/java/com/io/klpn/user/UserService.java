@@ -1,6 +1,7 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.basic.exceptions.AlreadyExistException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
@@ -22,9 +23,8 @@ public class UserService {
         try {
             var user = userValidator.createUser(userCreateDto);
             userRepository.save(user);
-            errorsList.addSuccessfullMessage("Successfully registered an user");
         }
-        catch (StringValidatorException exception) {
+        catch (StringValidatorException | AlreadyExistException exception) {
             errorsList.addError(exception.getMessage());
         }
 
@@ -32,11 +32,7 @@ public class UserService {
     }
 
     public ErrorsListDto updateToStudent(UserUpdateToStudentDto user) {
-        var errorsList = studentService.createStudent(user.id(), user.indexNumber());
-        if (errorsList.isListOfErrorsEmpty()) {
-            errorsList.addSuccessfullMessage("Successfully updated user to student.");
-        }
-        return errorsList;
+        return studentService.createStudent(user.id(), user.indexNumber());
     }
 
 }

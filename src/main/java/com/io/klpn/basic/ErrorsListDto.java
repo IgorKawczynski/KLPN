@@ -14,7 +14,6 @@ import java.util.List;
 public class ErrorsListDto implements Serializable {
 
     private List<String> errors = new ArrayList<>();
-    private List<String> successfullMessages = new ArrayList<>();
 
     private String fieldName; //nazwy pola pod ktorymi wyswietlane beda errory
 
@@ -24,10 +23,6 @@ public class ErrorsListDto implements Serializable {
 
     public void addError(String error){
         this.errors.add(error);
-    }
-
-    public void addSuccessfullMessage(String successfullMessage) {
-        this.successfullMessages.add(successfullMessage);
     }
 
 }

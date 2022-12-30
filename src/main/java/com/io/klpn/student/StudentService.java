@@ -19,7 +19,6 @@ public class StudentService {
         try {
             var student = studentValidator.createStudent(id, indexNumber);
             studentRepository.save(student);
-            errorsList.addSuccessfullMessage(String.format("Successfully added student with %d index number to database.", indexNumber));
         }
         catch (AlreadyExistException | IntegerValidatorException exception) {
             errorsList.addError(exception.getMessage());
