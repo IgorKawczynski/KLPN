@@ -5,6 +5,7 @@ import com.io.klpn.basic.exceptions.AlreadyExistException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
+import com.io.klpn.user.dtos.UserResponseDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -46,4 +47,11 @@ public class UserService {
         }
         return errorsList;
     }
+
+    public UserResponseDto getUserById(Long userId) {
+        var user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with given id doesn't exists!"));
+        return user.toResponseDto();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.BasicEntity;
+import com.io.klpn.user.dtos.UserResponseDto;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -25,6 +26,15 @@ public class User extends BasicEntity {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.isAdmin = false;
+    }
+
+    public UserResponseDto toResponseDto() {
+        return UserResponseDto.builder()
+                .id(this.id)
+                .firstName(this.firstName)
+                .lastName(this.lastName)
+                .phoneNumber(this.phoneNumber)
+                .build();
     }
 
 }
