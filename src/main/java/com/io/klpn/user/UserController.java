@@ -1,6 +1,6 @@
 package com.io.klpn.user;
 
-import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserResponseDto;
 import com.io.klpn.user.dtos.UserUpdateDto;
@@ -21,22 +21,22 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ErrorsListDto registerUser(@RequestBody UserCreateDto userCreateDto) {
+    public ErrorsListDTO registerUser(@RequestBody UserCreateDto userCreateDto) {
         return userService.registerUser(userCreateDto);
     }
 
     @PostMapping("/update-to-student")
-    public ErrorsListDto updateToStudent(@RequestBody UserUpdateToStudentDto userUpdateToStudentDto) {
+    public ErrorsListDTO updateToStudent(@RequestBody UserUpdateToStudentDto userUpdateToStudentDto) {
         return userService.updateToStudent(userUpdateToStudentDto);
     }
 
     @PatchMapping("")
-    public ErrorsListDto updateUserField(@RequestBody UserUpdateDto userUpdateDto) {
+    public ErrorsListDTO updateUserField(@RequestBody UserUpdateDto userUpdateDto) {
         return userService.updateUserField(userUpdateDto);
     }
 
     @DeleteMapping("/{userId}")
-    public ErrorsListDto deleteUser(@PathVariable Long userId) {
+    public ErrorsListDTO deleteUser(@PathVariable Long userId) {
         return userService.deleteUser(userId);
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ErrorsListDto implements Serializable {
+public class ErrorsListDTO implements Serializable {
 
     private List<String> errors = new ArrayList<>();
 

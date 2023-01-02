@@ -1,7 +1,7 @@
 package com.io.klpn.user;
 
-import com.io.klpn.basic.ErrorsListDto;
-import com.io.klpn.basic.exceptions.AlreadyExistException;
+import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
@@ -21,25 +21,25 @@ public class UserService {
     private final UserEditor userEditor;
     private final StudentService studentService;
 
-    public ErrorsListDto registerUser(UserCreateDto userCreateDto) {
-        var errorsList = new ErrorsListDto();
+    public ErrorsListDTO registerUser(UserCreateDto userCreateDto) {
+        var errorsList = new ErrorsListDTO();
 
         try {
             var user = userValidator.createUser(userCreateDto);
             userRepository.save(user);
         }
-        catch (StringValidatorException | AlreadyExistException exception) {
+        catch (StringValidatorException | AlreadyExistsException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;
     }
 
-    public ErrorsListDto updateToStudent(UserUpdateToStudentDto user) {
+    public ErrorsListDTO updateToStudent(UserUpdateToStudentDto user) {
         return studentService.createStudent(user.id(), user.indexNumber());
     }
 
-    public ErrorsListDto deleteUser(Long userId) {
-        var errorsList = new ErrorsListDto();
+    public ErrorsListDTO deleteUser(Long userId) {
+        var errorsList = new ErrorsListDTO();
         try {
             userRepository.deleteById(userId);
         }
@@ -58,8 +58,8 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("User with given id doesn't exists!"));
     }
 
-    public ErrorsListDto updateUserField(UserUpdateDto userUpdateDto) {
-        var errorsList = new ErrorsListDto();
+    public ErrorsListDTO updateUserField(UserUpdateDto userUpdateDto) {
+        var errorsList = new ErrorsListDTO();
 
         try {
             var user = getUserById(userUpdateDto.id());

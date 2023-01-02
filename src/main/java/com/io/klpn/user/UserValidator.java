@@ -1,7 +1,7 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.ValidatorService;
-import com.io.klpn.basic.exceptions.AlreadyExistException;
+import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.user.dtos.UserCreateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class UserValidator {
 
     public void checkIfExistsInDatabaseByEmail(String email) {
         if (userRepository.existsByEmail(email)) {
-            throw new AlreadyExistException("User with given email already exists!");
+            throw new AlreadyExistsException("User with given email already exists!");
         }
     }
 

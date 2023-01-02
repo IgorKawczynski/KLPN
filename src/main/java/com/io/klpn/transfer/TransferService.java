@@ -1,6 +1,6 @@
 package com.io.klpn.transfer;
 
-import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +39,8 @@ public class TransferService {
         return transferRepository.findAll(paginated);
     }
 
-    public ErrorsListDto deleteTransferById(Long id){
-        var errorsListDTO = new ErrorsListDto();
+    public ErrorsListDTO deleteTransferById(Long id){
+        var errorsListDTO = new ErrorsListDTO();
         try {
             transferValidator.deleteTransfer(id);
         }

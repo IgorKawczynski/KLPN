@@ -1,6 +1,6 @@
 package com.io.klpn.transfer;
 
-import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +44,7 @@ public class TransferController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ErrorsListDto deleteTransferById(@PathVariable Long id) {
+    public ErrorsListDTO deleteTransferById(@PathVariable Long id) {
         return transferService.deleteTransferById(id);
     }
 
