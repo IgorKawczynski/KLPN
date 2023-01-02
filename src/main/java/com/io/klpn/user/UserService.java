@@ -31,7 +31,6 @@ public class UserService {
         catch (StringValidatorException | AlreadyExistException exception) {
             errorsList.addError(exception.getMessage());
         }
-
         return errorsList;
     }
 
@@ -70,7 +69,6 @@ public class UserService {
         catch (IllegalArgumentException | StringValidatorException exception) {
             errorsList.addError(exception.getMessage());
         }
-
         return errorsList;
     }
 

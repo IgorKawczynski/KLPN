@@ -2,7 +2,9 @@ package com.io.klpn.transfer;
 
 import com.io.klpn.basic.BasicEntity;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "transfer")
 @NoArgsConstructor
+@Getter
+@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Transfer extends BasicEntity {
 
@@ -25,5 +29,4 @@ public class Transfer extends BasicEntity {
         this.firstTeamId = firstTeamId;
         this.secondTeamId = secondTeamId;
     }
-
 }
