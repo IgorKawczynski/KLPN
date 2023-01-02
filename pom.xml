@@ -105,7 +105,7 @@
 				<version>8.0.0</version>
 				<configuration>
 					<user>postgres</user>
-					<password>admin</password>
+					<password>qwerty</password>
 					<sqlMigrationSeparator>__</sqlMigrationSeparator>
 					<locations>
 						<location>filesystem:src/main/resources/flyway_scripts</location>
