@@ -1,26 +1,29 @@
 package com.io.klpn.student;
 
-import com.io.klpn.basic.ErrorsListDto;
-import com.io.klpn.basic.exceptions.AlreadyExistException;
+import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class StudentService {
 
-    private final StudentRepository studentRepository;
-    private final StudentValidator studentValidator;
+    final StudentRepository studentRepository;
+    final StudentValidator studentValidator;
 
-    public ErrorsListDto createStudent(Long id, Integer indexNumber) {
-        var errorsList = new ErrorsListDto();
+    public ErrorsListDTO createStudent(Long id, Integer indexNumber) {
+        var errorsList = new ErrorsListDTO();
 
         try {
             var student = studentValidator.createStudent(id, indexNumber);
             studentRepository.save(student);
         }
-        catch (AlreadyExistException | IntegerValidatorException exception) {
+        catch (AlreadyExistsException | IntegerValidatorException exception) {
             errorsList.addError(exception.getMessage());
         }
 

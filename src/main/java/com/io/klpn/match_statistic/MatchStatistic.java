@@ -5,7 +5,9 @@ import com.io.klpn.match.Match;
 import com.io.klpn.match_statistic.enums.Event;
 import com.io.klpn.student.Student;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -13,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "match_statistic")
 @NoArgsConstructor
+@Getter
+@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MatchStatistic extends BasicEntity {
 

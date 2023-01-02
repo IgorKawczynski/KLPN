@@ -2,7 +2,9 @@ package com.io.klpn.match;
 
 import com.io.klpn.basic.BasicEntity;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "match")
 @NoArgsConstructor
+@Getter
+@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Match extends BasicEntity {
 
