@@ -1,0 +1,25 @@
+p {
+  font-family: Montserrat;
+  height: 50px;
+  width: 100%;
+  //line-height: 80px;
+  background-color: #333;
+  color: rgba(70,252,69,1);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box {
+  a {
+    margin: 0 8px;
+    color: #ddd;
+    font-size: 30px;
+    transition: color 0.3s;
+  }
+}
+
+.icon-box a:hover {
+  color: rgba(70,252,69,1);
+}
