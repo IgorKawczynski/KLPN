@@ -2,9 +2,11 @@ package com.io.klpn.user;
 
 import com.io.klpn.basic.BasicEntity;
 import com.io.klpn.user.dtos.UserResponseDto;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -14,14 +16,15 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Setter
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class User extends BasicEntity {
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String phoneNumber;
-    private Boolean isAdmin;
+    String firstName;
+    String lastName;
+    String email;
+    String password;
+    String phoneNumber;
+    Boolean isAdmin;
 
     public User(String firstName, String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;

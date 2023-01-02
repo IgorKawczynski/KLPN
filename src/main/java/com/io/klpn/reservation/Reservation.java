@@ -2,7 +2,9 @@ package com.io.klpn.reservation;
 
 import com.io.klpn.basic.BasicEntity;
 import com.io.klpn.user.User;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,10 +12,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "reservation")
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Reservation extends BasicEntity {
 
-    private Integer pitch;
-    private LocalDateTime date;
+    Integer pitch;
+    LocalDateTime date;
     // https://vladmihalcea.com/manytoone-jpa-hibernate/
     // how to properly use ManyToOne annotation
     @ManyToOne(fetch = FetchType.LAZY)

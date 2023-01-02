@@ -4,32 +4,35 @@ import com.io.klpn.student.enums.Position;
 import com.io.klpn.student.enums.Role;
 import com.io.klpn.team.Team;
 import com.io.klpn.user.User;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Student {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    Long id;
 
     @OneToOne
     @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-    private User user;
+    User user;
 
-    private Integer indexNumber;
+    Integer indexNumber;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    Role role;
     @Enumerated(EnumType.STRING)
-    private Position position;
-    private Integer tshirtNumber;
-    private Boolean isAccepted;
-    private Integer motmAmount;
+    Position position;
+    Integer tshirtNumber;
+    Boolean isAccepted;
+    Integer motmAmount;
     @OneToOne
-    private Team team;
+    Team team;
 
     public Student(Long id, Integer indexNumber) {
         this.id = id;
