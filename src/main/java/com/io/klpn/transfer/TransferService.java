@@ -1,6 +1,7 @@
 package com.io.klpn.transfer;
 
 import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -19,12 +20,12 @@ public class TransferService {
     final TransferRepository transferRepository;
     final TransferValidator transferValidator;
 
-    public void createHeadForHeadTransfer(Long firstStudentId, Long secondStudentId){
-        transferRepository.save(transferValidator.createHeadForHeadTransfer(firstStudentId, secondStudentId));
+    public void createHeadForHeadTransfer(TransferRequestDTO transferRequestDTO){
+        transferRepository.save(transferValidator.createHeadForHeadTransfer(transferRequestDTO.firstId(), transferRequestDTO.secondId()));
     }
 
-    public void createSingleTransfer(Long firstTeamId, Long secondStudentId){
-        transferRepository.save(transferValidator.createSingleTransfer(firstTeamId, secondStudentId));
+    public void createSingleTransfer(TransferRequestDTO transferRequestDTO){
+        transferRepository.save(transferValidator.createSingleTransfer(transferRequestDTO.firstId(), transferRequestDTO.secondId()));
     }
 
     public Transfer getTransferById(Long id){

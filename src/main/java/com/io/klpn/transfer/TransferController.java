@@ -1,6 +1,7 @@
 package com.io.klpn.transfer;
 
 import com.io.klpn.basic.ErrorsListDto;
+import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -23,7 +24,7 @@ public class TransferController {
         return transferService.getAllTransfers(page);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseStatus(HttpStatus.FOUND)
     public Transfer getTransferById(@RequestParam("id") Long id) {
         return transferService.getTransferById(id);
@@ -31,14 +32,14 @@ public class TransferController {
 
     @PostMapping(path = "/headForHead", produces = "application/json", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createHeadForHeadTransfer(@RequestBody Long firstStudentId, @RequestBody Long secondStudentId) {
-        transferService.createHeadForHeadTransfer(firstStudentId, secondStudentId);
+    public void createHeadForHeadTransfer(@RequestBody TransferRequestDTO transferRequestDTO) {
+        transferService.createHeadForHeadTransfer(transferRequestDTO);
     }
 
     @PostMapping(path = "/single", produces = "application/json", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createSingleTransfer(@RequestBody Long firstTeamId, @RequestBody Long secondStudentId) {
-        transferService.createSingleTransfer(firstTeamId, secondStudentId);
+    public void createSingleTransfer(@RequestBody TransferRequestDTO transferRequestDTO) {
+        transferService.createSingleTransfer(transferRequestDTO);
     }
 
     @DeleteMapping("/{id}")
