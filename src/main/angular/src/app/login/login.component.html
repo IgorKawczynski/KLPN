@@ -1,4 +1,37 @@
-<p>login works!</p>
+<!DOCTYPE html>
 
-<h1>NIc tu nie ma </h1>
-<button pButton type="button" label="Click" ></button>
+<main>
+  <app-navbar></app-navbar>
+  <div class="hero">
+    <div class="form-box">
+      <p class="login-span">Logowanie</p>
+      <p class="login_underline"></p>
+      <form class="input-group">
+        <div class="grid p-fluid">
+          <div class="col-12 md:col-4">
+            <div class="p-inputgroup input-email">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <input type="text" pInputText [(ngModel)]="models.email" placeholder="e-mail">
+            </div>
+            <div class="p-inputgroup input-password">
+              <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+              <input type="password" pInputText [(ngModel)]="models.password" placeholder="hasło">
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="login-btn" (click)="btnLogin();"><p>Zaloguj się</p></button>
+      <p class="optional">Nie masz konta? <a href="/register"> Zarejestruj się </a> już teraz!</p>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>
+
+
+
+
+
+
+
+
+

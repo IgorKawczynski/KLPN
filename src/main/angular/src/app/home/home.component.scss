@@ -4,17 +4,10 @@ main{
 .hero-img {
   position: relative;
   height: 84.2vh;
-  background-image: url('../../assets/img/the-ball-488725_960_720.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/img/the-ball-488725_960_720.jpg");;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-}
-
-.hero-shadow{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero-text{

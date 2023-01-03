@@ -23,6 +23,8 @@ import {FormsModule} from "@angular/forms";
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import { FooterComponent } from './footer/footer.component';
+import {PasswordModule} from 'primeng/password';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { FooterComponent } from './footer/footer.component';
     InputTextModule,
     FormsModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
+    PasswordModule,
+    CalendarModule
 
   ],
   providers: [],

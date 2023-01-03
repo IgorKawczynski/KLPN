@@ -1,5 +1,95 @@
-h1 {
-  color: darkgreen;
-  font-weight: bold;
-  font-size: 80px;
+main{
+  height: 100%;
+  width: 100%;
+}
+
+.hero{
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/img/football-field-2588146.jpg");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+.form-box{
+  width: 380px;
+  height: 400px;
+  position: relative;
+  margin: 6% auto;
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
+
+  .login-span{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  .login_underline{
+    height: 4px;
+    width: 60%;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  .input-email{
+    width: 70%;
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .input-password{
+    width: 70%;
+    position: absolute;
+    top: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .optional{
+    position: absolute;
+    top: 340px;
+    left: 50px;
+    font-size: 16px;
+    font-family: Nunito;
+  }
+  a{
+    font-weight: bold;
+    text-decoration: none;
+    transition: color .3s;
+  }
+  a:hover{
+    color: rgba(70,252,69,1);
+  }
+
+
+  .login-btn{
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 120px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
+    border: 1px solid rgba(70,252,69,1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border 0.2s;
+
+    p{
+      font-size: 17px;
+    }
+  }
+
+  .login-btn:hover{
+    border: 2px solid rgb(32, 169, 4);
+  }
+
 }
