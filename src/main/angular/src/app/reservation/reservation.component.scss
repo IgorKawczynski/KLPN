@@ -58,7 +58,7 @@ main{
 
 .time-field{
   height: 60px;
-  width: 500px;
+  width: 600px;
   position: absolute;
   top: 75%;
   left: 50%;
@@ -78,7 +78,8 @@ main{
 
   .time-selector{
     height: 40px;
-
+    background-color: lightgreen;
+    font-size: 16px;
   }
 }
 
