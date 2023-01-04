@@ -47,4 +47,9 @@ public class ValidatorService {
         }
     }
 
+    public void validateIdsEquality(Long firstId, Long secondId) {
+        if (firstId.equals(secondId)) {
+            throw new IntegerValidatorException(String.format("%d must be different than %d", firstId, secondId));
+        }
+    }
 }
