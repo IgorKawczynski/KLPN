@@ -28,7 +28,7 @@ public class UserService {
             var user = userValidator.createUser(userCreateDto);
             userRepository.save(user);
         }
-        catch (StringValidatorException | AlreadyExistsException exception) {
+        catch (StringValidatorException | AlreadyExistsException | NullPointerException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;

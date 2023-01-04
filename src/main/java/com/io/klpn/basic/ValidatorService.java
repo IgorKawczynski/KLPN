@@ -16,6 +16,12 @@ public class ValidatorService {
     public static final Integer MAX_LENGTH_9 = 9;
     public static final Integer MIN_LENGTH_3 = 3;
 
+    public void isNull(String fieldName, Object fieldValue) {
+        if (fieldValue == null) {
+            throw new NullPointerException(String.format("%s cannot be empty!", fieldName));
+        }
+    }
+
     public void validateString(String fieldName, String fieldValue, String regex, Integer maxLength) {
         if (!fieldValue.matches(regex)) {
             throw new StringValidatorException(String.format("%s contains illegal characters!", fieldName));

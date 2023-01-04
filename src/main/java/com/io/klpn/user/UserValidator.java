@@ -17,10 +17,15 @@ public class UserValidator {
 
     public User createUser(UserCreateDto user) {
         checkIfExistsInDatabaseByEmail(user.email());
+        validatorService.isNull("First name", user.firstName());
         validatorService.validateString("First name", user.firstName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Last name", user.lastName());
         validatorService.validateString("Last name", user.lastName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Email", user.email());
         validatorService.validateString("Email", user.email(), EMAIL_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Password", user.password());
         validatorService.validateString("Password", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
+        validatorService.isNull("Phone Number", user.phoneNumber());
         validatorService.validatePhoneNumber(user.phoneNumber());
         return new User(user.firstName(), user.lastName(), user.email(), user.password(), user.phoneNumber());
     }

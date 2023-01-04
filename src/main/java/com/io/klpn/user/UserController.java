@@ -20,7 +20,7 @@ public class UserController {
         return userService.getUserResponseDto(userId);
     }
 
-    @PostMapping("")
+    @PostMapping("/register")
     public ErrorsListDTO registerUser(@RequestBody UserCreateDto userCreateDto) {
         return userService.registerUser(userCreateDto);
     }
