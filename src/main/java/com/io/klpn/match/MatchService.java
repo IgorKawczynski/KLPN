@@ -17,9 +17,8 @@ import java.util.NoSuchElementException;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MatchService {
 
-    private final MatchRepository matchRepository;
-
-    private final MatchValidator matchValidator;
+    final MatchRepository matchRepository;
+    final MatchValidator matchValidator;
 
     public ErrorsListDTO createMatch (Match matchToCreate) {
         var errorsList = new ErrorsListDTO();

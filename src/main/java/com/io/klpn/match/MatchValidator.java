@@ -13,9 +13,9 @@ import java.util.NoSuchElementException;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MatchValidator {
 
-    private final ValidatorService validatorService;
+    final ValidatorService validatorService;
 
-    private final MatchRepository matchRepository;
+    final MatchRepository matchRepository;
 
     public Match createMatch(Match match)  {
         validatorService.validateIdsEquality(match.getFirstTeamId(), match.getSecondTeamId());

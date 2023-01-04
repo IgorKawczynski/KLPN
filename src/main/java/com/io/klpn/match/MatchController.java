@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MatchController {
 
-    private final MatchService matchService;
+    final MatchService matchService;
 
     @GetMapping("/list")
     @ResponseStatus(HttpStatus.OK)
