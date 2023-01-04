@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,16 +18,26 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
-import {InputMaskModule} from 'primeng/inputmask';
-import {InputTextModule} from 'primeng/inputtext';
-import {FormsModule} from "@angular/forms";
-import {AvatarModule} from 'primeng/avatar';
-import {AvatarGroupModule} from 'primeng/avatargroup';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from "@angular/forms";
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 import { FooterComponent } from './footer/footer.component';
-import {PasswordModule} from 'primeng/password';
-import {CalendarModule} from 'primeng/calendar';
+import { PasswordModule } from 'primeng/password';
+import { CalendarModule } from 'primeng/calendar';
 import { ContactComponent } from './contact/contact.component';
-import {GMapModule} from 'primeng/gmap';
+import { GMapModule } from 'primeng/gmap';
+import { DividerModule } from 'primeng/divider';
+import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
+import { RequestInterceptor } from "./request.interceptor";
 
 @NgModule({
   declarations: [
@@ -47,6 +58,7 @@ import {GMapModule} from 'primeng/gmap';
     ContactComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
@@ -58,10 +70,17 @@ import {GMapModule} from 'primeng/gmap';
     AvatarGroupModule,
     PasswordModule,
     CalendarModule,
-    GMapModule
-
+    GMapModule,
+    DividerModule,
+    BrowserAnimationsModule,
+    TableModule,
+    InputNumberModule,
+    KeyFilterModule,
+    ToastModule,
+    DialogModule,
+    DropdownModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
