@@ -21,7 +21,7 @@
 
             <div class="p-inputgroup input-email">
               <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.email" placeholder="email">
+              <input type="text" pInputText [(ngModel)]="models.email" placeholder="E-mail">
             </div>
 
             <div class="p-inputgroup input-password">
@@ -31,12 +31,12 @@
 
             <div class="p-inputgroup input-index">
               <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.index" placeholder="Numer indeksu">
+              <input type="text" pInputText [maxLength]="7" [(ngModel)]="models.index" placeholder="Numer indeksu (opcjonalnie)">
             </div>
 
             <div class="p-inputgroup input-phone">
               <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.phonenumber" placeholder="Numer telefonu">
+              <input type="text" pInputText [maxLength]="9" [(ngModel)]="models.phonenumber" placeholder="Numer telefonu">
             </div>
           </div>
         </div>
