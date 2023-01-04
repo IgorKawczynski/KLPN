@@ -25,6 +25,8 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
 import { FooterComponent } from './footer/footer.component';
 import {PasswordModule} from 'primeng/password';
 import {CalendarModule} from 'primeng/calendar';
+import { ContactComponent } from './contact/contact.component';
+import {GMapModule} from 'primeng/gmap';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {CalendarModule} from 'primeng/calendar';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {CalendarModule} from 'primeng/calendar';
     AvatarModule,
     AvatarGroupModule,
     PasswordModule,
-    CalendarModule
+    CalendarModule,
+    GMapModule
 
   ],
   providers: [],

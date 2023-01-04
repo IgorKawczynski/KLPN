@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
         ]},
       {label: 'Tabela'},
       {label: 'Harmonogram'},
-      {label: 'Kontakt'}
+      {label: 'Kontakt', routerLink: "/contact"}
       ];
 
   }
