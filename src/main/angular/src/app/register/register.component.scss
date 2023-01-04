@@ -14,9 +14,9 @@ main{
 
 .form-box{
   width: 380px;
-  height: 600px;
+  height: 520px;
   position: relative;
-  margin: 2% auto;
+  margin: 5% auto;
   background: #fff;
   padding: 5px;
   border-radius: 20px;
@@ -66,7 +66,15 @@ main{
     left: 50%;
     transform: translateX(-50%);
   }
-  .input-index{
+  //.input-index{
+  //  width: 70%;
+  //  position: absolute;
+  //  top: 370px;
+  //  left: 50%;
+  //  transform: translateX(-50%);
+  //}
+
+  .input-phone{
     width: 70%;
     position: absolute;
     top: 370px;
@@ -74,17 +82,9 @@ main{
     transform: translateX(-50%);
   }
 
-  .input-phone{
-    width: 70%;
-    position: absolute;
-    top: 430px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   .optional{
     position: absolute;
-    top: 560px;
+    top: 480px;
     left: 75px;
     font-size: 16px;
     font-family: Nunito;
@@ -101,7 +101,7 @@ main{
 
   .login-btn{
     position: absolute;
-    top: 500px;
+    top: 430px;
     left: 50%;
     transform: translateX(-50%);
     height: 40px;

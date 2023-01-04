@@ -11,37 +11,38 @@
           <div class="col-12 md:col-4">
             <div class="p-inputgroup input-name">
               <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.name" placeholder="Imię">
+              <input type="text" pInputText [(ngModel)]="userRequestDto.firstName" placeholder="Imię">
             </div>
 
             <div class="p-inputgroup input-lastname">
               <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.lastname" placeholder="Nazwisko">
+              <input type="text" pInputText [(ngModel)]="userRequestDto.lastName" placeholder="Nazwisko">
             </div>
 
             <div class="p-inputgroup input-email">
               <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
-              <input type="text" pInputText [(ngModel)]="models.email" placeholder="E-mail">
+              <input type="text" pInputText [(ngModel)]="userRequestDto.email" placeholder="E-mail">
             </div>
 
             <div class="p-inputgroup input-password">
               <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-              <input type="password" pInputText [(ngModel)]="models.password" placeholder="hasło">
+              <input type="password" pInputText [(ngModel)]="userRequestDto.password" placeholder="Hasło">
             </div>
 
-            <div class="p-inputgroup input-index">
-              <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
-              <input type="text" pInputText [maxLength]="7" [(ngModel)]="models.index" placeholder="Numer indeksu (opcjonalnie)">
-            </div>
+<!-- POKI CO REJESTRACJA JEST TYLKO DLA UŻYTKOWNIKA - NUMER INDEKSU NIE POTRZEBNY (ale można zrobić go opcjonalnego i wtedy jak ktoś poda index to z buta się zarejestruje jako user + poleci prośba do admina o akceptację do statusu studenciaka-->
+<!--            <div class="p-inputgroup input-index">-->
+<!--              <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>-->
+<!--              <input type="text" pInputText [maxLength]="7" [(ngModel)]="userRequestDto.index" placeholder="Numer indeksu (opcjonalnie)">-->
+<!--            </div>-->
 
             <div class="p-inputgroup input-phone">
               <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
-              <input type="text" pInputText [maxLength]="9" [(ngModel)]="models.phonenumber" placeholder="Numer telefonu">
+              <input type="text" pInputText [maxLength]="9" [(ngModel)]="userRequestDto.phoneNumber" placeholder="Numer telefonu">
             </div>
           </div>
         </div>
       </div>
-      <button type="button" class="login-btn" ><p>Załóż konto</p></button>
+      <button type="button" class="login-btn" (click)="btnRegister()"><p>Załóż konto</p></button>
       <p class="optional">Masz konto? <a href="/login"> Zaloguj się </a> już teraz!</p>
     </div>
     <app-footer></app-footer>
