@@ -6,7 +6,7 @@
     <div class="form-box">
       <p class="login-span">Logowanie</p>
       <p class="login_underline"></p>
-      <form class="input-group">
+      <div class="input-group">
         <div class="grid p-fluid">
           <div class="col-12 md:col-4">
             <div class="p-inputgroup input-email">
@@ -19,12 +19,13 @@
             </div>
           </div>
         </div>
-      </form>
+      </div>
       <button type="button" class="login-btn" (click)="btnLogin();"><p>Zaloguj się</p></button>
       <p class="optional">Nie masz konta? <a href="/register"> Zarejestruj się </a> już teraz!</p>
     </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
+
 </main>
 
 

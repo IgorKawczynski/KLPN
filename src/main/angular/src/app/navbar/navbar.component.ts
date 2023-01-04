@@ -36,7 +36,8 @@ export class NavbarComponent implements OnInit {
         items:[
           {
             label: 'Zarejestruj drużynę',
-            icon: 'pi pw-fw pi-pencil'
+            icon: 'pi pw-fw pi-pencil',
+            routerLink: "/team"
           },
           {
             label: 'Zarządzaj drużyną',
