@@ -19,7 +19,8 @@ export class NavbarComponent implements OnInit {
         items:[
           {
             label:'Rezerwuj boisko',
-            icon:'pi pi-fw pi-calendar'
+            icon:'pi pi-fw pi-calendar',
+            routerLink: "/reservation"
           },
           {
             label:'Zarządzaj rezerwacją',
@@ -35,7 +36,8 @@ export class NavbarComponent implements OnInit {
         items:[
           {
             label: 'Zarejestruj drużynę',
-            icon: 'pi pw-fw pi-pencil'
+            icon: 'pi pw-fw pi-pencil',
+            routerLink: "/team"
           },
           {
             label: 'Zarządzaj drużyną',

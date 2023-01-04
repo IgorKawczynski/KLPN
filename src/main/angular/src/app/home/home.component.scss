@@ -4,17 +4,10 @@ main{
 .hero-img {
   position: relative;
   height: 84.2vh;
-  background-image: url('../../assets/img/the-ball-488725_960_720.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/img/football-field-2588146.jpg");;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-}
-
-.hero-shadow{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero-text{
@@ -25,7 +18,7 @@ main{
 
   .main-text{
     position: absolute;
-    top: 50%;
+    top: 35%;
     font-size: 60px;
     letter-spacing: 3px;
     word-spacing: 14px;
@@ -37,7 +30,7 @@ main{
 
   .text-motto{
     position: absolute;
-    top: 58%;
+    top: 43%;
     font-size: 26px;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 2px;
@@ -45,7 +38,7 @@ main{
 
   .btn-mainpage{
     position: absolute;
-    top: 68%;
+    top: 50%;
     font-size: 25px;
     font-family: Raleway;
     padding: 10px;
