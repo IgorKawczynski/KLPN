@@ -2,16 +2,56 @@
 
 <main>
   <app-navbar></app-navbar>
+  <div class="page">
+    <p class="main-text">Zarejestruj druzynę</p>
+    <div class="container">
 
-  <p class="main-text">Zarejestruj druzynę</p>
-  <div class="container">
+    <div class="left">
+      <div class="name_section">
+        <p class="category">Nazwa:</p>
+        <span class="p-float-label">
+          <input id="float-input" type="text" pInputText [(ngModel)]="models.name">
+          <label for="float-input">Nazwa drużyny</label>
+        </span>
+      </div>
 
+      <div class="player_section">
+        <p class="category">Zawodnik:</p>
+        <span class="p-float-label">
+          <input id="float-input" type="text" pInputText [(ngModel)]="models.index">
+          <label for="float-input">Numer indeksu</label>
+        </span>
+        <p-dropdown [options]="positions" [(ngModel)]="selectedposition" placeholder="Wybierz pozycję" [showClear]="true"></p-dropdown>
+        <div class="field-checkbox">
+          <p-checkbox value="sędzia" [(ngModel)]="isreferee" inputId="ny"></p-checkbox>
+          <label> Sędzia</label>
+        </div>
+        <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded" (click)="add()"></button>
+      </div>
 
+      <div class="warning_section">
+        <p>Komunikat o błędzie jak np zawodnika nie bedzie w bazie studentów</p>
+      </div>
 
+      <div class="decision">
+        <button class="btn decline">Anuluj</button>
+        <button class=" btn confirm">Zatwierdź</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <p class="right-text">Aktualny skład:</p>
+      <ul class="list">
+        <li *ngFor="let player of player">
+          {{player}} <button pButton pRipple (click)="remove(player)" type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-sm"></button>;
+        </li>
+      </ul>
+    </div>
+
+    </div>-->
 
 
 
   </div>
-
   <app-footer></app-footer>
 </main>

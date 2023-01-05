@@ -38,6 +38,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { RequestInterceptor } from "./request.interceptor";
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,10 @@ import { RequestInterceptor } from "./request.interceptor";
     KeyFilterModule,
     ToastModule,
     DialogModule,
-    DropdownModule
+    DropdownModule,
+    AutoCompleteModule,
+    CascadeSelectModule,
+    CheckboxModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, MessageService],
   bootstrap: [AppComponent]
