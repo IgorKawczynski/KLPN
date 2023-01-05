@@ -17,7 +17,7 @@ public class MatchValidator {
 
     final MatchRepository matchRepository;
 
-    public Match createMatch(Match match)  {
+    public Match createMatch(Match match) {
         validatorService.validateIdsEquality(match.getFirstTeamId(), match.getSecondTeamId());
         return new Match (match.getFirstTeamId(), match.getSecondTeamId(), match.getRefereeId(), match.getFirstTeamGoals(), match.getSecondTeamGoals());
     }

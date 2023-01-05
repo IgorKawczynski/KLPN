@@ -22,10 +22,10 @@ public class MatchController {
         return matchService.getAllMatches(page);
     }
 
-    @GetMapping("/{matchId}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.FOUND)
-    public Match getMatchById(@PathVariable Long matchId){
-        return matchService.getMatchById(matchId);
+    public Match getMatchById(@PathVariable Long id){
+        return matchService.getMatchById(id);
     }
 
     @PostMapping("")
@@ -34,9 +34,9 @@ public class MatchController {
         return matchService.createMatch(match);
     }
 
-    @DeleteMapping("/{matchId}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ErrorsListDTO deleteMatchById(@PathVariable Long matchId) {
-        return matchService.deleteMatchById(matchId);
+    public ErrorsListDTO deleteMatchById(@PathVariable Long id) {
+        return matchService.deleteMatchById(id);
     }
 }
