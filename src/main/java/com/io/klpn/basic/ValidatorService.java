@@ -16,6 +16,10 @@ public class ValidatorService {
     public static final Integer MAX_LENGTH_9 = 9;
     public static final Integer MIN_LENGTH_3 = 3;
 
+    public final static Integer MAX_MINUTE= 60;
+
+    public final static Integer MIN_MINUTE = 0;
+
     public void isNull(String fieldName, Object fieldValue) {
         if (fieldValue == null) {
             throw new NullPointerException(String.format("%s cannot be empty!", fieldName));
