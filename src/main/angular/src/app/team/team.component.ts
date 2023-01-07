@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
+  models: any = {};
+  player: any[] = [];
+  positions: string[] = [];
+
+  selectedposition: string = ''
+
+  isreferee: boolean = false
+
+  add(){
+    this.player.push(this.models.index + '   ' + this.selectedposition);
+    this.models.index = '';
+    this.selectedposition = '';
+  }
+
+  remove(player: any[]){
+    this.player = this.player.filter(e => e != player);
+  }
+
+
   constructor() { }
 
   ngOnInit(): void {
+    this.positions = ['Napastnik', 'Pomocnik', 'Obrońca', 'Bramkarz']
   }
-
 }
