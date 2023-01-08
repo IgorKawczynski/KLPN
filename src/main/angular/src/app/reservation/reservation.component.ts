@@ -24,10 +24,13 @@ export class ReservationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setPitchNumber(pitchNumber: number): void {
+    this.reservationRequestDto.pitch = pitchNumber;
+  }
+
   btnConfirm(): void {
     console.log(this.reservationRequestDto);
     this.reservationRequestDto.userId = 1001;
-    this.reservationRequestDto.pitch = 1;
     this.createReservation();
   }
 

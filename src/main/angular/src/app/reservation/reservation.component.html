@@ -5,15 +5,14 @@
 
   <p class="main-text">Zarezerwuj boisko</p>
   <div class="container">
-    <div class="pitch first"><p class="pitch-number">Boisko 1</p></div>
-    <div class="pitch second"><p class="pitch-number">Boisko 2</p></div>
-    <div class="pitch third"><p class="pitch-number">Boisko 3</p></div>
+    <div class="pitch first" (click)="setPitchNumber(1)"><p class="pitch-number">Boisko 1</p></div>
+    <div class="pitch second" (click)="setPitchNumber(2)"><p class="pitch-number">Boisko 2</p></div>
+    <div class="pitch third" (click)="setPitchNumber(3)"><p class="pitch-number">Boisko 3</p></div>
 
   </div>
 
   <div class="time-field">
     <p class="time-info">Wybierz termin rezerwacji:</p>
-    <!-- dateFormat="yy-mm-dd" -->
     <p-calendar appendTo="body" indputId="date" [(ngModel)]="reservationRequestDto.date" [showTime]="true" placeholder="yyyy-mm-dd hh:mm:ss"></p-calendar>
   </div>
 
