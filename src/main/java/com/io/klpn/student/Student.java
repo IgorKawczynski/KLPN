@@ -42,12 +42,10 @@ public class Student {
         this.id = id;
         this.indexNumber = indexNumber;
         this.isAccepted = false;
+        this.motmAmount = 0;
     }
 
     public void increaseMotmAmount() {
-        if(this.motmAmount == null) {
-            this.motmAmount = 0;
-        }
         this.motmAmount = this.motmAmount + 1;
     }
 
