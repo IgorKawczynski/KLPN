@@ -5,7 +5,10 @@ import com.io.klpn.reservation.dtos.ReservationRequestDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -27,7 +30,12 @@ public class AdminController {
 
     @PatchMapping("/reservation/{reservationId}")
     public ErrorsListDTO acceptReservationDateChange(@RequestBody ReservationRequestDto reservationRequestDto) {
-        return null;
+        throw new NotYetImplementedException();
+    }
+
+    @GetMapping("/notification")
+    public List<String> getNotifications() {
+        throw new NotYetImplementedException();
     }
 
 }

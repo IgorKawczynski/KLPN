@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
+import java.time.format.DateTimeFormatter;
 import java.util.NoSuchElementException;
 
 @Component
@@ -36,7 +37,9 @@ public class ReservationValidator {
 
     public void isReservationAvailable(ReservationRequestDto reservation){
        if (reservationRepository.existsReservationByDateAndPitch(reservation.date(), reservation.pitch())) {
-           throw new AlreadyExistsException(String.format("Reservation for given data: %s and pitch number: %d already exists!", reservation.date().toString(), reservation.pitch()));
+           throw new AlreadyExistsException(
+                   String.format("Reservation for given data: %s and pitch number: %d already exists!",
+                           reservation.date().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")), reservation.pitch()));
        }
     }
 
