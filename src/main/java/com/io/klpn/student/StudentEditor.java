@@ -40,8 +40,8 @@ public class StudentEditor {
                 student.setTshirtNumber(tshirtNumber);
             }
             case "isAccepted" -> {
-                var is_accepted = (Boolean) value;
-                student.setIsAccepted(is_accepted);
+                var isAccepted = (Boolean) value;
+                student.setIsAccepted(isAccepted);
             }
             case "motmAmount" -> {
                 student.increaseMotmAmount();
