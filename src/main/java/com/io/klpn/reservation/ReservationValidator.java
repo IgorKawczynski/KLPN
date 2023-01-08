@@ -23,17 +23,15 @@ public class ReservationValidator {
     final ReservationRepository reservationRepository;
 
     public Reservation createReservation(ReservationRequestDto reservation) {
-        checkIfUserExistsInDatabaseByEmail(reservation.user().getEmail());
-        validatorService.validateIntegerBiggerThan(reservation.pitch(), ValidatorService.MIN_PITCH_NUMBER);
-        validatorService.validateIntegerLessThan(reservation.pitch(), ValidatorService.MAX_PITCH_NUMBER);
-        isReservationAvailable(reservation);
-        return new Reservation(reservation.pitch(), reservation.date(), reservation.user());
+        validateReservationData(reservation);
+        var user = userRepository.getReferenceById(reservation.userId());
+        return new Reservation(reservation.pitch(), reservation.date(), user);
     }
 
-    public void checkIfUserExistsInDatabaseByEmail(String email) {
-        if (!userRepository.existsByEmail(email)) {
-            throw new NoSuchElementException(String.format("User with email: %s does not exists!", email));
-        }
+    public void validateReservationData(ReservationRequestDto reservation) {
+        validatorService.validateIntegerBiggerThan(reservation.pitch(), ValidatorService.MAX_PITCH_NUMBER);
+        validatorService.validateIntegerLessThan(reservation.pitch(), ValidatorService.MIN_PITCH_NUMBER);
+        isReservationAvailable(reservation);
     }
 
     public void isReservationAvailable(ReservationRequestDto reservation){

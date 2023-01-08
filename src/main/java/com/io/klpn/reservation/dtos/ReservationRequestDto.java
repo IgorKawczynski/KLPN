@@ -5,7 +5,7 @@ import lombok.Builder;
 
 import java.time.LocalDateTime;
 
-public record ReservationRequestDto(Integer pitch, LocalDateTime date, User user) {
+public record ReservationRequestDto(Long userId, Integer pitch, LocalDateTime date) {
 
     @Builder
     public ReservationRequestDto {}

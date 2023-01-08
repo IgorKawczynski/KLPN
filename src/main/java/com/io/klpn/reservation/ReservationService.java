@@ -53,15 +53,16 @@ public class ReservationService {
     public ErrorsListDTO updateReservation(ReservationUpdateDto reservationToUpdate) {
 //        reservationToUpdate: Stare id i user, ale nowa data i boisko
         var errorsList = new ErrorsListDTO();
+        var reservationRequestDto = new ReservationRequestDto(reservationToUpdate.userId(), reservationToUpdate.pitch(), reservationToUpdate.date());
         try {
-            var reservationRequestDto = new ReservationRequestDto(reservationToUpdate.pitch(), reservationToUpdate.date(),reservationToUpdate.user());
-            reservationValidator.createReservation(reservationRequestDto);
+            reservationValidator.validateReservationData(reservationRequestDto);
             var reservation = getReservationById(reservationToUpdate.id());
             reservation.setDate(reservationToUpdate.date());
-            reservation.setPitch(reservation.getPitch());
+            reservation.setPitch(reservationToUpdate.pitch());
             reservationRepository.save(reservation);
         }
-        catch (AlreadyExistsException | NoSuchElementException | IntegerValidatorException exception) {
+        catch (AlreadyExistsException | NoSuchElementException | IntegerValidatorException
+                | IllegalArgumentException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;
