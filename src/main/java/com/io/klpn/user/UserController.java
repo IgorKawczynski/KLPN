@@ -1,9 +1,9 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserResponseDto;
-import com.io.klpn.user.dtos.UserUpdateDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +31,8 @@ public class UserController {
     }
 
     @PatchMapping("")
-    public ErrorsListDTO updateUserField(@RequestBody UserUpdateDto userUpdateDto) {
-        return userService.updateUserField(userUpdateDto);
+    public ErrorsListDTO updateUserField(@RequestBody UpdateDto updateDto) {
+        return userService.updateUserField(updateDto);
     }
 
     @DeleteMapping("/{userId}")

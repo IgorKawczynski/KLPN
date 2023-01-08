@@ -1,12 +1,12 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.UserCreateDto;
 import com.io.klpn.user.dtos.UserResponseDto;
-import com.io.klpn.user.dtos.UserUpdateDto;
 import com.io.klpn.user.dtos.UserUpdateToStudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -60,15 +60,16 @@ public class UserService {
                 .orElseThrow(() -> new NoSuchElementException("User with given id doesn't exists!"));
     }
 
-    public ErrorsListDTO updateUserField(UserUpdateDto userUpdateDto) {
+    public ErrorsListDTO updateUserField(UpdateDto updateDto) {
         var errorsList = new ErrorsListDTO();
 
         try {
-            var user = getUserById(userUpdateDto.id());
-            userEditor.changeUserFieldValue(user, userUpdateDto.fieldName(), userUpdateDto.value());
+            var user = getUserById(updateDto.id());
+            userEditor.changeUserFieldValue(user, updateDto.fieldName(), updateDto.value());
             userRepository.save(user);
         }
-        catch (NoSuchElementException | StringValidatorException | IllegalArgumentException exception) {
+        catch (NoSuchElementException | StringValidatorException | IllegalArgumentException |
+               NullPointerException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;

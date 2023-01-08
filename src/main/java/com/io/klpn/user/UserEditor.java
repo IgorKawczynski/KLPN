@@ -15,28 +15,33 @@ public class UserEditor {
 
     final ValidatorService validatorService;
 
-    public void changeUserFieldValue(User user, String fieldName, String value){
+    public void changeUserFieldValue(User user, String fieldName, Object value){
         validatorService.isNull(fieldName, value);
         switch (fieldName) {
             case "firstName" -> {
-                validatorService.validateString("First name", value, NAME_REGEX, MAX_LENGTH_45);
-                user.setFirstName(value);
+                var firstName = (String) value;
+                validatorService.validateString("First name", firstName, NAME_REGEX, MAX_LENGTH_45);
+                user.setFirstName(firstName);
             }
             case "lastName" -> {
-                validatorService.validateString("Last name", value, NAME_REGEX, MAX_LENGTH_45);
-                user.setLastName(value);
+                var lastName = (String) value;
+                validatorService.validateString("Last name", lastName, NAME_REGEX, MAX_LENGTH_45);
+                user.setLastName(lastName);
             }
             case "email" -> {
-                validatorService.validateString("Email", value, EMAIL_REGEX, MAX_LENGTH_45);
-                user.setEmail(value);
+                var email = (String) value;
+                validatorService.validateString("Email", email, EMAIL_REGEX, MAX_LENGTH_45);
+                user.setEmail(email);
             }
             case "password" -> {
-                validatorService.validateString("Password", value, PASSWORD_REGEX, MAX_LENGTH_255);
-                user.setPassword(value);
+                var password = (String) value;
+                validatorService.validateString("Password", password, PASSWORD_REGEX, MAX_LENGTH_255);
+                user.setPassword(password);
             }
             case "phoneNumber" -> {
-                validatorService.validatePhoneNumber(value);
-                user.setPhoneNumber(value);
+                var phoneNumber = (String) value;
+                validatorService.validatePhoneNumber(phoneNumber);
+                user.setPhoneNumber(phoneNumber);
             }
             default -> throw new IllegalArgumentException("Invalid field name.");
         }

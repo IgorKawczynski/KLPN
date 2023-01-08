@@ -50,7 +50,7 @@ public class StudentService {
             studentRepository.save(student);
         }
         catch (NoSuchElementException | StringValidatorException | IntegerValidatorException |
-                IllegalArgumentException exception) {
+               NullPointerException | IllegalArgumentException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;
