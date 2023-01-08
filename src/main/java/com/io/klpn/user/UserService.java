@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -55,7 +57,7 @@ public class UserService {
 
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User with given id doesn't exists!"));
+                .orElseThrow(() -> new NoSuchElementException("User with given id doesn't exists!"));
     }
 
     public ErrorsListDTO updateUserField(UserUpdateDto userUpdateDto) {
@@ -66,7 +68,7 @@ public class UserService {
             userEditor.changeUserFieldValue(user, userUpdateDto.fieldName(), userUpdateDto.value());
             userRepository.save(user);
         }
-        catch (IllegalArgumentException | StringValidatorException exception) {
+        catch (NoSuchElementException | StringValidatorException | IllegalArgumentException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;

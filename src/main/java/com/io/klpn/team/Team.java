@@ -26,6 +26,14 @@ public class Team extends BasicEntity {
 
     public Team(String name) {
         this.name = name;
+        this.numberOfMatches = 0;
+        this.wins = 0;
+        this.draws = 0;
+        this.loses = 0;
+        this.goalsFor = 0;
+        this.goalsAgainst = 0;
+        this.balance = 0;
+        this.points = 0;
     }
     public Team() {}
 }

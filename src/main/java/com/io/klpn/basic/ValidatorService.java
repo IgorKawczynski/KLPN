@@ -15,10 +15,14 @@ public class ValidatorService {
     public static final Integer MAX_LENGTH_45 = 45;
     public static final Integer MAX_LENGTH_9 = 9;
     public static final Integer MIN_LENGTH_3 = 3;
-    public final static Integer MAX_MINUTE= 60;
-    public final static Integer MIN_MINUTE = 0;
-    public final static Integer MAX_PITCH_NUMBER = 3;
-    public final static Integer MIN_PITCH_NUMBER = 0;
+    public static final Integer MAX_MINUTE = 60;
+    public static final Integer MIN_MINUTE = 0;
+    public static final Integer MAX_PITCH_NUMBER = 3;
+    public static final Integer MIN_PITCH_NUMBER = 0;
+    public static final Integer MAX_INDEX_VALUE = 999999;
+    public static final Integer MIN_INDEX_VALUE = 100000;
+    public static final Integer MIN_TSHIRT_NUMBER = 1;
+    public static final Integer MAX_TSHIRT_NUMBER = 99;
 
     public void isNull(String fieldName, Object fieldValue) {
         if (fieldValue == null) {

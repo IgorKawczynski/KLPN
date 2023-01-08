@@ -5,7 +5,9 @@ import com.io.klpn.student.enums.Role;
 import com.io.klpn.team.Team;
 import com.io.klpn.user.User;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -13,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Setter
+@Getter
 public class Student {
 
     @Id
@@ -38,6 +42,13 @@ public class Student {
         this.id = id;
         this.indexNumber = indexNumber;
         this.isAccepted = false;
+    }
+
+    public void increaseMotmAmount() {
+        if(this.motmAmount == null) {
+            this.motmAmount = 0;
+        }
+        this.motmAmount = this.motmAmount + 1;
     }
 
 }

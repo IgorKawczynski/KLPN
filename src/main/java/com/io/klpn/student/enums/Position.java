@@ -24,7 +24,7 @@ public enum Position {
         return Stream.of(values())
                 .filter(position -> position.positionType.equals(positionType))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException(String.format("positionType must be one of '%s', '%s', '%s' or '%s'",
+                .orElseThrow(() -> new IllegalArgumentException(String.format("positionType must be one of '%s', '%s', '%s' or '%s'",
                         GOALKEEPER.getPositionType(), DEFENDER.getPositionType(), MIDFIELDER.getPositionType(), STRIKER.getPositionType())));
     }
 

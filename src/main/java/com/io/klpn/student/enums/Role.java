@@ -23,7 +23,7 @@ public enum Role {
         return Stream.of(values())
                 .filter(role -> role.roleType.equals(roleType))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException(String.format("roleType must be one of '%s', '%s' or '%s'",
+                .orElseThrow(() -> new IllegalArgumentException(String.format("roleType must be one of '%s', '%s' or '%s'",
                         PLAYER.getRoleType(), CAPTAIN.getRoleType(), REFEREE.getRoleType())));
     }
 
