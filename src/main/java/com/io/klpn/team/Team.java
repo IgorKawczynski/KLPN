@@ -23,6 +23,7 @@ public class Team extends BasicEntity {
     Integer goalsAgainst;
     Integer balance;
     Integer points;
+    Boolean isAccepted;
 
     public Team(String name) {
         this.name = name;
@@ -34,6 +35,7 @@ public class Team extends BasicEntity {
         this.goalsAgainst = 0;
         this.balance = 0;
         this.points = 0;
+        this.isAccepted = false;
     }
     public Team() {}
 }

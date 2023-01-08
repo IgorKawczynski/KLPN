@@ -1,14 +1,13 @@
 package com.io.klpn.team;
 
 import com.io.klpn.basic.ErrorsListDTO;
-import com.io.klpn.transfer.Transfer;
-import com.io.klpn.transfer.dto.TransferRequestDTO;
+import com.io.klpn.basic.UpdateDto;
+import com.io.klpn.basic.exceptions.AlreadyExistsException;
+import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import com.io.klpn.basic.exceptions.StringValidatorException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +21,14 @@ public class TeamService {
 
     final TeamRepository teamRepository;
     final TeamValidator teamValidator;
+    final TeamEditor teamEditor;
 
     public ErrorsListDTO createTeam(Team team){
         var errorsListDTO = new ErrorsListDTO();
         try {
             teamRepository.save(teamValidator.createTeam(team));
         }
-        catch(NoSuchElementException exception) {
+        catch(AlreadyExistsException | StringValidatorException | NullPointerException exception) {
             errorsListDTO.addError(exception.getMessage());
         }
         return errorsListDTO;
@@ -43,6 +43,22 @@ public class TeamService {
     public List<Team> generateTable(){
         return teamRepository
                 .findAll(Sort.by(Sort.Direction.DESC, "points"));
+    }
+
+    public ErrorsListDTO updateTeamField(UpdateDto updateDto) {
+        var errorsList = new ErrorsListDTO();
+
+        try {
+            var team = getTeamById(updateDto.id());
+            teamEditor.changeTeamFieldValue(team, updateDto.fieldName(), updateDto.value());
+            teamRepository.save(team);
+        }
+        catch (NoSuchElementException | StringValidatorException | IntegerValidatorException |
+               NullPointerException | IllegalArgumentException exception) {
+            errorsList.addError(exception.getMessage());
+        }
+
+        return errorsList;
     }
 
     public ErrorsListDTO deleteTeamById(Long id){

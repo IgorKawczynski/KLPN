@@ -20,15 +20,23 @@ public class TeamValidator {
     final TeamRepository teamRepository;
 
     public Team createTeam(Team team) {
-        if (teamRepository.existsByName(team.getName()))
-            throw new AlreadyExistsException("Team with this name already exists, choose another one!");
-        validatorService.validateString("Name", team.getName(), NAME_REGEX, MAX_LENGTH_45);
+        validateTeamName(team.getName());
         return new Team(team.getName());
     }
 
     public void deleteTeamById(Long id) {
-        if(!teamRepository.existsById(id))
+        if(!teamRepository.existsById(id)) {
             throw new NoSuchElementException(String.format("Team with id: %d does not exist. ", id));
+        }
         teamRepository.deleteById(id);
     }
+
+    public void validateTeamName(String name) {
+        validatorService.isNull("Name", name);
+        validatorService.validateString("Name", name, NAME_REGEX, MAX_LENGTH_45);
+        if (teamRepository.existsByName(name)) {
+            throw new AlreadyExistsException("Team with this name already exists, choose another one!");
+        }
+    }
+
 }
