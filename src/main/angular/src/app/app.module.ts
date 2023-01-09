@@ -43,6 +43,7 @@ import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {CheckboxModule} from 'primeng/checkbox';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
+import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
     ContactComponent,
     AdminNavbarComponent,
     AdminFooterComponent,
+    UpdateToStudentComponent,
   ],
   imports: [
     HttpClientModule,

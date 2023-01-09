@@ -12,6 +12,7 @@ import { StudentComponent } from "./student/student.component";
 import { ReservationComponent } from "./reservation/reservation.component";
 import { MatchComponent } from "./match/match.component";
 import {ContactComponent} from "./contact/contact.component";
+import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 
 const routes: Routes = [
       { path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'transfer', component: TransferComponent },
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
+      { path: 'users/update-to-student', component: UpdateToStudentComponent},
       { path: '**', redirectTo: '' }
 ];
 
