@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.NoSuchElementException;
 
 @Service
@@ -29,6 +31,12 @@ public class UserService {
         try {
             var user = userValidator.createUser(userCreateDto);
             userRepository.save(user);
+            if(userCreateDto.indexNumber() != null) {
+                errorsList.addError(updateToStudent(new UserUpdateToStudentDto(user.getId(), userCreateDto.indexNumber())));
+            }
+            if(!errorsList.isListOfErrorsEmpty()) {
+                userRepository.delete(user);
+            }
         }
         catch (StringValidatorException | AlreadyExistsException | NullPointerException exception) {
             errorsList.addError(exception.getMessage());

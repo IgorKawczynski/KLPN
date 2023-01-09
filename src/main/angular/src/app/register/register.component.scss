@@ -14,7 +14,7 @@ main{
 
 .form-box{
   width: 380px;
-  height: 520px;
+  height: 620px;
   position: relative;
   margin: 5% auto;
   background: #fff;
@@ -66,18 +66,18 @@ main{
     left: 50%;
     transform: translateX(-50%);
   }
-  //.input-index{
-  //  width: 70%;
-  //  position: absolute;
-  //  top: 370px;
-  //  left: 50%;
-  //  transform: translateX(-50%);
-  //}
+  .input-index{
+   width: 70%;
+   position: absolute;
+   top: 370px;
+   left: 50%;
+   transform: translateX(-50%);
+  }
 
   .input-phone{
     width: 70%;
     position: absolute;
-    top: 370px;
+    top: 430px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -101,7 +101,7 @@ main{
 
   .login-btn{
     position: absolute;
-    top: 430px;
+    top: 530px;
     left: 50%;
     transform: translateX(-50%);
     height: 40px;

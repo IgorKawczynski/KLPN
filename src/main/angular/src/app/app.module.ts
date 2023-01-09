@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './admin-components/admin-home/admin.component';
 import { StudentComponent } from './student/student.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -41,7 +41,8 @@ import { RequestInterceptor } from "./request.interceptor";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {CheckboxModule} from 'primeng/checkbox';
-import { ScheduleComponent } from './schedule/schedule.component';
+import { AdminNavbarComponent } from './admin-components/admin-navbar/admin-navbar.component';
+import { AdminFooterComponent } from './admin-components/admin-footer/admin-footer.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     NavbarComponent,
     FooterComponent,
     ContactComponent,
-    ScheduleComponent,
+    AdminNavbarComponent,
+    AdminFooterComponent,
   ],
   imports: [
     HttpClientModule,
