@@ -45,7 +45,7 @@ public class UserService {
     }
 
     public ErrorsListDTO updateToStudent(UserUpdateToStudentDto user) {
-        return studentService.createStudent(user.id(), user.indexNumber());
+        return studentService.createStudent(user.userId(), user.indexNumber());
     }
 
     public ErrorsListDTO deleteUser(Long userId) {
