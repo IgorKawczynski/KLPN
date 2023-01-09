@@ -1,0 +1,22 @@
+<main>
+
+  <app-navbar></app-navbar>
+
+  <p class="main-text">Wniosek o konto studenta</p>
+
+  <div class="time-field">
+    <p class="time-info">Podaj swój numer albumu:</p>
+    <div class="p-inputgroup input-index">
+      <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
+     <input type="text" pInputText [maxLength]="6" min="100000" [(ngModel)]="updateToStudentDto.indexNumber" placeholder="Numer albumu">
+    </div>
+  </div>
+
+  <div class="decision">
+    <button class="btn decline">Anuluj</button>
+    <button class=" btn confirm" (click)="btnConfirm()">Zatwierdź</button>
+  </div>
+
+  <app-footer></app-footer>
+
+</main>
