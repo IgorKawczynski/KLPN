@@ -25,4 +25,9 @@ public class ErrorsListDTO implements Serializable {
         this.errors.add(error);
     }
 
+    public void addError(ErrorsListDTO errorsListDTO) {
+        errorsListDTO.errors
+                .forEach(this::addError);
+    }
+
 }

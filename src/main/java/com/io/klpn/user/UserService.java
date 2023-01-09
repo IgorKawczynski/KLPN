@@ -16,6 +16,8 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
@@ -35,6 +37,12 @@ public class UserService {
         try {
             var user = userValidator.createUser(userRegisterDTO);
             userRepository.save(user);
+            if(userCreateDto.indexNumber() != null) {
+                errorsList.addError(updateToStudent(new UserUpdateToStudentDto(user.getId(), userCreateDto.indexNumber())));
+            }
+            if(!errorsList.isListOfErrorsEmpty()) {
+                userRepository.delete(user);
+            }
         }
         catch (StringValidatorException | AlreadyExistsException | NullPointerException exception) {
             errorsList.addError(exception.getMessage());

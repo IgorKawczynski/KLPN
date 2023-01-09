@@ -29,11 +29,10 @@
               <input type="password" pInputText [(ngModel)]="userRequestDto.password" placeholder="Hasło">
             </div>
 
-<!-- POKI CO REJESTRACJA JEST TYLKO DLA UŻYTKOWNIKA - NUMER INDEKSU NIE POTRZEBNY (ale można zrobić go opcjonalnego i wtedy jak ktoś poda index to z buta się zarejestruje jako user + poleci prośba do admina o akceptację do statusu studenciaka-->
-<!--            <div class="p-inputgroup input-index">-->
-<!--              <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>-->
-<!--              <input type="text" pInputText [maxLength]="7" [(ngModel)]="userRequestDto.index" placeholder="Numer indeksu (opcjonalnie)">-->
-<!--            </div>-->
+            <div class="p-inputgroup input-index">
+              <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
+             <input type="text" pInputText [maxLength]="6" min="100000" [(ngModel)]="userRequestDto.indexNumber" placeholder="Numer indeksu (opcjonalnie)">
+            </div>
 
             <div class="p-inputgroup input-phone">
               <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
