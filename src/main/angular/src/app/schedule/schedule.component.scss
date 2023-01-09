@@ -1,0 +1,25 @@
+main{
+  height: 100%;
+  width: 100%;
+}
+
+.page{
+  height: 84.2vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/img/football-field-2588146.jpg");;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content{
+    height: 70%;
+    width: 40%;
+    background-color: yellow;
+
+    .title-text{
+
+    }
+  }
+}

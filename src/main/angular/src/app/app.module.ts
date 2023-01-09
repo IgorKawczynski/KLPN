@@ -41,6 +41,7 @@ import { RequestInterceptor } from "./request.interceptor";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     NavbarComponent,
     FooterComponent,
     ContactComponent,
+    ScheduleComponent,
   ],
   imports: [
     HttpClientModule,
