@@ -2,7 +2,6 @@ package com.io.klpn.user;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.UpdateDto;
-import com.io.klpn.basic.ValidatorService;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.security.SessionRegistry;
@@ -37,8 +36,8 @@ public class UserService {
         try {
             var user = userValidator.createUser(userRegisterDTO);
             userRepository.save(user);
-            if(userCreateDto.indexNumber() != null) {
-                errorsList.addError(updateToStudent(new UserUpdateToStudentDto(user.getId(), userCreateDto.indexNumber())));
+            if(userRegisterDTO.indexNumber() != null) {
+                errorsList.addError(updateToStudent(new UserUpdateToStudentDTO(user.getId(), userRegisterDTO.indexNumber())));
             }
             if(!errorsList.isListOfErrorsEmpty()) {
                 userRepository.delete(user);
@@ -83,7 +82,7 @@ public class UserService {
             userRepository.deleteById(userId);
         }
         catch (EmptyResultDataAccessException exception) {
-            errorsList.addError("User with given id doesn't exists!");
+            errorsList.addError("User z podanym id nie istnieje!");
         }
         return errorsList;
     }
@@ -94,7 +93,7 @@ public class UserService {
 
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new NoSuchElementException("User with given id doesn't exists!"));
+                .orElseThrow(() -> new NoSuchElementException("User z podanym id nie istnieje!"));
     }
 
     public ErrorsListDTO updateUserField(UpdateDto updateDto) {
