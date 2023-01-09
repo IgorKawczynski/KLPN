@@ -1,7 +1,7 @@
 package com.io.klpn.user;
 
 import com.io.klpn.basic.BasicEntity;
-import com.io.klpn.user.dtos.UserResponseDto;
+import com.io.klpn.user.dtos.UserResponseDTO;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,8 +35,8 @@ public class User extends BasicEntity {
         this.isAdmin = false;
     }
 
-    public UserResponseDto toResponseDto() {
-        return UserResponseDto.builder()
+    public UserResponseDTO toResponseDto() {
+        return UserResponseDTO.builder()
                 .id(this.id)
                 .firstName(this.firstName)
                 .lastName(this.lastName)
