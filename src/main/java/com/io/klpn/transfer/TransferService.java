@@ -31,7 +31,7 @@ public class TransferService {
     public Transfer getTransferById(Long id){
         return transferRepository
                 .findById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("Transfer with id: %d does not exist. ", id)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("Transfer z podanym id: %d nie istnieje. ", id)));
     }
 
     public Page<Transfer> getAllTransfers(Integer page){
