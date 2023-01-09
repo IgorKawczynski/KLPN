@@ -4,7 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { UserComponent } from "./user/user.component";
 import { RegisterComponent } from "./register/register.component";
-import { AdminComponent } from "./admin-home/admin.component";
+import { AdminComponent } from "./admin-components/admin-home/admin.component";
 import { TransferComponent } from "./transfer/transfer.component";
 import { TableComponent } from "./table/table.component";
 import { TeamComponent } from "./team/team.component";
