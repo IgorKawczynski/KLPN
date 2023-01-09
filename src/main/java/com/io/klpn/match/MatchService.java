@@ -35,7 +35,7 @@ public class MatchService {
 
     public Match getMatchById(Long matchId) {
         return matchRepository.findById(matchId)
-                .orElseThrow(() -> new IllegalArgumentException("Match with given id doesn't exists!"));
+                .orElseThrow(() -> new IllegalArgumentException("Mecz z podanym id nie istnieje!"));
     }
 
     public Page<Match> getAllMatches(Integer page){

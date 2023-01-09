@@ -38,7 +38,7 @@ public class StudentService {
     public Student getStudentById(Long id) {
         return studentRepository
                 .findById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("Student with id: %d does not exist. ", id)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("Student z podanym id: %d nie istnieje. ", id)));
     }
 
     public ErrorsListDTO updateStudentField(UpdateDto updateDto) {

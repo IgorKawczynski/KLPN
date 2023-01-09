@@ -36,7 +36,9 @@ public class MatchStatisticService {
     public MatchStatistic getMatchStatisticById(Long id){
         return matchStatisticRepository
                 .findById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("Match statistic with id: %d does not exist. ", id)));
+                .orElseThrow(() -> new NoSuchElementException(String.format(
+                        "Statystyka meczowa z podanym id id: %d nie istnieje. ", id))
+                );
     }
 
     public Page<MatchStatistic> getAllMatchStatistics(Integer page){
