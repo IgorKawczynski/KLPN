@@ -2,10 +2,10 @@ package com.io.klpn.user;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.UpdateDto;
-import com.io.klpn.user.dtos.UserCreateDto;
-import com.io.klpn.user.dtos.UserResponseDto;
-import com.io.klpn.user.dtos.UserUpdateToStudentDto;
+import com.io.klpn.user.dtos.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,17 +16,26 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/{userId}")
-    public UserResponseDto getUserById(@PathVariable Long userId) {
+    public UserResponseDTO getUserById(@PathVariable Long userId) {
         return userService.getUserResponseDto(userId);
     }
 
     @PostMapping("/register")
-    public ErrorsListDTO registerUser(@RequestBody UserCreateDto userCreateDto) {
-        return userService.registerUser(userCreateDto);
+    public ErrorsListDTO registerUser(@RequestBody UserRegisterDTO userRegisterDto) {
+        return userService.registerUser(userRegisterDto);
+    }
+
+    @PostMapping(
+            path = "/login",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<UserLoginResponseDTO> login(@RequestBody UserLoginRequestDTO user) {
+        return ResponseEntity.ok(userService.login(user));
     }
 
     @PostMapping("/update-to-student")
-    public ErrorsListDTO updateToStudent(@RequestBody UserUpdateToStudentDto userUpdateToStudentDto) {
+    public ErrorsListDTO updateToStudent(@RequestBody UserUpdateToStudentDTO userUpdateToStudentDto) {
         return userService.updateToStudent(userUpdateToStudentDto);
     }
 
