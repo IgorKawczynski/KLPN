@@ -1,0 +1,51 @@
+TODO do końca implementacji (15.01)
+
+(frontend + w ewentualności backend)
+
+0. (IGOR)
+ - Dokończenie walidacji logowania + rejestracji + modyfikacja pToast - Zrobione
+ - Widoki i serwis z funkcją isLogged/isReferee/isCaptain zależnie od zalogowania (user | admin) - W trakcie
+ - Animacja na stronę główną - W trakcie
+
+1. (GRZES)
+- Dodać 10/15 drużyn do bazy
+- Przypisać 2/3 drużynom zawodników
+- Dodać ileś rezerwacji dla 2/3 drużyn, żeby było do testowania i prezentacji
+- Dodać transfery pomiędzy 2 drużynami (więcej nie brak, aby do pokazania mu i testowania)
+- Dodać kilka statystyk meczowych też dla tej samej drużyny co transfery i rezerwacje
+
+2. (KTO?)
+- Rezerwacja boiska (dla usera) z walidacją
+- Podgląd rezerwacji (dla usera) - w formie listy
+- Edycja + Usunięcie rezerwacji (dla usera) z walidacją
+^ to wszystko zapożyczyć z rezerwacji carrentalowej
+
+3. (KTO?)
+- Zarejestrowanie drużyny (tylko jako student)
+- Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
+- Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
+
+4. (KTO?)
+- Generowanie ligi (utworzenie meczy dla wszystkich drużyn z ligi KLPN) można po prostu inserty dodać na bazę na sztywno a jemu powiemy że system to wygenerował, ewentualnie mega szybki i prosty controller z dodaniem meczu poprzez admina
+- Generowanie Tabeli (tym samym logika zliczania punktów drużyn na podstawie wygranych meczów)
+
+
+5. (KTO?)
+- Podgląd meczy (harmonogram jako lista) -> widzę to tak, że są dni i na dzień powiedzmy jest lista 3 meczy i tak zrobić z tydzień, aby każdy grał z każdym (żeby mu to pokazać)
+- Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego - ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZY" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem" i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
+
+6. (KTO?)
+- Utworzenie transferu (tylko kapitan drużyny) -> myślę ze jebać rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY
+- Ewentualnie możliwość zarządzaniem transferami (edycja + usunięcie) poprzez ADMINA
+- Podgląd transferów (lista)
+
+7. (KTO?)
+- Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
+
+8. (KTO?)
+- Użytkownik zalogowany klikający w prawy górny róg (ikonka użytkownika systemu) zostaje przekierowany na profil swojego konta (Profil użytkownika z danymi jak email, numer telefonu, itd itp)
+
+
+*Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
+**Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**
+***DEADLINE 15.01***
