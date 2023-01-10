@@ -44,6 +44,9 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 import { AdminNavbarComponent } from './admin-components/admin-navbar/admin-navbar.component';
 import { AdminFooterComponent } from './admin-components/admin-footer/admin-footer.component';
+import {ScheduleComponent} from "./schedule/schedule.component";
+import {TreeTableModule} from 'primeng/treetable';
+import {TreeNode} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,7 @@ import { AdminFooterComponent } from './admin-components/admin-footer/admin-foot
     AdminNavbarComponent,
     AdminFooterComponent,
     UpdateToStudentComponent,
+    ScheduleComponent
   ],
   imports: [
     HttpClientModule,
@@ -90,7 +94,8 @@ import { AdminFooterComponent } from './admin-components/admin-footer/admin-foot
     DropdownModule,
     AutoCompleteModule,
     CascadeSelectModule,
-    CheckboxModule
+    CheckboxModule,
+    TreeTableModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, MessageService],
   bootstrap: [AppComponent]
