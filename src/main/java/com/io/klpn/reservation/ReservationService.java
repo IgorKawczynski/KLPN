@@ -35,7 +35,7 @@ public class ReservationService {
 
     public Reservation getReservationById(Long id) {
         return reservationRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Reservation with given id does not exists!"));
+                .orElseThrow(() -> new IllegalArgumentException("Reserwacja z podanym id nie istnieje!"));
     }
 
 

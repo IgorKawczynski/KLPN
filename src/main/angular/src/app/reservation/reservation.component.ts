@@ -43,7 +43,6 @@ export class ReservationComponent implements OnInit {
     .createReservation(this.reservationRequestDto)
     .subscribe( (response: any) => {
       this.errorsListDto = response;
-      console.log(this.errorsListDto);
       if(!this.errorsListDto.listOfErrorsEmpty) {
         this.errorsListDto.errors.forEach((error) => {
           this.messageService.add({life: 8000, severity:'error', summary:'Reservation', detail:error})

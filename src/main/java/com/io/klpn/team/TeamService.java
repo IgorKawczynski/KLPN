@@ -37,7 +37,7 @@ public class TeamService {
     public Team getTeamById(Long id){
         return teamRepository
                 .findById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("Team with id: %d does not exist. ", id)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("Team z podanym id: %d nie istnieje. ", id)));
     }
 
     public List<Team> generateTable(){

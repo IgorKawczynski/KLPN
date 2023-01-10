@@ -41,6 +41,7 @@ import { RequestInterceptor } from "./request.interceptor";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {CheckboxModule} from 'primeng/checkbox';
+import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 import { AdminNavbarComponent } from './admin-components/admin-navbar/admin-navbar.component';
 import { AdminFooterComponent } from './admin-components/admin-footer/admin-footer.component';
 
@@ -63,6 +64,7 @@ import { AdminFooterComponent } from './admin-components/admin-footer/admin-foot
     ContactComponent,
     AdminNavbarComponent,
     AdminFooterComponent,
+    UpdateToStudentComponent,
   ],
   imports: [
     HttpClientModule,
