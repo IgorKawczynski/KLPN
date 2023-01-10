@@ -1,0 +1,49 @@
+<head>
+    <title>Lista użytkowników</title>
+</head>
+<main>
+    <app-admin-navbar></app-admin-navbar>
+    <div class="users-table">
+        <p-table [value]="users" [(selection)]="selectedUsers" [paginator]="true" [rows]="10" [selectionPageOnly]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Numer indeksu</th>
+                    <th>Czy zaakceptować?</th>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th>&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.indexNumber }}</td>
+                    <td></td>
+                    <td>
+                        <p-tableCheckbox [value]="user"></p-tableCheckbox>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex-container">
+                    <div class="left">
+                        Liczba oczekujących użytkowników: {{users.length}} 
+                    </div>
+                    <div class="right">
+                        <p>
+                            <button type="button" pButton label="Zaakceptuj" (click)="acceptUsers();"><i class="pi pi-check"></i></button>
+                        </p>
+                    </div>
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+    <app-admin-footer></app-admin-footer>
+  </main>

@@ -44,6 +44,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 import { AdminNavbarComponent } from './admin-components/admin-navbar/admin-navbar.component';
 import { AdminFooterComponent } from './admin-components/admin-footer/admin-footer.component';
+import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { AdminFooterComponent } from './admin-components/admin-footer/admin-foot
     ContactComponent,
     AdminNavbarComponent,
     AdminFooterComponent,
+    AdminAcceptPlayerComponent,
     UpdateToStudentComponent,
   ],
   imports: [

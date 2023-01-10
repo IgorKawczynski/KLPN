@@ -12,6 +12,7 @@ import { StudentComponent } from "./student/student.component";
 import { ReservationComponent } from "./reservation/reservation.component";
 import { MatchComponent } from "./match/match.component";
 import {ContactComponent} from "./contact/contact.component";
+import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'transfer', component: TransferComponent },
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
+      { path: 'accept-players', component: AdminAcceptPlayerComponent},
       { path: 'users/update-to-student', component: UpdateToStudentComponent},
       { path: '**', redirectTo: '' }
 ];

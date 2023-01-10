@@ -15,10 +15,9 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -94,6 +93,10 @@ public class UserService {
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new NoSuchElementException("User z podanym id nie istnieje!"));
+    }
+
+    public List<UserToAcceptDTO> getUsersToAccept() {
+        return userRepository.findUsersToAccept();
     }
 
     public ErrorsListDTO updateUserField(UpdateDto updateDto) {

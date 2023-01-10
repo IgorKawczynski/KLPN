@@ -23,6 +23,11 @@ public class AdminController {
         return adminService.acceptStudentById(studentId);
     }
 
+    @PatchMapping("/update-to-students")
+    public ErrorsListDTO acceptStudentsByIds(@RequestBody List<Long> studentsIds) {
+        return adminService.acceptStudentsByIds(studentsIds);
+    }
+
     @PatchMapping("/team/{teamId}")
     public ErrorsListDTO acceptTeamById(@PathVariable Long teamId) {
         return adminService.acceptTeamById(teamId);

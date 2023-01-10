@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
@@ -32,6 +34,11 @@ public class UserController {
     )
     public ResponseEntity<UserLoginResponseDTO> login(@RequestBody UserLoginRequestDTO user) {
         return ResponseEntity.ok(userService.login(user));
+    }
+
+    @GetMapping("")
+    public List<UserToAcceptDTO> getUsersToAccept() {
+        return userService.getUsersToAccept();
     }
 
     @PostMapping("/update-to-student")
