@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {LoginService} from "../login/login.service";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,11 @@ import {MenuItem} from 'primeng/api';
 export class NavbarComponent implements OnInit {
   items: MenuItem[]=[];
 
-  constructor() { }
+  constructor(
+    public loginService: LoginService
+  ){
+
+  }
 
 
   ngOnInit(): void {

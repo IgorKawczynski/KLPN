@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from "primeng/api";
+import {LoginService} from "../login/login.service";
 
 @Component({
   selector: 'app-home',
@@ -9,10 +9,15 @@ import {MenuItem} from "primeng/api";
 export class HomeComponent implements OnInit {
   model: any = {};
 
-  constructor() { }
+  constructor(
+    public loginService: LoginService
+  ) {
 
+  }
 
   ngOnInit(): void {
+    // TAK SIE KORZYSTA Z FUNKCJI *CZY KTOŚ JEST ZALOGOWANY* + w HTMLU do tagu atrybut : ngIf="isLogged()"
+    this.loginService.isLogged();
   }
 
 }

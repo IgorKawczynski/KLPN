@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import {LoginService} from "../../login/login.service";
+
 
 @Component({
   selector: 'app-admin-navbar',
@@ -10,10 +12,14 @@ import { MenuItem } from 'primeng/api';
 export class AdminNavbarComponent implements OnInit {
   items: MenuItem[] = [];
 
-  constructor() { }
+  constructor(
+    public loginService: LoginService
+  ) {
+
+  }
 
   ngOnInit(): void {
-    
+
     this.items = [
       {label: 'Akceptuj',
       styleClass: 'admin-navbar-item',

@@ -4,6 +4,8 @@ import { ReservationRequestDto } from './reservation-request';
 import { ReservationService } from './reservation.service';
 import {Router} from "@angular/router";
 import { MessageService } from 'primeng/api';
+import {LoginService} from "../login/login.service";
+
 
 @Component({
   selector: 'app-reservation',
@@ -11,14 +13,15 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent implements OnInit {
-  
+
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   reservationRequestDto: ReservationRequestDto = new ReservationRequestDto;
 
   constructor (
     private reservationService: ReservationService,
     private router: Router,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    public loginService: LoginService) {
    }
 
   ngOnInit(): void {
