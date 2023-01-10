@@ -40,12 +40,12 @@ export class LoginComponent implements OnInit {
           this.sessionId = res.sessionId;
           sessionStorage.setItem('token', this.sessionId);
           this.router.navigate(['localhost:4200/']);
-          this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+          this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
           localStorage.setItem('email', this.model.email)
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>
-            this.messageService.add({life:10000, severity:'error', summary:'Login', detail: error})
+            this.messageService.add({life:4000, severity:'error', summary:'Login', detail: error})
           );
         }
       });
