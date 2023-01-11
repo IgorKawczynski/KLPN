@@ -1,1 +1,52 @@
-<p>table works!</p>
+<!DOCTYPE html>
+
+<main>
+  <app-navbar></app-navbar>
+  <div class="page">
+    <p class="title">Tabela ligowa</p>
+    <div class="tabela">
+      <p-table [value]="teams" [tableStyle]="{'min-width': '50rem'} " [paginator]="false" [scrollable]="true" scrollHeight="600px" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Pozycja</th>
+            <th>Drużyna</th>
+            <th>Rozegrane spotkania</th>
+            <th>Wygrane</th>
+            <th>Zremisowane</th>
+            <th>Przegrane</th>
+            <th>Gole strzelone</th>
+            <th>Gole stracone</th>
+            <th>bilans</th>
+            <th>Punkty</th>
+          </tr>
+        </ng-template>
+        <ng-template let-i="rowIndex" pTemplate="body" let-teams>
+          <tr
+            [ngClass]="{
+                    'first' : i+1 == 1,
+                    'second': i+1 == 2,
+                    'third': i+1 == 3,
+                    'else': i+1 > 3}">
+            <td>{{i+1}}</td>
+            <td>{{teams.name}}</td>
+            <td>{{teams.numberOfMatches}}</td>
+            <td>{{teams.wins}}</td>
+            <td>{{teams.draws}}</td>
+            <td>{{teams.loses}}</td>
+            <td>{{teams.goalsFor}}</td>
+            <td>{{teams.goalsAgainst}}</td>
+            <td>{{teams.balance}}</td>
+            <td>{{teams.points}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>
+
+
+
+
+

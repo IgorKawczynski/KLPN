@@ -48,7 +48,7 @@ export class NavbarComponent implements OnInit {
             icon: 'pi pw-fw pi-arrow-right-arrow-left'
           },
         ]},
-      {label: 'Tabela'},
+      {label: 'Tabela', routerLink: "/table"},
       {label: 'Harmonogram', routerLink: "/schedule"},
       {label: 'Kontakt', routerLink: "/contact"}
       ];
