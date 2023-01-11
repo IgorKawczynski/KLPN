@@ -1,6 +1,7 @@
 package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -30,8 +31,8 @@ public class MatchStatisticController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ErrorsListDTO createMatchStatistic(@RequestBody MatchStatistic matchStatistic) {
-        return matchStatisticService.createMatchStatistic(matchStatistic);
+    public ErrorsListDTO createMatchStatistic(@RequestBody MatchStatisticCreateDTO dto) {
+        return matchStatisticService.createMatchStatistic(dto);
     }
 
     @DeleteMapping("/{id}")

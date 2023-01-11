@@ -2,6 +2,7 @@ package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -20,11 +21,11 @@ public class MatchStatisticService {
     final MatchStatisticRepository matchStatisticRepository;
 
     final MatchStatisticValidator matchStatisticValidator;
-    public ErrorsListDTO createMatchStatistic(MatchStatistic matchStatisticToCreate){
+    public ErrorsListDTO createMatchStatistic(MatchStatisticCreateDTO dto){
         var errorsList = new ErrorsListDTO();
 
         try {
-            var matchStatistic = matchStatisticValidator.createMatchStatistic(matchStatisticToCreate);
+            var matchStatistic = matchStatisticValidator.createMatchStatistic(dto);
             matchStatisticRepository.save(matchStatistic);
         }
         catch (IntegerValidatorException exception) {
