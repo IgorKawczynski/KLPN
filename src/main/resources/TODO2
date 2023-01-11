@@ -3,7 +3,7 @@ TODO do końca implementacji (15.01)
 (frontend + w ewentualności backend)
 
 0. (IGOR)
- - Dokończenie walidacji logowania + rejestracji + modyfikacja pToast - Zrobione
+ - Dokończenie walidacji logowania + rejestracji + modyfikacja pToast --- Zrobione
  - Widoki i serwis z funkcją isLogged/isReferee/isCaptain zależnie od zalogowania (user | admin) - W trakcie
  - Animacja na stronę główną - W trakcie
 
@@ -15,10 +15,9 @@ TODO do końca implementacji (15.01)
 - Dodać kilka statystyk meczowych też dla tej samej drużyny co transfery i rezerwacje
 
 2. (Adam)
-- Rezerwacja boiska (dla usera) z walidacją
+- Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)
 - Podgląd rezerwacji (dla usera) - w formie listy
 - Edycja + Usunięcie rezerwacji (dla usera) z walidacją
-^ to wszystko zapożyczyć z rezerwacji carrentalowej
 
 3. (KTO?)
 - Zarejestrowanie drużyny (tylko jako student)

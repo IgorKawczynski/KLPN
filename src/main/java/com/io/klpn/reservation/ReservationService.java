@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.time.temporal.ChronoUnit;
 import java.util.NoSuchElementException;
 
 @Service
@@ -23,11 +24,13 @@ public class ReservationService {
 
     public ErrorsListDTO createReservation (ReservationRequestDto reservationToCreate) {
         var errorsList = new ErrorsListDTO();
+        var reservationToCreateWithoutSeconds = new ReservationRequestDto(reservationToCreate.userId(),
+                reservationToCreate.pitch(), reservationToCreate.date().truncatedTo(ChronoUnit.MINUTES));
         try {
-            var reservation = reservationValidator.createReservation(reservationToCreate);
+            var reservation = reservationValidator.createReservation(reservationToCreateWithoutSeconds);
             reservationRepository.save(reservation);
         }
-        catch (AlreadyExistsException | NoSuchElementException | IntegerValidatorException exception) {
+        catch (AlreadyExistsException | NoSuchElementException | IntegerValidatorException | IllegalArgumentException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;

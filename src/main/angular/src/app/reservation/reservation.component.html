@@ -13,11 +13,13 @@
 
   <div class="time-field">
     <p class="time-info">Wybierz termin rezerwacji:</p>
-    <p-calendar appendTo="body" indputId="date" [(ngModel)]="reservationRequestDto.date" [showTime]="true" placeholder="yyyy-mm-dd hh:mm"></p-calendar>
+    <p-calendar appendTo="body" indputId="date" [(ngModel)]="reservationRequestDto.date" [showTime]="true" placeholder="YYYY-MM-DD hh:mm" [showIcon]="true">
+      <ng-template pTemplate="footer"><div class="calendar-footer">Wybierz pełną godzinę!</div></ng-template>
+    </p-calendar>
   </div>
 
   <div class="decision">
-    <button class="btn decline">Anuluj</button>
+    <button class="btn decline" (click)="btnCancel()" >Anuluj</button>
     <button class=" btn confirm" (click)="btnConfirm()" >Zatwierdź</button>
   </div>
 
