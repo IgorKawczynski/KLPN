@@ -23,6 +23,7 @@ export class ReservationComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    // this.reservationRequestDto.userId = localStorage.getItem('userId');
   }
 
   setPitchNumber(pitchNumber: number): void {
@@ -30,13 +31,15 @@ export class ReservationComponent implements OnInit {
   }
 
   btnConfirm(): void {
-    console.log(this.reservationRequestDto);
-    this.reservationRequestDto.userId = 1001;
+    // TO DO WYRZUCENIA KIEDY ID BĘDZIE POBIERANE Z SESJI
+    this.reservationRequestDto.userId = 1051;
+    this.reservationRequestDto.date.setHours(this.reservationRequestDto.date.getHours() + 1);
+
     this.createReservation();
   }
 
-  btnRoute(url: string) {
-    this.router.navigateByUrl(url);
+  btnCancel() {
+    history.back();
   }
 
   public createReservation() {
@@ -46,11 +49,12 @@ export class ReservationComponent implements OnInit {
       this.errorsListDto = response;
       if(!this.errorsListDto.listOfErrorsEmpty) {
         this.errorsListDto.errors.forEach((error) => {
-          this.messageService.add({life: 8000, severity:'error', summary:'Reservation', detail:error})
+          this.messageService.add({life: 8000, severity:'error', summary:'Błąd', detail:error})
         });
       }
       else{
-        this.messageService.add({life: 8000, severity:'success', summary:'Reservation', detail:'Successfully created reservation!'});
+        this.messageService.add({life: 8000, severity:'success', summary:'Zarezerwowano', detail:'Pomyślnie zarezerwowano boisko!'});
+        setTimeout(location.reload.bind(location), 3000);
       }
     })
   }

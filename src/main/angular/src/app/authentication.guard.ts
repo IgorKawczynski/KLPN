@@ -26,12 +26,12 @@ export class AuthenticationGuard implements CanActivate {
         return true;
       }
 
+
       if(!token) {
-        let urlUserEdit = "/user/edit"
-        let urlReservation = "/reservation"
-        let urlContact = "/contact"
+        let urlTeam = "/team";
+        let urlReservation = "/reservation";
         // TODO -- DO DODANIA KOLEJNE
-        if(state.url == urlUserEdit || state.url == urlReservation || state.url == urlContact) {
+        if(state.url == urlReservation || state.url == urlTeam) {
           console.log("!!! !!! NIE JESTES ZALOGOWANY !!! !!!")
           this.messageService.add({life:3500, severity:'info', summary:'Login', detail:" Musisz się najpierw zalogować ! "})
           return this.router.parseUrl('/login');

@@ -2,7 +2,7 @@ package com.io.klpn.user.dtos;
 
 import lombok.Builder;
 
-public record UserLoginRequestDTO(String email, String password) {
+public record UserLoginRequestDTO(Long id, String email, String password) {
 
     @Builder
     public UserLoginRequestDTO {}

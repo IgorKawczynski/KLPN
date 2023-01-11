@@ -55,6 +55,7 @@ public class UserService {
             manager.authenticate(new UsernamePasswordAuthenticationToken(user.email(), user.password()));
             final String sessionId = sessionRegistry.registerSession(user.email());
             response.setSessionId(sessionId);
+            response.setId(userRepository.findByEmail(user.email()).getId());
         }
         catch (BadCredentialsException | InternalAuthenticationServiceException exception) {
             if (Objects.isNull(user.email()) ) {

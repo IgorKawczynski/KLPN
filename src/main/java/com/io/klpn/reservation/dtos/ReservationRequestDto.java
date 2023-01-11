@@ -1,6 +1,5 @@
 package com.io.klpn.reservation.dtos;
 
-import com.io.klpn.user.User;
 import lombok.Builder;
 
 import java.time.LocalDateTime;

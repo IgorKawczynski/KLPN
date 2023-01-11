@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.NoSuchElementException;
 
@@ -30,22 +31,27 @@ public class ReservationValidator {
     }
 
     public void validateReservationData(ReservationRequestDto reservation) {
+        validatorService.isNull("data", reservation.date());
         validatorService.validateIntegerBiggerThan(reservation.pitch(), ValidatorService.MAX_PITCH_NUMBER);
         validatorService.validateIntegerLessThan(reservation.pitch(), ValidatorService.MIN_PITCH_NUMBER);
+        if (reservation.date().getMinute() != 0)
+            throw new IllegalArgumentException("Wprowadź pełną godzinę!");
         isReservationAvailable(reservation);
     }
 
     public void isReservationAvailable(ReservationRequestDto reservation){
-       if (reservationRepository.existsReservationByDateAndPitch(reservation.date(), reservation.pitch())) {
+        if (reservation.date().isBefore(LocalDateTime.now()) )
+            throw new IllegalArgumentException("Wybrana data nie może być datą przeszłą!");
+        if (reservationRepository.existsReservationByDateAndPitch(reservation.date(), reservation.pitch())) {
            throw new AlreadyExistsException(
-                   String.format("Reservation for given data: %s and pitch number: %d already exists!",
+                   String.format("Rezerwacja dla podanej daty: %s i numeru boiska: %d już istnieje!",
                            reservation.date().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")), reservation.pitch()));
        }
     }
 
     public void deleteReservationById(Long id) {
         if(!reservationRepository.existsById(id))
-            throw new NoSuchElementException(String.format("Reservation with id: %d does not exist. ", id));
+            throw new NoSuchElementException(String.format("Rezerwacja o podanym id: %d nie istnieje. ", id));
         reservationRepository.deleteById(id);
     }
 }
