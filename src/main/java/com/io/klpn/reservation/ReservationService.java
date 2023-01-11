@@ -66,7 +66,7 @@ public class ReservationService {
         try {
             reservationValidator.deleteReservationById(id);
         }
-        catch (NoSuchElementException exception) {
+        catch (NoSuchElementException | IllegalArgumentException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;

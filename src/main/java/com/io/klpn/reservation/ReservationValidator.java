@@ -52,6 +52,11 @@ public class ReservationValidator {
     public void deleteReservationById(Long id) {
         if(!reservationRepository.existsById(id))
             throw new NoSuchElementException(String.format("Rezerwacja o podanym id: %d nie istnieje. ", id));
+        var reservationToDelete = reservationRepository.getReferenceById(id);
+        if(reservationToDelete.getDate().isBefore(LocalDateTime.now()))
+            throw new IllegalArgumentException("Nie można usunąć rezerwacji z przeszłości!");
+        if(reservationToDelete.getDate().isBefore(LocalDateTime.now().plusHours(3)))
+            throw new IllegalArgumentException("Rezerwację można usunąć z co najmniej 3 godzinnym wyprzedzeniem!");
         reservationRepository.deleteById(id);
     }
 }
