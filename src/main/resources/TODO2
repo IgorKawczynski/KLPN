@@ -14,7 +14,7 @@ TODO do końca implementacji (15.01)
 - Dodać transfery pomiędzy 2 drużynami (więcej nie brak, aby do pokazania mu i testowania)
 - Dodać kilka statystyk meczowych też dla tej samej drużyny co transfery i rezerwacje
 
-2. (KTO?)
+2. (Adam)
 - Rezerwacja boiska (dla usera) z walidacją
 - Podgląd rezerwacji (dla usera) - w formie listy
 - Edycja + Usunięcie rezerwacji (dla usera) z walidacją
@@ -22,6 +22,7 @@ TODO do końca implementacji (15.01)
 
 3. (KTO?)
 - Zarejestrowanie drużyny (tylko jako student)
+- Zaakceptowanie drużyny przez administratora (na bazie akceptacji studenta)???
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
 
