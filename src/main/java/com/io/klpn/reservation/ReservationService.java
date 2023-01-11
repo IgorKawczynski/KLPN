@@ -75,14 +75,18 @@ public class ReservationService {
     public ErrorsListDTO updateReservation(ReservationUpdateDto reservationToUpdate) {
 //        reservationToUpdate: Stare id i userId, ale nowa data i boisko
         var errorsList = new ErrorsListDTO();
+
         var reservationRequestDto = new ReservationRequestDto(reservationToUpdate.userId(), reservationToUpdate.pitch(), reservationToUpdate.date());
         var updatedReservation = getReservationById(reservationToUpdate.id());
+
         try {
             if (updatedReservation.getDate().isBefore(LocalDateTime.now()) )
                 throw new IllegalArgumentException("Nie można edytować rezerwacji, która się odbyła!");
             if (updatedReservation.getDate().isBefore(LocalDateTime.now().plusHours(3)))
                 throw new IllegalArgumentException("Rezerwację można edytować z co najmniej 3 godzinnym wyprzedzeniem!");
+
             reservationValidator.validateReservationData(reservationRequestDto);
+
             var reservation = getReservationById(reservationToUpdate.id());
             reservation.setDate(reservationToUpdate.date());
             reservation.setPitch(reservationToUpdate.pitch());
