@@ -14,6 +14,7 @@ import { MatchComponent } from "./match/match.component";
 import {ContactComponent} from "./contact/contact.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
+import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 
 const routes: Routes = [
       { path: '', component: HomeComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'schedule', component: ScheduleComponent },
-      { path: 'users/update-to-student', component: UpdateToStudentComponent},
+      { path: 'users/update-to-student', component: UpdateToStudentComponent },
+      { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: '**', redirectTo: '' }
 ];
 

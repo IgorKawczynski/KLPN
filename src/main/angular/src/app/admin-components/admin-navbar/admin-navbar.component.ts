@@ -28,7 +28,7 @@ export class AdminNavbarComponent implements OnInit {
             label:'Zaakceptuj zawodnika',
             styleClass: 'admin-navbar-subitem',
             icon:'pi pi-user-plus',
-            routerLink: "/"
+            routerLink: "/admin-accept-player"
           },
           {
             label:'Zaakceptuj prośbę o zmianę terminu meczu',

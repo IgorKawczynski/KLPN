@@ -47,6 +47,7 @@ import { AdminFooterComponent } from './admin-components/admin-footer/admin-foot
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {TreeTableModule} from 'primeng/treetable';
 import {TreeNode} from 'primeng/api';
+import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {TreeNode} from 'primeng/api';
     AdminNavbarComponent,
     AdminFooterComponent,
     UpdateToStudentComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    AdminAcceptPlayerComponent
   ],
   imports: [
     HttpClientModule,
