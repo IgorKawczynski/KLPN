@@ -13,6 +13,8 @@ import java.io.Serializable;
 public class UserLoginResponseDTO implements Serializable {
 
     private String sessionId;
+
+    private Long id;
     private ErrorsListDTO errorsListDTO;
 
     public UserLoginResponseDTO(ErrorsListDTO errorsListDTO) {

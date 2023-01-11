@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
   sessionId: any = "";
+  userId: any = "";
   errorsListDTO: ErrorsListDTO = new ErrorsListDTO();
 
   constructor(
@@ -38,11 +39,12 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.sessionId != null) {
           this.sessionId = res.sessionId;
+          this.userId = res.id;
           sessionStorage.setItem('token', this.sessionId);
           this.router.navigate(['localhost:4200/']);
           this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
           localStorage.setItem('email', this.model.email)
-          localStorage.setItem('id', this.model.id)
+          localStorage.setItem('id', this.userId)
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>
