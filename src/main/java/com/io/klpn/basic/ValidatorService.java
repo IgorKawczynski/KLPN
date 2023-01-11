@@ -51,19 +51,19 @@ public class ValidatorService {
 
     public void validateIntegerLessThan(Integer integerToValidate, Integer lessThanValue) {
         if (integerToValidate.compareTo(lessThanValue) < 0) {
-            throw new IntegerValidatorException(String.format("%d must be bigger than %d", integerToValidate, lessThanValue));
+            throw new IntegerValidatorException(String.format("%d musi być większe niż %d", integerToValidate, lessThanValue));
         }
     }
 
     public void validateIntegerBiggerThan(Integer integerToValidate, Integer biggerThanValue) {
         if (integerToValidate.compareTo(biggerThanValue) > 0) {
-            throw new IntegerValidatorException(String.format("%d must be lower than %d", integerToValidate, biggerThanValue));
+            throw new IntegerValidatorException(String.format("%d musi być mniejsze niż %d", integerToValidate, biggerThanValue));
         }
     }
 
     public void validateIdsEquality(Long firstId, Long secondId) {
         if (firstId.equals(secondId)) {
-            throw new IntegerValidatorException(String.format("%d must be different than %d", firstId, secondId));
+            throw new IntegerValidatorException(String.format("%d musi się różnić od %d", firstId, secondId));
         }
     }
 }
