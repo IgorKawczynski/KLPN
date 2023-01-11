@@ -24,7 +24,8 @@ export class NavbarComponent implements OnInit {
           },
           {
             label:'Zarządzaj rezerwacją',
-            icon:'pi pi-fw pi-cog'
+            icon:'pi pi-fw pi-cog',
+            routerLink: "/reservation-list"
           },
           {
             label:'Historia rezerwacji',

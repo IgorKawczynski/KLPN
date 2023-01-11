@@ -8,13 +8,12 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.scss'],
+  styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent implements OnInit {
 
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   reservationRequestDto: ReservationRequestDto = new ReservationRequestDto;
-
 
   constructor (
     private reservationService: ReservationService,
@@ -58,6 +57,5 @@ export class ReservationComponent implements OnInit {
       }
     })
   }
-
 
 }
