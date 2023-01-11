@@ -6,6 +6,7 @@ import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.Student;
+import com.io.klpn.student.StudentPlayerDTO;
 import com.io.klpn.student.StudentRepository;
 import com.io.klpn.team.dtos.TeamCreateDTO;
 import lombok.AccessLevel;
@@ -32,7 +33,9 @@ public class TeamService {
         try {
             var team = teamValidator.createTeam(teamDTO);
             var createdTeam = teamRepository.saveAndFlush(team);
-            assignStudentsToTeam(teamDTO.studentsIndexNumbers(), createdTeam);
+            assignStudentsToTeam(teamDTO.indexes(), createdTeam);
+            // TODO : przypisz pozycję oraz role dla każdego podanego studenta
+            // TODO : w sesji przekaż id studenta i mu przypisz rolę kapitana drużyny
         }
         catch(AlreadyExistsException | StringValidatorException | NullPointerException |
               IllegalStateException exception) {

@@ -26,9 +26,10 @@ public class TeamValidator {
 
     public Team createTeam(TeamCreateDTO teamDTO) {
         validateTeamName(teamDTO.name());
-        validateTeamLength(teamDTO.studentsIndexNumbers());
-        studentValidator.checkIfStudentsAreAccepted(teamDTO.studentsIndexNumbers());
-        studentValidator.checkIfAnyStudentIsAssignedToAnotherTeam(teamDTO.studentsIndexNumbers());
+        validateTeamLength(teamDTO.indexes());
+        isAnyRefreeGiven(teamDTO.referees());
+        studentValidator.checkIfStudentsAreAccepted(teamDTO.indexes());
+        studentValidator.checkIfAnyStudentIsAssignedToAnotherTeam(teamDTO.indexes());
         return new Team(teamDTO.name());
     }
 
@@ -37,6 +38,19 @@ public class TeamValidator {
             throw new NoSuchElementException(String.format("Drużyna z podanym id: %d nie istnieje!", id));
         }
         teamRepository.deleteById(id);
+    }
+
+    public void isAnyRefreeGiven(List<Boolean> referees) {
+        var refereeGiven = false;
+        for (Boolean element: referees) {
+            if (element != null && element == true) {
+                refereeGiven = true;
+                break;
+            }
+        }
+        if (refereeGiven) return;
+        // jeśli nie znaleziono sędziego, rzucam wyjątek
+        throw new NullPointerException("Każda drużyna musi wyznaczyć przynajmniej jednego zawodnika na sędziego.");
     }
 
     public void validateTeamLength(List<Integer> indexes) {
