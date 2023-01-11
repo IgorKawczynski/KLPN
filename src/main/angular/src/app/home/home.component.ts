@@ -15,4 +15,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  homePanelActivate() {
+    const home = document.querySelector('.home');
+    // nie usuwać komentarza niżej -> to adnotacja typescriptowa!!
+    // @ts-ignore
+    home.classList.toggle('home--teams');
+    console.log("Animacja")
+  }
+
 }
