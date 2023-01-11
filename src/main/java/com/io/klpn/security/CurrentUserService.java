@@ -20,6 +20,7 @@ public class CurrentUserService implements UserDetailsService {
         final User user = userRepository.findByEmail(email);
         if (user != null) {
             final CurrentUser currentUser = new CurrentUser();
+            currentUser.setId(user.getId());
             currentUser.setEmail(user.getEmail());
             currentUser.setPassword(user.getPassword());
             return currentUser;

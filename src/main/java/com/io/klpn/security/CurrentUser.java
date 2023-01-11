@@ -9,13 +9,14 @@ import java.util.List;
 
 public class CurrentUser implements UserDetails {
 
+    private Long id;
     private String email;
     private String password;
 
+    public void setId(Long id) { this.id = id; }
     public void setEmail(String email) {
         this.email = email;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -33,6 +34,10 @@ public class CurrentUser implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override

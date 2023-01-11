@@ -2,17 +2,8 @@ TODO do końca implementacji (15.01)
 
 (frontend + w ewentualności backend)
 
-0. (IGOR)
- - Dokończenie walidacji logowania + rejestracji + modyfikacja pToast --- Zrobione
- - Widoki i serwis z funkcją isLogged/isReferee/isCaptain zależnie od zalogowania (user | admin) - W trakcie
- - Animacja na stronę główną - W trakcie
-
-1. (GRZES)
-- Dodać 10/15 drużyn do bazy
-- Przypisać 2/3 drużynom zawodników
-- Dodać ileś rezerwacji dla 2/3 drużyn, żeby było do testowania i prezentacji
-- Dodać transfery pomiędzy 2 drużynami (więcej nie brak, aby do pokazania mu i testowania)
-- Dodać kilka statystyk meczowych też dla tej samej drużyny co transfery i rezerwacje
+1. (IGOR)
+ - Dodanie isReferee + isAdmin przy sesji
 
 2. (Adam)
 - Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)
@@ -28,7 +19,6 @@ TODO do końca implementacji (15.01)
 4. (KTO?)
 - Generowanie ligi (utworzenie meczy dla wszystkich drużyn z ligi KLPN) można po prostu inserty dodać na bazę na sztywno a jemu powiemy że system to wygenerował, ewentualnie mega szybki i prosty controller z dodaniem meczu poprzez admina
 - Generowanie Tabeli (tym samym logika zliczania punktów drużyn na podstawie wygranych meczów)
-
 
 5. (KTO?)
 - Podgląd meczy (harmonogram jako lista) -> widzę to tak, że są dni i na dzień powiedzmy jest lista 3 meczy i tak zrobić z tydzień, aby każdy grał z każdym (żeby mu to pokazać)
