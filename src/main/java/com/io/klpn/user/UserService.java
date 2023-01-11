@@ -56,6 +56,7 @@ public class UserService {
             final String sessionId = sessionRegistry.registerSession(user.email());
             response.setSessionId(sessionId);
             response.setId(userRepository.findByEmail(user.email()).getId());
+            response.setIsAdmin(userRepository.findByEmail(user.email()).getIsAdmin());
         }
         catch (BadCredentialsException | InternalAuthenticationServiceException exception) {
             if (Objects.isNull(user.email()) ) {

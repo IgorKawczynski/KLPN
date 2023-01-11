@@ -3,7 +3,7 @@ TODO do końca implementacji (15.01)
 (frontend + w ewentualności backend)
 
 1. (IGOR)
- - Dodanie isReferee + isAdmin przy sesji
+ - Dodanie isReferee + isStudent przy sesji
 
 2. (Adam)
 - Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)
@@ -40,6 +40,9 @@ TODO do końca implementacji (15.01)
 **Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**
 ***DEADLINE 15.01***
 
+
+CO DODATKOWO :
+- Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
 
 CO POKAZAĆ :
 - responsywność strony rejestracji/logowania

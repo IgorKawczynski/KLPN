@@ -38,13 +38,19 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res);
         if (res.sessionId != null) {
+          if(res.isAdmin == true) {
+            this.router.navigateByUrl("/admin");
+            this.messageService.add({life:3000, severity:'info', summary:'Login', detail:" Udało ci się zalogować jako administrator !"})
+          }
+          else {
+            this.router.navigateByUrl("/");
+            this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+          }
           this.sessionId = res.sessionId;
-          this.userId = res.id;
-          sessionStorage.setItem('token', this.sessionId);
-          this.router.navigate(['localhost:4200/']);
-          this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
           localStorage.setItem('email', this.model.email)
-          localStorage.setItem('id', this.userId)
+          localStorage.setItem('id', res.id)
+          localStorage.setItem('isAdmin', res.isAdmin)
+          sessionStorage.setItem('token', this.sessionId);
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>
