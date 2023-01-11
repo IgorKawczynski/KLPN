@@ -9,8 +9,8 @@ TODO do końca implementacji (15.01)
 
 2. (Adam)
 - Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)
-- Podgląd rezerwacji (dla usera) - w formie listy
-- Edycja + Usunięcie rezerwacji (dla usera) z walidacją
+- Podgląd rezerwacji (dla usera) - w formie listy --- (Dodać funkcjonalności do przycisków "Usuń" i "Edytuj" - walidacja po stronie backendu gotowa)
+- Edycja + Usunięcie rezerwacji (dla usera) z walidacją ^^^
 
 3. (GRZES)
 - Zarejestrowanie drużyny (tylko jako student)
