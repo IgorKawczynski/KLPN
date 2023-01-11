@@ -2,12 +2,16 @@ package com.io.klpn.team;
 
 import com.io.klpn.basic.ValidatorService;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
+import com.io.klpn.student.StudentValidator;
+import com.io.klpn.team.dtos.TeamCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 import static com.io.klpn.basic.ValidatorService.*;
 
@@ -18,24 +22,37 @@ public class TeamValidator {
 
     final ValidatorService validatorService;
     final TeamRepository teamRepository;
+    final StudentValidator studentValidator;
 
-    public Team createTeam(Team team) {
-        validateTeamName(team.getName());
-        return new Team(team.getName());
+    public Team createTeam(TeamCreateDTO teamDTO) {
+        validateTeamName(teamDTO.name());
+        validateTeamLength(teamDTO.studentsIndexNumbers());
+        studentValidator.checkIfStudentsAreAccepted(teamDTO.studentsIndexNumbers());
+        studentValidator.checkIfAnyStudentIsAssignedToAnotherTeam(teamDTO.studentsIndexNumbers());
+        return new Team(teamDTO.name());
     }
 
     public void deleteTeamById(Long id) {
         if(!teamRepository.existsById(id)) {
-            throw new NoSuchElementException(String.format("Team with id: %d does not exist. ", id));
+            throw new NoSuchElementException(String.format("Drużyna z podanym id: %d nie istnieje!", id));
         }
         teamRepository.deleteById(id);
+    }
+
+    public void validateTeamLength(List<Integer> indexes) {
+        if(Objects.isNull(indexes)) {
+            throw new NullPointerException("Proszę podać zawodników do drużyny.");
+        }
+        if(indexes.size() < 8 || indexes.size() > 12) {
+            throw new IllegalStateException("Drużyna musi posiadać minimum 8 lub maksymalnie 12 zawodników!");
+        }
     }
 
     public void validateTeamName(String name) {
         validatorService.isNull("Name", name);
         validatorService.validateString("Name", name, NAME_REGEX, MAX_LENGTH_45);
         if (teamRepository.existsByName(name)) {
-            throw new AlreadyExistsException("Team with this name already exists, choose another one!");
+            throw new AlreadyExistsException("Nazwa drużyny jest zajęta, proszę podać inną!");
         }
     }
 
