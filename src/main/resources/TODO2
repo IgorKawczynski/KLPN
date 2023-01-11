@@ -3,6 +3,8 @@ TODO do końca implementacji (15.01)
 (frontend + w ewentualności backend)
 
 0. (IGOR)
+ - NOWE! trzeba dodać gdzieś do widoku usera opcje żeby wejść w widok do złożenia wniosku o konto studenta
+ - NOWE! dodać tablice reprezentującą dodanych studentów do drużyny na widoku rejestracji drużyny + przycisk do usuwania ich z tabeli
  - Dokończenie walidacji logowania + rejestracji + modyfikacja pToast --- Zrobione
  - Widoki i serwis z funkcją isLogged/isReferee/isCaptain zależnie od zalogowania (user | admin) - W trakcie
  - Animacja na stronę główną - W trakcie
