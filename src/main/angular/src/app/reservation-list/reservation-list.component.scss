@@ -7,3 +7,36 @@ main{
     position: relative;
     background-repeat: no-repeat;
 }
+
+.users-table {
+    width: 90%;
+    height: 50%;
+    opacity: 0.9;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.delete {
+    width: 200px;
+    background-color: rgb(255, 60, 0);
+    // margin-left: 200px;
+}
+
+.edit {
+    width: 200px;
+    background-color: rgb(76, 185, 66);
+    // margin-left: 200px;
+}
+
+
+.flex-container {
+    height: 40px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

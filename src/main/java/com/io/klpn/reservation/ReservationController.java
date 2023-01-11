@@ -2,6 +2,7 @@ package com.io.klpn.reservation;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.reservation.dtos.ReservationRequestDto;
+import com.io.klpn.reservation.dtos.ReservationResponseDTO;
 import com.io.klpn.reservation.dtos.ReservationUpdateDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -38,8 +39,7 @@ public class ReservationController {
     }
 
     @GetMapping("/list/{userId}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public List<ReservationRequestDto> getReservationsByUserIdAndDateAfterNow(@PathVariable Long userId) {
+    public List<ReservationResponseDTO> getReservationsByUserIdAndDateAfterNow(@PathVariable Long userId) {
         return reservationService.getReservationsByUserIdAndDateAfterNow(userId);
     }
 

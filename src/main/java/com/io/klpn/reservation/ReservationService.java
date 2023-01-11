@@ -4,6 +4,7 @@ import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.reservation.dtos.ReservationRequestDto;
+import com.io.klpn.reservation.dtos.ReservationResponseDTO;
 import com.io.klpn.reservation.dtos.ReservationUpdateDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,17 +46,19 @@ public class ReservationService {
                 .orElseThrow(() -> new IllegalArgumentException("Reserwacja z podanym id nie istnieje!"));
     }
 
-    public List<ReservationRequestDto> getReservationsByUserIdAndDateAfterNow(Long userId) {
+    public List<ReservationResponseDTO> getReservationsByUserIdAndDateAfterNow(Long userId) {
         LocalDateTime actualDayAndHour = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
         List<Reservation> reservationList =  reservationRepository.findReservationsByUser_IdAndDateAfter(userId, actualDayAndHour);
 
-        List<ReservationRequestDto> reservationRequestDtos = new ArrayList<>();
+        List<ReservationResponseDTO> reservationResponseDTOS = new ArrayList<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
         for (Reservation reservation: reservationList) {
-            var reservationToAdd = new ReservationRequestDto(reservation.getUser().getId(), reservation.getPitch(), reservation.getDate());
-            reservationRequestDtos.add(reservationToAdd);
+            var reservationToAdd = new ReservationResponseDTO(reservation.getUser().getId(), reservation.getPitch(), formatter.format(reservation.getDate()), reservation.getId());
+            reservationResponseDTOS.add(reservationToAdd);
         }
-        return reservationRequestDtos;
+        return reservationResponseDTOS;
     }
 
     public ErrorsListDTO deleteReservationById(Long id) {

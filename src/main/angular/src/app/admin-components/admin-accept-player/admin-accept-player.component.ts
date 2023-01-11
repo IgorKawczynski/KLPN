@@ -13,7 +13,6 @@ export class AdminAcceptPlayerComponent implements OnInit {
 
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   public users: UserToAcceptDto[] = [];
-  public columns: any[] = [];
   public selectedUsers: UserToAcceptDto[] = [];
   public selectedUsersId: number[] = [];
 
@@ -23,12 +22,6 @@ export class AdminAcceptPlayerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.columns = [
-      { field: 'id', header: 'Id' },
-      { field: 'firstName', header: 'Imię' },
-      { field: 'lastName', header: 'Nazwisko' },
-      { field: 'indexNumber', header: 'Numer indeksu' }
-    ];
     this.getUsers();
   }
 

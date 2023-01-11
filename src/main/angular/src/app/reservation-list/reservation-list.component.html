@@ -1,5 +1,29 @@
 <main>
     <app-navbar></app-navbar>
-  
+    <!-- <div class="users-table">
+        <p-table [value]="reservations" [paginator]="true" [rows]="8"  let x of reservations>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 400px;">Boisko</th>
+                    <th style="width: 700px;">Data</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body">
+                <tr>
+                    <td> &nbsp;&nbsp;&nbsp; {{ x.pitch }}</td>
+                    <td>{{ x.date }}</td>
+                    <td><button type="button" pButton label="Edytuj rezerwację" class="edit" ><i class="pi pi-file-edit"></i></button></td>
+                    <td><button type="button" pButton label="Usuń rezerwację" class="delete" click="btnDelete(x.id)"><i class="pi pi-trash"></i></button></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div>
+                    Liczba rezerwacji: {{x.length}}
+                </div>
+            </ng-template>
+        </p-table>
+    </div> -->
     <app-footer></app-footer>
   </main>
