@@ -8,6 +8,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static com.io.klpn.basic.ValidatorService.*;
@@ -28,7 +29,27 @@ public class StudentValidator {
 
     public void checkIfExistInDatabase(Long id, Integer indexNumber) {
         if (studentRepository.existsById(id) || studentRepository.existsByIndexNumber(indexNumber)) {
-            throw new AlreadyExistsException("Student with given id or index number already exist!");
+            throw new AlreadyExistsException("Student z podanym id bądź numerem albumu już istnieje!");
+        }
+    }
+
+    public void checkIfStudentsAreAccepted(List<Integer> indexNumbers) {
+        indexNumbers.forEach(this::checkIfStudentIsAccepted);
+    }
+
+    private void checkIfStudentIsAccepted(Integer indexNumber) {
+        if (!studentRepository.checkIfStudentIsAccepted(indexNumber)) {
+            throw new IllegalStateException(String.format("Student o indeksie %d jeszcze nie został zaakceptowany przez Administratora.", indexNumber));
+        }
+    }
+
+    public void checkIfAnyStudentIsAssignedToAnotherTeam(List<Integer> indexNumber) {
+        indexNumber.forEach(this::checkIfStudentIsAssignedToAnotherTeam);
+    }
+
+    private void checkIfStudentIsAssignedToAnotherTeam(Integer indexNumber) {
+        if (studentRepository.checkIfStudentIsAssignedToAnotherTeam(indexNumber)){
+            throw new IllegalStateException(String.format("Student o indeksie %d jest już przypisany do innej drużyny!", indexNumber));
         }
     }
 
@@ -44,7 +65,7 @@ public class StudentValidator {
 
     public void deleteStudentById(Long id) {
         if (!studentRepository.existsById(id)) {
-            throw new NoSuchElementException(String.format("Student with id: %d does not exist. ", id));
+            throw new NoSuchElementException(String.format("Student z podanym id: %d nie istnieje. ", id));
         }
         studentRepository.deleteById(id);
     }

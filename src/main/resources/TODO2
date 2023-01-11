@@ -4,6 +4,8 @@ TODO do końca implementacji (15.01)
 
 1. (IGOR)
  - Dodanie isReferee + isStudent przy sesji
+ - NOWE! trzeba dodać gdzieś do widoku usera opcje żeby wejść w widok do złożenia wniosku o konto studenta
+ - NOWE! dodać tablice reprezentującą dodanych studentów do drużyny na widoku rejestracji drużyny + przycisk do usuwania ich z tabeli
 
 2. (Adam)
 - Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)

@@ -5,6 +5,9 @@ import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
+import com.io.klpn.student.Student;
+import com.io.klpn.student.StudentRepository;
+import com.io.klpn.team.dtos.TeamCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,22 +25,32 @@ public class TeamService {
     final TeamRepository teamRepository;
     final TeamValidator teamValidator;
     final TeamEditor teamEditor;
+    final StudentRepository studentRepository;
 
-    public ErrorsListDTO createTeam(Team team){
+    public ErrorsListDTO createTeam(TeamCreateDTO teamDTO){
         var errorsListDTO = new ErrorsListDTO();
         try {
-            teamRepository.save(teamValidator.createTeam(team));
+            var team = teamValidator.createTeam(teamDTO);
+            var createdTeam = teamRepository.saveAndFlush(team);
+            assignStudentsToTeam(teamDTO.studentsIndexNumbers(), createdTeam);
         }
-        catch(AlreadyExistsException | StringValidatorException | NullPointerException exception) {
+        catch(AlreadyExistsException | StringValidatorException | NullPointerException |
+              IllegalStateException exception) {
             errorsListDTO.addError(exception.getMessage());
         }
         return errorsListDTO;
     }
 
+    public void assignStudentsToTeam(List<Integer> indexNumbers, Team team) {
+        var students = studentRepository.findAllByIndexNumberIn(indexNumbers);
+        students.forEach(student -> student.setTeam(team));
+        studentRepository.saveAll(students);
+    }
+
     public Team getTeamById(Long id){
         return teamRepository
                 .findById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("Team z podanym id: %d nie istnieje. ", id)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("Drużyna z podanym id: %d nie istnieje. ", id)));
     }
 
     public List<Team> generateTable(){

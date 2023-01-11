@@ -1,6 +1,7 @@
 package com.io.klpn.team;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.team.dtos.TeamCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -30,8 +31,7 @@ public class TeamController {
     }
 
     @PostMapping(path = "", produces = "application/json", consumes = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ErrorsListDTO createTeam(@RequestBody Team team) {
+    public ErrorsListDTO createTeam(@RequestBody TeamCreateDTO team) {
         return teamService.createTeam(team);
     }
 
