@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <main>
-  <app-navbar></app-navbar>
+  <app-navbar>  <button class="btn--toggle-state"></button></app-navbar>
   <div class="hero-img">
   </div>
   <div class="hero-text">
@@ -12,7 +12,42 @@
       Dołącz do nas i razem z drużyną sięgnij po tytuł mistrza Kortowa!
     </p>
     <a href="/register" type="button" class="btn-mainpage">Rejestracja</a>
+    <a href="javascript:void(0)"  type="button" class="btn-animation" (click)="homePanelActivate()">Najbliższy Mecz</a>
   </div>
+
+  <div class="home">
+    <div class="wrapper">
+      <div class="teams">
+        <div class="team--home">
+          <div class="team-name">
+            <div class="field-info">Najbliższy Mecz</div>
+            <div class="team-name-label"><h1>Kortowskie DZIKI</h1></div>
+          </div>
+          <div class="team-badge-wrapper">
+            <img src="../../assets/img/dziki-logo.jpg" alt="DZIKI" class="team-badge">
+          </div>
+        </div>
+        <div class="team--away">
+          <div class="team-name"><h1>DELTA Squadron</h1></div>
+          <div class="team-badge-wrapper">
+            <img src="../../assets/img/squadron-logo.png" alt="SQUADRON"
+                 class="team-badge">
+          </div>
+        </div>
+        <div class="hashtag"><h2>#DZIKIvsSQUADRON</h2></div>
+      </div>
+    </div>
+  </div>
+<!-- Zegar -->
+<!--  <div id="clock" class="clock" onload="currentTime()"></div>-->
+<!--  <script src="./home.js" type="text/javascript"></script>-->
+
+<!--  <section class="showcase">-->
+<!--    <img src="../assets/wallpaper4.jpg" alt="Home wallpaper" />-->
+<!--  </section>-->
+
+
+
   <app-footer></app-footer>
 </main>
 
