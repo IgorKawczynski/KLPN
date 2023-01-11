@@ -46,7 +46,6 @@ import { AdminNavbarComponent } from './admin-components/admin-navbar/admin-navb
 import { AdminFooterComponent } from './admin-components/admin-footer/admin-footer.component';
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {TreeTableModule} from 'primeng/treetable';
-import {TreeNode} from 'primeng/api';
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 

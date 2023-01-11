@@ -16,8 +16,10 @@ import { ScheduleComponent } from "./schedule/schedule.component";
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { AuthenticationGuard } from "./authentication.guard";
 
 const routes: Routes = [
+  { path: '', canActivate:[AuthenticationGuard], children: [
       { path: '', component: HomeComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'login', component: LoginComponent },
@@ -35,6 +37,7 @@ const routes: Routes = [
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'reservation-list', component: ReservationListComponent},
       { path: '**', redirectTo: '' }
+  ]}
 ];
 
 @NgModule({
