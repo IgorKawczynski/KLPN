@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['localhost:4200/']);
           this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
           localStorage.setItem('email', this.model.email)
+          localStorage.setItem('id', this.model.id)
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>
