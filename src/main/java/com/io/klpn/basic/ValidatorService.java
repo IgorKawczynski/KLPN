@@ -26,26 +26,26 @@ public class ValidatorService {
 
     public void isNull(String fieldName, Object fieldValue) {
         if (fieldValue == null) {
-            throw new NullPointerException(String.format("%s cannot be empty!", fieldName));
+            throw new NullPointerException(String.format("Pole %s nie może być puste!", fieldName));
         }
     }
 
     public void validateString(String fieldName, String fieldValue, String regex, Integer maxLength) {
         if (!fieldValue.matches(regex)) {
-            throw new StringValidatorException(String.format("%s contains illegal characters!", fieldName));
+            throw new StringValidatorException(String.format("%s zawiera niedozwolone znaki!", fieldName));
         }
         if (fieldValue.length() > maxLength || fieldValue.length() < MIN_LENGTH_3) {
-            throw new StringValidatorException(String.format("%s must be between %d to %d chars length!", fieldName, MIN_LENGTH_3, maxLength));
+            throw new StringValidatorException(String.format("Długość znaków %s musi się zawierać pomiędzy %d i %d!", fieldName, MIN_LENGTH_3, maxLength));
         }
     }
 
     public void validatePhoneNumber(String phoneNumber) {
         if (!phoneNumber.matches(PHONE_NUMBER_REGEX)) {
-            throw new StringValidatorException("Phone number must contain only digits!");
+            throw new StringValidatorException("Numer telefonu może zawierać tylko cyfry!");
         }
 
         if (phoneNumber.length() != MAX_LENGTH_9) {
-            throw new StringValidatorException("Phone number must be 9 digits length!");
+            throw new StringValidatorException("Numer telefonu musi mieć 9 cyfr!");
         }
     }
 
