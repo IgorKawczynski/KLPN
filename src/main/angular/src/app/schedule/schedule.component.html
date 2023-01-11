@@ -3,11 +3,25 @@
 <main>
   <app-navbar></app-navbar>
   <div class="page">
-    <div class="content">
-      <div class="title-part">
-        <p class="title-text">Kortowska Liga piłki nożnej</p>
-        <img src="assets/img/KLPN_Github_logophotoAid-removed-background.png">
-      </div>
+    <p class="title">Harmonogram rozgrywek</p>
+    <div class="tabela">
+      <p-treeTable  [value]="files" [columns]="cols" [paginator]="false" [scrollable]="true" scrollHeight="550px" [rows]="10">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns; let i = index">
+              <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-treeTable>
     </div>
   </div>
   <app-footer></app-footer>
