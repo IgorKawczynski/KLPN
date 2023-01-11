@@ -2,6 +2,7 @@ package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ValidatorService;
 import com.io.klpn.match.MatchRepository;
+import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
 import com.io.klpn.student.StudentRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -26,12 +27,14 @@ public class MatchStatisticValidator {
 
     final StudentRepository studentRepository;
 
-    public MatchStatistic createMatchStatistic(MatchStatistic matchStatistic) {
-        validatorService.validateIntegerBiggerThan(matchStatistic.getMinute(), MIN_MINUTE);
-        validatorService.validateIntegerLessThan(matchStatistic.getMinute(), MAX_MINUTE);
+    public MatchStatistic createMatchStatistic(MatchStatisticCreateDTO dto) {
+        validatorService.validateIntegerBiggerThan(dto.minute(), MAX_MINUTE);
+        validatorService.validateIntegerLessThan(dto.minute(), MIN_MINUTE);
 //        if (!matchRepository.existsById(matchStatistic.getMatch().getId()))
 //            throw new NoSuchElementException(String.format("Match with id: %d does not exist. ", matchStatistic.getMatch().getId()));
-        return new MatchStatistic(matchStatistic.getEvent(), matchStatistic.getMinute(), matchStatistic.getStudent(), matchStatistic.getMatch());
+        var student = studentRepository.getReferenceById(dto.studentId());
+        var match = matchRepository.getReferenceById(dto.matchId());
+        return new MatchStatistic(dto.event(), dto.minute(), student, match);
     }
 
     public void deleteMatchStatisticById(Long id){
