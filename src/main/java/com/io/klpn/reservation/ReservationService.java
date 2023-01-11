@@ -10,7 +10,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -41,6 +44,18 @@ public class ReservationService {
                 .orElseThrow(() -> new IllegalArgumentException("Reserwacja z podanym id nie istnieje!"));
     }
 
+    public List<ReservationRequestDto> getReservationsByUserIdAndDateAfterNow(Long userId) {
+        LocalDateTime actualDayAndHour = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+        List<Reservation> reservationList =  reservationRepository.findReservationsByUser_IdAndDateAfter(userId, actualDayAndHour);
+
+        List<ReservationRequestDto> reservationRequestDtos = new ArrayList<>();
+
+        for (Reservation reservation: reservationList) {
+            var reservationToAdd = new ReservationRequestDto(reservation.getUser().getId(), reservation.getPitch(), reservation.getDate());
+            reservationRequestDtos.add(reservationToAdd);
+        }
+        return reservationRequestDtos;
+    }
 
     public ErrorsListDTO deleteReservationById(Long id) {
         var errorsList = new ErrorsListDTO();

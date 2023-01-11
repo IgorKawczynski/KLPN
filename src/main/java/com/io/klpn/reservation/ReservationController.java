@@ -9,6 +9,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/reservation")
@@ -33,6 +35,12 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.FOUND)
     public Reservation getReservationById(@PathVariable Long id) {
         return reservationService.getReservationById(id);
+    }
+
+    @GetMapping("/list/{userId}")
+    @ResponseStatus(HttpStatus.FOUND)
+    public List<ReservationRequestDto> getReservationsByUserIdAndDateAfterNow(@PathVariable Long userId) {
+        return reservationService.getReservationsByUserIdAndDateAfterNow(userId);
     }
 
     @PatchMapping("")

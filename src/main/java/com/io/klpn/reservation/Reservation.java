@@ -23,7 +23,7 @@ public class Reservation extends BasicEntity {
     LocalDateTime date;
     // https://vladmihalcea.com/manytoone-jpa-hibernate/
     // how to properly use ManyToOne annotation
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     User user;
 
