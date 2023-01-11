@@ -18,19 +18,15 @@
       <div class="player_section">
         <p class="category">Zawodnik:</p>
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText [(ngModel)]="player.indexNumber" >
+          <input id="float-input" type="text" pInputText [(ngModel)]="player.indexNumber" [maxLength]="6">
           <label for="float-input">Numer indeksu</label>
         </span>
-        <p-dropdown [options]="positions" [(ngModel)]="selectedposition" placeholder="Wybierz pozycję" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="positions" [(ngModel)]="player.position" placeholder="Wybierz pozycję" [showClear]="true"></p-dropdown>
         <div class="field-checkbox">
-          <p-checkbox value="sędzia" [(ngModel)]="player.isReferee" inputId="ny"></p-checkbox>
+          <p-checkbox [binary]="true" [(ngModel)]="player.isReferee"></p-checkbox>
           <label> Sędzia</label>
         </div>
         <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded" (click)="addPlayer()"></button>
-      </div>
-
-      <div class="warning_section">
-        <p>Komunikat o błędzie jak np zawodnika nie bedzie w bazie studentów</p>
       </div>
 
       <div class="decision">
