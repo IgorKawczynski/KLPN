@@ -19,7 +19,7 @@ TODO do końca implementacji (15.01)
 - Podgląd rezerwacji (dla usera) - w formie listy
 - Edycja + Usunięcie rezerwacji (dla usera) z walidacją
 
-3. (KTO?)
+3. (GRZES)
 - Zarejestrowanie drużyny (tylko jako student)
 - Zaakceptowanie drużyny przez administratora (na bazie akceptacji studenta)???
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
