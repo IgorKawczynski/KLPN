@@ -14,9 +14,9 @@ main{
 
 .form-box{
   width: 380px;
-  height: 620px;
+  height: 580px;
   position: relative;
-  margin: 5% auto;
+  margin: 1% auto;
   background: #fff;
   padding: 5px;
   border-radius: 20px;
@@ -40,7 +40,7 @@ main{
   .input-name{
     width: 70%;
     position: absolute;
-    top: 130px;
+    top: 110px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -48,28 +48,28 @@ main{
   .input-lastname{
     width: 70%;
     position: absolute;
-    top: 190px;
+    top: 170px;
     left: 50%;
     transform: translateX(-50%);
   }
   .input-email{
     width: 70%;
     position: absolute;
-    top: 250px;
+    top: 230px;
     left: 50%;
     transform: translateX(-50%);
   }
   .input-password{
     width: 70%;
     position: absolute;
-    top: 310px;
+    top: 290px;
     left: 50%;
     transform: translateX(-50%);
   }
   .input-index{
    width: 70%;
    position: absolute;
-   top: 370px;
+   top: 350px;
    left: 50%;
    transform: translateX(-50%);
   }
@@ -77,14 +77,14 @@ main{
   .input-phone{
     width: 70%;
     position: absolute;
-    top: 430px;
+    top: 410px;
     left: 50%;
     transform: translateX(-50%);
   }
 
   .optional{
     position: absolute;
-    top: 480px;
+    top: 460px;
     left: 75px;
     font-size: 16px;
     font-family: Nunito;
@@ -101,7 +101,7 @@ main{
 
   .login-btn{
     position: absolute;
-    top: 530px;
+    top: 510px;
     left: 50%;
     transform: translateX(-50%);
     height: 40px;
