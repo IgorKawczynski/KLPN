@@ -52,7 +52,7 @@ export class ReservationComponent implements OnInit {
       }
       else{
         this.messageService.add({life: 8000, severity:'success', summary:'Zarezerwowano', detail:'Pomyślnie zarezerwowano boisko!'});
-        setTimeout(location.reload.bind(location), 3000);
+        setTimeout(() => {this.router.navigateByUrl('/reservation-list');}, 1500);
       }
     })
   }
