@@ -17,6 +17,9 @@ public class UserLoginResponseDTO implements Serializable {
     private Long id;
 
     private Boolean isAdmin;
+
+    private Boolean isStudent;
+    private String name;
     private ErrorsListDTO errorsListDTO;
 
     public UserLoginResponseDTO(ErrorsListDTO errorsListDTO) {
