@@ -5,6 +5,7 @@ import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.security.SessionRegistry;
+import com.io.klpn.student.Student;
 import com.io.klpn.student.StudentRepository;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.*;
@@ -58,13 +59,16 @@ public class UserService {
             final String sessionId = sessionRegistry.registerSession(user.email());
             response.setSessionId(sessionId);
             response.setId(userRepository.findByEmail(user.email()).getId());
-            response.setIsAdmin(userRepository.findByEmail(user.email()).getIsAdmin());
-            response.setIsStudent(studentRepository.existsById(userRepository.findByEmail(user.email()).getId()));
             response.setName(userRepository.findByEmail(user.email()).getFirstName());
+            response.setIsAdmin(userRepository.findByEmail(user.email()).getIsAdmin());
+            if(studentRepository.existsById(userRepository.findByEmail(user.email()).getId())) {
+                Student student = studentRepository.findEntityById(userRepository.findByEmail(user.email()).getId());
+                response.setIsStudent(studentRepository.checkIfStudentIsAcceptedById(userRepository.findByEmail(user.email()).getId()));
+                response.setRole(student.getRole());
+            }
         }
         catch (StringValidatorException | BadCredentialsException | InternalAuthenticationServiceException | NullPointerException exception) {
             response.addToErrorList(exception.getMessage());
-//            response.addToErrorList("Podałeś zły email / hasło, spróbuj jeszcze raz !");
         }
         return response;
     }

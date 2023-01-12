@@ -1,6 +1,7 @@
 package com.io.klpn.user.dtos;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.student.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +20,7 @@ public class UserLoginResponseDTO implements Serializable {
     private Boolean isAdmin;
 
     private Boolean isStudent;
+    private Role role;
     private String name;
     private ErrorsListDTO errorsListDTO;
 
