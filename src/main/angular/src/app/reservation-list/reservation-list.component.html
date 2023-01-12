@@ -1,7 +1,7 @@
 <main>
     <app-navbar></app-navbar>
-    <!-- <div class="reservations-table">
-        <p-table [value]="reservations" [paginator]="true" [rows]="7"  let x of reservations>
+    <div class="reservations-table">
+        <p-table [value]="reservations" [paginator]="true" [rows]="7">
                 <ng-template pTemplate="caption">
                     <div class="center-caption">
                         Lista twoich przyszłych rezerwacji
@@ -15,20 +15,15 @@
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body">
+            <ng-template pTemplate="body" let-reservationDTO>
                 <tr>
-                    <td> &nbsp;&nbsp;&nbsp; {{ x.pitch }}</td>
-                    <td>{{ x.date }}</td>
+                    <td> &nbsp;&nbsp;&nbsp; {{ reservationDTO.pitch }}</td>
+                    <td>{{ reservationDTO.date }}</td>
                     <td><button type="button" pButton label="Edytuj rezerwację" class="edit" ><i class="pi pi-file-edit"></i></button></td>
-                    <td><button type="button" pButton label="Usuń rezerwację" class="delete" click="btnDelete(x.id)"><i class="pi pi-trash"></i></button></td>
+                    <td><button type="button" pButton label="Usuń rezerwację" class="delete" (click)="btnDelete(reservationDTO.id)"><i class="pi pi-trash"></i></button></td>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="summary">
-                <div>
-                    Liczba rezerwacji: {{x.length}}
-                </div>
-            </ng-template>
         </p-table>
-    </div> -->
+    </div>
     <app-footer></app-footer>
   </main>

@@ -29,21 +29,20 @@ export class ReservationListComponent implements OnInit {
 
   public getReservations(): void {
     let userId: number = this.loginService.getId();
-    
+
     this.reservationListService.getReservationsByUserId(userId).subscribe((response: any) => {
       this.reservations = response;
     });
   }
 
-  public btnDelete(row: number){
-    // this.deleteReservationById();
-    // window.location.reload();
-    console.log(row);
+  public btnDelete(rowId: number){
+    this.deleteReservationById(rowId);
+    window.location.reload();
+    console.log(rowId);
   }
 
-  // public deleteReservationById(): void {
-  //   this.reservationListService.deleteReservationById(this.rowId).subscribe((response: any) =>{
-
-  //   });
-  // }
+  public deleteReservationById(rowId: number): void {
+    this.reservationListService.deleteReservationById(rowId).subscribe((response: any) =>{
+    });
+  }
 }
