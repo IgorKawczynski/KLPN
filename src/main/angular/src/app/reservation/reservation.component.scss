@@ -1,7 +1,7 @@
 main{
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/artificial-turf-1711556.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/football-field-2588146.jpg");
   background-position: center;
   background-size: cover;
   position: relative;
@@ -21,7 +21,7 @@ main{
   height: 580px;
   width: 1200px;
   position: absolute;
-  top: 60%;
+  top: 64%;
   left: 50%;
   transform: translate(-50%, -50%);
   //background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/artificial-turf-1711556.jpg");
@@ -46,7 +46,7 @@ main{
       left: 50%;
       transform: translateX(-50%);
       font-size: 26px;
-      color: #691010;
+      color: #310744;
     }
   }
   .pitch:hover{

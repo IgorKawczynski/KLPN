@@ -20,8 +20,24 @@
   </div>
 
   <div class="decision">
-    <button id="pitch1" class="btn decline">Anuluj</button>
-    <button class=" btn confirm" (click)="btnConfirm()" >Zatwierdź</button>
+    <button pButton pRipple
+            class="p-button-lg p-button-raised p-button-danger"
+            type="button"
+            style="margin-right: 10px;"
+            icon="pi pi-times"
+            (click)="btnCancel()"
+            routerLinkActive="active"
+            label="Anuluj">
+    </button>
+    <button pButton pRipple
+            class="p-button-lg p-button-raised p-button-help"
+            style="margin-left: 10px;"
+            type="button"
+            icon="pi pi-check"
+            (click)="btnConfirm()"
+            routerLinkActive="active"
+            label="Zatwierdź">
+    </button>
   </div>
 
 

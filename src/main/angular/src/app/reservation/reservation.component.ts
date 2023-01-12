@@ -31,7 +31,6 @@ export class ReservationComponent implements OnInit {
 
   btnConfirm(): void {
     this.reservationRequestDto.date.setHours(this.reservationRequestDto.date.getHours() + 1);
-
     this.createReservation();
   }
 
