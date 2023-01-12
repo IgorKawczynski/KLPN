@@ -1,7 +1,12 @@
 <main>
     <app-admin-navbar></app-admin-navbar>
     <div class="users-table">
-        <p-table [value]="users" [(selection)]="selectedUsers" [paginator]="true" [rows]="10" [selectionPageOnly]="true">
+        <p-table [value]="users" [(selection)]="selectedUsers" [paginator]="true" [rows]="9" [selectionPageOnly]="true">
+            <ng-template pTemplate="caption">
+                <div class="center">
+                    Lista użytkowników oczekujących na zaakceptowanie
+                </div>
+            </ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <th>Id</th>

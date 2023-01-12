@@ -75,8 +75,8 @@ export class ScheduleComponent implements OnInit {
 
     this.cols = [
       { field: 'date', header: 'Data' },
-      { field: 'team1', header: 'Pierwsze drużyna' },
-      { field: 'team2', header: 'Druga druzyna' },
+      { field: 'team1', header: 'Pierwsza drużyna' },
+      { field: 'team2', header: 'Druga drużyna' },
       { field: 'hour', header: 'Godzina spotkania' },
       { field: 'pitch_number', header: 'Numer boiska' }
     ];
