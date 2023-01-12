@@ -7,6 +7,7 @@ import { StudentPlayerDTO } from '../student/student-player-dto';
 import { StudentService } from '../student/student.service';
 import { TeamCreateDto } from './team-create-dto';
 import { TeamService } from './team.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-team',
@@ -26,7 +27,8 @@ export class TeamComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) { }
 
   addPlayer(): void {
@@ -56,6 +58,7 @@ export class TeamComponent implements OnInit {
 
   btnDecline(): void {
     this.players.splice(0);
+    this.router.navigateByUrl("/");
     this.messageService.add({life: 8000, severity:'info', summary:'Rejestracja drużyny', detail:'Anulowano rejestrację drużyny'});
   }
 

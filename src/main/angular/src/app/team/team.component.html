@@ -30,8 +30,24 @@
       </div>
 
       <div class="decision">
-        <button class="btn decline" (click)="btnDecline()">Anuluj</button>
-        <button class=" btn confirm" (click)="btnConfirm()">Zatwierdź</button>
+        <button pButton pRipple
+                class="p-button-lg p-button-outlined p-button-danger"
+                type="button"
+                style="margin-right: 10px; background-color:white "
+                icon="pi pi-times"
+                (click)="btnDecline()"
+                routerLinkActive="active"
+                label="Anuluj">
+        </button>
+        <button pButton pRipple
+                class="p-button-lg p-button-outlined p-button-success"
+                style="margin-left: 10px; background-color:white; color: forestgreen"
+                type="button"
+                icon="pi pi-check"
+                (click)="btnConfirm()"
+                routerLinkActive="active"
+                label="Zatwierdź">
+        </button>
       </div>
     </div>
 
