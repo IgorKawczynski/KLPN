@@ -3,7 +3,6 @@ TODO do końca implementacji (15.01)
 (frontend + w ewentualności backend)
 
 1. (IGOR)
- - Dodanie isReferee + isStudent przy sesji
  - NOWE! trzeba dodać gdzieś do widoku usera opcje żeby wejść w widok do złożenia wniosku o konto studenta
  - NOWE! dodać tablice reprezentującą dodanych studentów do drużyny na widoku rejestracji drużyny + przycisk do usuwania ich z tabeli
 
@@ -33,10 +32,6 @@ TODO do końca implementacji (15.01)
 
 7. (KTO?)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
-
-8. (KTO?)
-- Użytkownik zalogowany klikający w prawy górny róg (ikonka użytkownika systemu) zostaje przekierowany na profil swojego konta (Profil użytkownika z danymi jak email, numer telefonu, itd itp)
-
 
 *Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
 **Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**
