@@ -2,8 +2,10 @@ package com.io.klpn.user;
 
 import com.io.klpn.basic.ValidatorService;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
+import com.io.klpn.user.dtos.UserLoginRequestDTO;
 import com.io.klpn.user.dtos.UserRegisterDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -20,27 +22,39 @@ public class UserValidator {
 
     public User createUser(UserRegisterDTO user) {
         checkIfExistsInDatabaseByEmail(user.email());
-        validatorService.isNull("First name", user.firstName());
-        validatorService.validateString("First name", user.firstName(), NAME_REGEX, MAX_LENGTH_45);
-        validatorService.isNull("Last name", user.lastName());
-        validatorService.validateString("Last name", user.lastName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Imię", user.firstName());
+        validatorService.validateString("Imię", user.firstName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Nazwisko", user.lastName());
+        validatorService.validateString("Nazwisko", user.lastName(), NAME_REGEX, MAX_LENGTH_45);
         validatorService.isNull("Email", user.email());
+        validatorService.emailContainsAtSign(user.email());
         validatorService.validateString("Email", user.email(), EMAIL_REGEX, MAX_LENGTH_45);
-        validatorService.isNull("Password", user.password());
-        validatorService.validateString("Password", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
-        validatorService.isNull("Phone Number", user.phoneNumber());
+        validatorService.isNull("Hasło", user.password());
+        validatorService.validateString("Hasło", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
+        validatorService.isNull("Numer Telefonu", user.phoneNumber());
         validatorService.validatePhoneNumber(user.phoneNumber());
         return new User(user.firstName(), user.lastName(), user.email(), this.encryptPassword(user.password()), user.phoneNumber());
     }
 
-    public void checkIfExistsInDatabaseByEmail(String email) {
-        if (userRepository.existsByEmail(email)) {
-            throw new AlreadyExistsException("User with given email already exists!");
+    public void loginUser(UserLoginRequestDTO user) {
+        validatorService.isNull("Email", user.email());
+        validatorService.emailContainsAtSign(user.email());
+        validatorService.validateString("Email", user.email(), EMAIL_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Hasło", user.password());
+        validatorService.validateString("Hasło", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
+        checkIfExists(user.email());
+    }
+
+    public void checkIfExists(String email) {
+        if (!userRepository.existsByEmail(email)) {
+            throw new BadCredentialsException("Podałeś zły email/hasło, spróbuj jeszcze raz !");
         }
     }
 
-    public Boolean emailContainsAtSign(String email) {
-        return email != null && email.contains("@");
+    public void checkIfExistsInDatabaseByEmail(String email) {
+        if (userRepository.existsByEmail(email)) {
+            throw new AlreadyExistsException("Użytkownik z takim e-mailem już istnieje !");
+        }
     }
 
     private String encryptPassword(String password){
