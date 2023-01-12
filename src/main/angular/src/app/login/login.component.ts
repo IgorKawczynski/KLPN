@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('isAdmin', res.isAdmin)
           localStorage.setItem('isStudent', res.isStudent)
           localStorage.setItem('name', res.name)
+          localStorage.setItem('role', res.role)
           sessionStorage.setItem('token', this.sessionId);
         }
         else {

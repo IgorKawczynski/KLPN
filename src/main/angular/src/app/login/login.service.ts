@@ -12,12 +12,10 @@ export class LoginService {
   }
 
   public isAdmin() {
-    console.log("Is actually logged user an admin : " + (localStorage.getItem("isAdmin") ===  "true"));
     return localStorage.getItem("isAdmin") ===  "true"
   }
 
   public isStudent() {
-    console.log("Is actually logged user a student? : " + (localStorage.getItem("isStudent") ===  "true"));
     return localStorage.getItem("isStudent") ===  "true"
   }
 
@@ -25,8 +23,13 @@ export class LoginService {
     return localStorage.getItem("name");
   }
 
+  public getRole() {
+    return localStorage.getItem("role");
+  }
+
   public getId() {
     return localStorage.getItem("id");
   }
+
 
 }
