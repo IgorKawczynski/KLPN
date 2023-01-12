@@ -39,9 +39,14 @@
                         Liczba oczekujących użytkowników: {{users.length}} 
                     </div>
                     <div class="right">
-                        <p>
-                            <button type="button" pButton label="Zaakceptuj" (click)="acceptUsers();"><i class="pi pi-check"></i></button>
-                        </p>
+                        <div>
+                            <button class="accept" type="button" pButton label="Zaakceptuj" (click)="acceptUsers()"><i class="pi pi-check"></i></button>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <button class="reject" type="button" pButton label="Odrzuć" (click)="rejectUsers()"><i class="pi pi-times"></i></button>
+                        </div>
                     </div>
                 </div>
             </ng-template>

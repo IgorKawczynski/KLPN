@@ -22,4 +22,8 @@ export class AdminAcceptPlayerService {
     return this.http.patch<number[]>(`${this.apiServerUrl}/api/admin/update-to-students`, listOfUsersId);
   }
 
+  public rejectUsers(listOfUsersId: number[]): Observable<number[]> {
+    return this.http.post<number[]>(`${this.apiServerUrl}/api/admin/reject-students`, listOfUsersId);
+  }
+
 }

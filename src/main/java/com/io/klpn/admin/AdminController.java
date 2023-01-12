@@ -28,6 +28,16 @@ public class AdminController {
         return adminService.acceptStudentsByIds(studentsIds);
     }
 
+    @DeleteMapping("/student/{studentId}")
+    public ErrorsListDTO rejectStudentById(@PathVariable Long studentId) {
+        return adminService.deleteStudentById(studentId);
+    }
+
+    @PostMapping("/reject-students")
+    public ErrorsListDTO rejectStudentsByIds(@RequestBody List<Long> studentsIds) {
+        return adminService.deleteStudentsByIds(studentsIds);
+    }
+
     @PatchMapping("/team/{teamId}")
     public ErrorsListDTO acceptTeamById(@PathVariable Long teamId) {
         return adminService.acceptTeamById(teamId);

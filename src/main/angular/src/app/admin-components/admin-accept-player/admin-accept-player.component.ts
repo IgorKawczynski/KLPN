@@ -51,12 +51,35 @@ export class AdminAcceptPlayerComponent implements OnInit {
     });
   }
 
+  public deleteUsers (): void {
+    this.adminAcceptPlayerService.rejectUsers(this.selectedUsersId).subscribe((response: any) => {
+      this.errorsListDto = response;
+      if(!this.errorsListDto.listOfErrorsEmpty) {
+        this.errorsListDto.errors.forEach((error) => {
+          this.messageService.add({life: 8000, severity:'error', summary:'Błąd', detail:error})
+        });
+      }
+      else {
+        this.messageService.add({life: 8000, severity:'success', summary:'Odrzucono', detail:"Status wybranych użytkowników nie został zmieniony na 'student'."})
+      }
+    });
+  }
+
   public acceptUsers(): void {
     this.getSelectedUsersId();
     if(this.selectedUsersId.length == 0){
       return;
     }
     this.updateUsers();
+    setTimeout(location.reload.bind(location), 3000);
+  }
+
+  public rejectUsers(): void {
+    this.getSelectedUsersId();
+    if(this.selectedUsersId.length == 0){
+      return;
+    }
+    this.deleteUsers();
     setTimeout(location.reload.bind(location), 3000);
   }
 

@@ -24,6 +24,19 @@ public class AdminService {
         return studentService.updateStudentField(updateDto);
     }
 
+    public ErrorsListDTO deleteStudentById(Long studentId) {
+        return studentService.deleteStudentById(studentId);
+    }
+
+    public ErrorsListDTO deleteStudentsByIds(List<Long> studentsIds) {
+        var errorListDto = new ErrorsListDTO();
+        for (Long studentId: studentsIds) {
+            var error = deleteStudentById(studentId);
+            errorListDto.addError(error);
+        }
+        return errorListDto;
+    }
+
     public ErrorsListDTO acceptStudentsByIds(List<Long> studentsIds) {
         var errorListDto = new ErrorsListDTO();
         for (Long studentId: studentsIds) {
