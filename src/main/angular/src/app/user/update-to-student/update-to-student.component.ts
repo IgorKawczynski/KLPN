@@ -4,7 +4,7 @@ import { MessageService } from 'primeng/api';
 import { ErrorsListDTO } from 'src/app/basic/error-list/error-list';
 import { UserService } from '../user.service';
 import { UserUpdateToStudentDto } from './update-to-student';
-
+import { LoginService } from '../../login/login.service';
 @Component({
   selector: 'app-update-to-student',
   templateUrl: './update-to-student.component.html',
@@ -18,6 +18,8 @@ export class UpdateToStudentComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
+
+    private loginservice: LoginService,
     private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class UpdateToStudentComponent implements OnInit {
 
   btnConfirm(): void {
     console.log(this.updateToStudent);
-    this.updateToStudentDto.userId = 1040; // do czasu az nie bedzie pobieralo id z sesji
+    this.updateToStudentDto.userId = this.loginservice.getId();
     this.updateToStudent();
   }
 
@@ -46,6 +48,6 @@ export class UpdateToStudentComponent implements OnInit {
   }
 
 
-  
+
 
 }
