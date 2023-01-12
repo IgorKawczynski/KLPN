@@ -44,12 +44,20 @@ export class LoginComponent implements OnInit {
           }
           else {
             this.router.navigateByUrl("/");
-            this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+            if(res.isStudent == true) {
+              this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+              this.messageService.add({life:3000, severity:'info', summary:'Login', detail:" Posiadasz konto o statusie studenta !"})
+            }
+            else {
+              this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+            }
           }
           this.sessionId = res.sessionId;
           localStorage.setItem('email', this.model.email)
           localStorage.setItem('id', res.id)
           localStorage.setItem('isAdmin', res.isAdmin)
+          localStorage.setItem('isStudent', res.isStudent)
+          localStorage.setItem('name', res.name)
           sessionStorage.setItem('token', this.sessionId);
         }
         else {
