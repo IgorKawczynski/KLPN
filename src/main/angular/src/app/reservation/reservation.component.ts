@@ -4,6 +4,7 @@ import { ReservationRequestDto } from './reservation-request';
 import { ReservationService } from './reservation.service';
 import {Router} from "@angular/router";
 import { MessageService } from 'primeng/api';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-reservation',
@@ -18,11 +19,12 @@ export class ReservationComponent implements OnInit {
   constructor (
     private reservationService: ReservationService,
     private router: Router,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private loginService: LoginService) {
    }
 
   ngOnInit(): void {
-    this.reservationRequestDto.userId = Number(localStorage.getItem("id"));
+    this.reservationRequestDto.userId = this.loginService.getId();
   }
 
   setPitchNumber(pitchNumber: number): void {

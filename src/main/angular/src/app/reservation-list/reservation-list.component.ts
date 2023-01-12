@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { ErrorsListDTO } from '../basic/error-list/error-list';
 import { ReservationResponseDTO } from './reservation-response';
 import { ReservationListService } from './reservation-list.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-reservation-list',
@@ -18,7 +19,8 @@ export class ReservationListComponent implements OnInit {
 
   constructor(
     private reservationListService: ReservationListService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class ReservationListComponent implements OnInit {
   }
 
   public getReservations(): void {
-    let userId: number = Number(localStorage.getItem("id"));
+    let userId: number = this.loginService.getId();
     
     this.reservationListService.getReservationsByUserId(userId).subscribe((response: any) => {
       this.reservations = response;
