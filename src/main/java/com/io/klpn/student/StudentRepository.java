@@ -27,19 +27,4 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     Student findEntityById(Long id);
 
-    @Transactional // potrzebna adnotacja do updatea, inaczej leci error
-    @Modifying // potrzebna adnotacja do update'a, inaczej leci error
-    @Query("UPDATE Student s SET s.role = 'REFEREE' WHERE s.indexNumber = :indexNumber")
-    void updateToReferee(@Param("indexNumber") Integer indexNumber);
-
-    @Transactional
-    @Modifying
-    @Query("UPDATE Student s SET s.role = 'PLAYER' WHERE s.indexNumber = :indexNumber")
-    void updateToPlayer(@Param("indexNumber") Integer indexNumber);
-
-    @Transactional
-    @Modifying
-    @Query("UPDATE Student s SET s.role = 'CAPTAIN' WHERE s.indexNumber = :indexNumber")
-    void updateToCaptain(@Param("indexNumber") Integer indexNumber);
-
 }

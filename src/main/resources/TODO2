@@ -12,14 +12,12 @@ TODO do końca implementacji (15.01)
 - Edycja + Usunięcie rezerwacji (dla usera) z walidacją ^^^
 
 3. (GRZES)
-- Zarejestrowanie drużyny (tylko jako student)
-- Zaakceptowanie drużyny przez administratora (na bazie akceptacji studenta)???
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
+- Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami)
 
 4. (KTO?)
 - Generowanie ligi (utworzenie meczy dla wszystkich drużyn z ligi KLPN) można po prostu inserty dodać na bazę na sztywno a jemu powiemy że system to wygenerował, ewentualnie mega szybki i prosty controller z dodaniem meczu poprzez admina
-- Generowanie Tabeli (tym samym logika zliczania punktów drużyn na podstawie wygranych meczów)
 
 5. (KTO?)
 - Podgląd meczy (harmonogram jako lista) -> widzę to tak, że są dni i na dzień powiedzmy jest lista 3 meczy i tak zrobić z tydzień, aby każdy grał z każdym (żeby mu to pokazać)
