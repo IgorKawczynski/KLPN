@@ -48,6 +48,7 @@ import {ScheduleComponent} from "./schedule/schedule.component";
 import {TreeTableModule} from 'primeng/treetable';
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     UpdateToStudentComponent,
     ScheduleComponent,
     AdminAcceptPlayerComponent,
-    ReservationListComponent
+    ReservationListComponent,
+    ReservationEditComponent
   ],
   imports: [
     HttpClientModule,

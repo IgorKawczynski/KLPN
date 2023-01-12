@@ -44,7 +44,6 @@ public class ReservationController {
     }
 
     @PatchMapping("")
-    @ResponseStatus(HttpStatus.OK)
     public ErrorsListDTO updateReservation(@RequestBody ReservationUpdateDto reservationToUpdate) {
         return reservationService.updateReservation(reservationToUpdate);
     }

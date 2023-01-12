@@ -76,7 +76,7 @@ public class ReservationService {
 //        reservationToUpdate: Stare id i userId, ale nowa data i boisko
         var errorsList = new ErrorsListDTO();
 
-        var reservationRequestDto = new ReservationRequestDto(reservationToUpdate.userId(), reservationToUpdate.pitch(), reservationToUpdate.date());
+        var reservationRequestDto = new ReservationRequestDto(reservationToUpdate.userId(), reservationToUpdate.pitch(), reservationToUpdate.date().truncatedTo(ChronoUnit.MINUTES));
         var updatedReservation = getReservationById(reservationToUpdate.id());
 
         try {
@@ -88,7 +88,7 @@ public class ReservationService {
             reservationValidator.validateReservationData(reservationRequestDto);
 
             var reservation = getReservationById(reservationToUpdate.id());
-            reservation.setDate(reservationToUpdate.date());
+            reservation.setDate(reservationToUpdate.date().truncatedTo(ChronoUnit.MINUTES));
             reservation.setPitch(reservationToUpdate.pitch());
             reservationRepository.save(reservation);
         }

@@ -17,6 +17,7 @@ import { UpdateToStudentComponent } from './user/update-to-student/update-to-stu
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { AuthenticationGuard } from "./authentication.guard";
+import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 
 const routes: Routes = [
   { path: '', canActivate:[AuthenticationGuard], children: [
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'reservation-list', component: ReservationListComponent},
+      { path: 'reservation-edit/:id', component: ReservationEditComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];

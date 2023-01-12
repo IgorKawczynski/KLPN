@@ -1,0 +1,25 @@
+<main>
+    <app-navbar></app-navbar>
+    
+    <p class="main-text">Edytuj rezerwację</p>
+
+    <div class="container">
+      <div class="pitch first" (click)="setPitchNumber(1)"><p class="pitch-number">Boisko 1</p></div>
+      <div class="pitch second" (click)="setPitchNumber(2)"><p class="pitch-number">Boisko 2</p></div>
+      <div class="pitch third" (click)="setPitchNumber(3)"><p class="pitch-number">Boisko 3</p></div>
+    </div>
+  
+    <div class="time-field">
+      <p class="time-info">Wybierz nowy termin rezerwacji:</p>
+      <p-calendar appendTo="body" indputId="date" [(ngModel)]="reservationUpdateDto.date" [showTime]="true" placeholder="yyyy-mm-dd hh:mm" [showIcon]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}">
+        <ng-template pTemplate="footer"><div class="calendar-footer">Wybierz pełną godzinę!</div></ng-template>
+      </p-calendar>
+    </div>
+
+    <div class="decision">
+      <button id="pitch1" class="btn decline" (click)="btnCancel()">Anuluj</button>
+      <button class=" btn confirm" (click)="btnConfirm()" >Zatwierdź</button>
+    </div>
+
+    <app-footer></app-footer>
+  </main>
