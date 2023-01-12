@@ -13,7 +13,7 @@ export class AdminNavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
     this.items = [
       {label: 'Akceptuj',
       styleClass: 'admin-navbar-item',
@@ -22,7 +22,7 @@ export class AdminNavbarComponent implements OnInit {
             label:'Zaakceptuj drużynę',
             styleClass: 'admin-navbar-subitem',
             icon:'pi pi-users',
-            routerLink: "/"
+            routerLink: "/admin-accept-team"
           },
           {
             label:'Zaakceptuj zawodnika',

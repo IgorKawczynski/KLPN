@@ -1,0 +1,52 @@
+<main>
+  <app-admin-navbar></app-admin-navbar>
+  <div class="users-table">
+    <p-table [value]="teams" [(selection)]="selectedTeams" [paginator]="true" [rows]="9" [selectionPageOnly]="true">
+      <ng-template pTemplate="caption">
+        <div class="center-caption">
+          Lista drużyn oczekujących na zaakceptowanie
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Nazwa drużyny</th>
+          <th>Czy zaakceptować?</th>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th>&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-team>
+        <tr>
+          <td>{{ team.id }}</td>
+          <td>{{ team.name }}</td>
+          <td></td>
+          <td>
+            <p-tableCheckbox [value]="team"></p-tableCheckbox>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="flex-container">
+          <div class="left">
+            Liczba oczekujących użytkowników: {{teams.length}}
+          </div>
+          <div class="right">
+            <div>
+              <button class="accept" type="button" pButton label="Zaakceptuj" (click)="acceptTeams()"><i class="pi pi-check"></i></button>
+            </div>
+          </div>
+          <div class="right">
+            <div>
+              <button class="reject" type="button" pButton label="Odrzuć" (click)="deleteTeam()"><i class="pi pi-times"></i></button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+  <app-admin-footer></app-admin-footer>
+</main>

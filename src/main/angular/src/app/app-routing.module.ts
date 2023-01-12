@@ -15,10 +15,12 @@ import { ContactComponent } from "./contact/contact.component";
 import { ScheduleComponent } from "./schedule/schedule.component";
 import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
+import { AdminAcceptTeamComponent } from './admin-components/admin-accept-team/admin-accept-team.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { AuthenticationGuard } from "./authentication.guard";
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
+
 
 const routes: Routes = [
   { path: '', canActivate:[AuthenticationGuard], children: [
@@ -37,6 +39,7 @@ const routes: Routes = [
       { path: 'schedule', component: ScheduleComponent },
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
+      { path: 'admin-accept-team', component: AdminAcceptTeamComponent },
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
       { path: 'reservation-history', component: ReservationHistoryComponent},
