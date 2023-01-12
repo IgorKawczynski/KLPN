@@ -29,32 +29,39 @@ export class TeamComponent implements OnInit {
     private studentService: StudentService
   ) { }
 
-  addPlayer(){
+  addPlayer(): void {
+    if(this.player.indexNumber == null || this.player.indexNumber == undefined) {
+      this.messageService.add({life:8000, severity:'error', summary:'Rejestracja drużyny', detail:'Proszę podać numer indeksu dla podanego zawodnika.'});
+      return;
+    }
+    if(this.player.position == null || this.player.position == undefined) {
+      this.messageService.add({life:8000, severity:'error', summary:'Rejestracja drużyny', detail:'Proszę wybrać pozycję dla podanego zawodnika.'});
+      return;
+    }
     let newPlayer = new StudentPlayer(this.player.indexNumber, this.player.position, this.player.isReferee);
     newPlayer.position = mapToEnumValue(newPlayer.position);
+    newPlayer.isReferee == undefined ? newPlayer.isReferee = false : newPlayer.isReferee; // jesli nie zaznaczono checkboxa, to czasami isReferee leci jako undedfined, wiec zmieniam tutaj na false
     this.players.push(newPlayer);
-    // this.team.players.push(this.player);
     console.log('ilosc plikarzy po dodaniu: ' + this.players.length);
     console.log(this.players);
   }
 
   removePlayer(player: StudentPlayer){
     this.players = this.players.filter(e => e != e);
-    console.log('ilosc plikarzy po odjeciu: ' + this.players.length);
   }
 
   ngOnInit(): void {
     this.positions = ['Napastnik', 'Pomocnik', 'Obrońca', 'Bramkarz']
   }
 
-  btnDecline() {
+  btnDecline(): void {
     this.players.splice(0);
     this.messageService.add({life: 8000, severity:'info', summary:'Rejestracja drużyny', detail:'Anulowano rejestrację drużyny'});
   }
 
   btnConfirm() {
-    this.team.players = this.players;
-    console.log(this.team);
+    this.team.players = this.players; // przypisanie studentow listy zawodników drużyny
+    this.team.captainId = Number(localStorage.getItem('id')) || undefined;
     this.registerTeam();
   }
 

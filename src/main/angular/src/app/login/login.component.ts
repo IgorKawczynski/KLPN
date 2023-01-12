@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
             this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
           }
           this.sessionId = res.sessionId;
-          localStorage.setItem('email', this.model.email)
-          localStorage.setItem('id', res.id)
-          localStorage.setItem('isAdmin', res.isAdmin)
-          sessionStorage.setItem('token', this.sessionId);
+          localStorage.setItem('email', this.model.email) //NIE ZMIENIAĆ NAZW KLUCZY BO WSZYSTKO SIE POPSUJE
+          localStorage.setItem('id', res.id) //NIE ZMIENIAĆ NAZW KLUCZY BO WSZYSTKO SIE POPSUJE
+          localStorage.setItem('isAdmin', res.isAdmin) //NIE ZMIENIAĆ NAZW KLUCZY BO WSZYSTKO SIE POPSUJE
+          sessionStorage.setItem('token', this.sessionId); //NIE ZMIENIAĆ NAZW KLUCZY BO WSZYSTKO SIE POPSUJE
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>

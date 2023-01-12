@@ -8,6 +8,7 @@ import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.Student;
 import com.io.klpn.student.StudentPlayerDTO;
 import com.io.klpn.student.StudentRepository;
+import com.io.klpn.student.enums.Role;
 import com.io.klpn.team.dtos.TeamCreateDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -27,14 +30,21 @@ public class TeamService {
     final TeamValidator teamValidator;
     final TeamEditor teamEditor;
     final StudentRepository studentRepository;
+    final Comparator<Student> studentIndexNumber = Comparator.comparingInt(Student::getIndexNumber);
+    final Comparator<StudentPlayerDTO> playerIndexNumber = Comparator.comparingInt(StudentPlayerDTO::indexNumber);
 
     public ErrorsListDTO createTeam(TeamCreateDTO teamDTO){
         var errorsListDTO = new ErrorsListDTO();
         try {
             var team = teamValidator.createTeam(teamDTO);
+            var students = studentRepository.findAllByIndexNumberIn(teamDTO.indexes());
+            sortLists(students, teamDTO.players()); // bardzo wazne, inne metody zależą od tego sortowania
+            isEveryGivenIndexNumberFound(students, teamDTO.players());
+            assignStudentsPositions(students, teamDTO.players());
+            assignStudentsRoles(students, teamDTO.players());
+            assignTeamCaptain(teamDTO.captainId());
             var createdTeam = teamRepository.saveAndFlush(team);
-            assignStudentsToTeam(teamDTO.indexes(), createdTeam);
-            // TODO : przypisz pozycję oraz role dla każdego podanego studenta
+            assignStudentsToTeam(students, createdTeam);
             // TODO : w sesji przekaż id studenta i mu przypisz rolę kapitana drużyny
         }
         catch(AlreadyExistsException | StringValidatorException | NullPointerException |
@@ -44,10 +54,59 @@ public class TeamService {
         return errorsListDTO;
     }
 
-    public void assignStudentsToTeam(List<Integer> indexNumbers, Team team) {
-        var students = studentRepository.findAllByIndexNumberIn(indexNumbers);
+    private void sortLists(List<Student> students, List<StudentPlayerDTO> players) {
+        students.sort(studentIndexNumber);
+        players.sort(playerIndexNumber);
+    }
+
+    private void assignStudentsPositions(List<Student> students, List<StudentPlayerDTO> players) {
+        int counter = 0;
+        while(counter < students.size()) {
+            var student = students.get(counter);
+            var position = players.get(counter).position();
+            student.setPosition(position);
+            counter++;
+        }
+    }
+
+    private void assignStudentsRoles(List<Student> students, List<StudentPlayerDTO> players) {
+        int counter = 0;
+        while(counter < students.size()) {
+            var student = students.get(counter);
+            var isReferee = players.get(counter).isReferee();
+            if (isReferee == true) {
+                student.setRole(Role.REFEREE);
+            } else {
+                student.setRole(Role.PLAYER);
+            }
+            counter++;
+        }
+    }
+
+    private void assignTeamCaptain(Long captainId) {
+        var student = studentRepository.findById(captainId).get();
+        student.setRole(Role.CAPTAIN);
+        studentRepository.saveAndFlush(student);
+    }
+
+    private void assignStudentsToTeam(List<Student> students, Team team) {
         students.forEach(student -> student.setTeam(team));
         studentRepository.saveAll(students);
+    }
+
+    private void isEveryGivenIndexNumberFound(List<Student> students, List<StudentPlayerDTO> players) {
+        if(students.size() == players.size()) return;
+
+        ArrayList<Integer> notFoundIndexes = new ArrayList<>();
+        var foundIndexes = students.stream().mapToInt(Student::getIndexNumber).boxed().toList();
+
+        players.forEach(player -> {
+            if(!foundIndexes.contains(player.indexNumber())){
+                notFoundIndexes.add(player.indexNumber());
+            }
+        });
+
+        throw new IllegalStateException("Nie znaleziono podanych indeksow o numerach: " + notFoundIndexes);
     }
 
     public Team getTeamById(Long id){
