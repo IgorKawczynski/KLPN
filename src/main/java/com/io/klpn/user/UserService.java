@@ -53,6 +53,7 @@ public class UserService {
     public UserLoginResponseDTO login(UserLoginRequestDTO user) {
         UserLoginResponseDTO response = new UserLoginResponseDTO(new ErrorsListDTO());
         try {
+            userValidator.loginUser(user);
             manager.authenticate(new UsernamePasswordAuthenticationToken(user.email(), user.password()));
             final String sessionId = sessionRegistry.registerSession(user.email());
             response.setSessionId(sessionId);
@@ -61,17 +62,9 @@ public class UserService {
             response.setIsStudent(studentRepository.existsById(userRepository.findByEmail(user.email()).getId()));
             response.setName(userRepository.findByEmail(user.email()).getFirstName());
         }
-        catch (BadCredentialsException | InternalAuthenticationServiceException exception) {
-            if (Objects.isNull(user.email()) ) {
-                response.addToErrorList("Podaj email !");
-            }
-            if (Objects.isNull(user.email()) ) {
-                response.addToErrorList("Podaj hasło !");
-            }
-            if ( !Objects.isNull(user.email()) && !userValidator.emailContainsAtSign(user.email()) ) {
-                response.addToErrorList("Email musi zawierać znak '@'");
-            }
-            response.addToErrorList("Podałeś zły email / hasło, spróbuj jeszcze raz !");
+        catch (StringValidatorException | BadCredentialsException | InternalAuthenticationServiceException | NullPointerException exception) {
+            response.addToErrorList(exception.getMessage());
+//            response.addToErrorList("Podałeś zły email / hasło, spróbuj jeszcze raz !");
         }
         return response;
     }

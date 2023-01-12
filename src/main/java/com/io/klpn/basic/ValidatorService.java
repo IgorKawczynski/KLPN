@@ -39,6 +39,12 @@ public class ValidatorService {
         }
     }
 
+    public void emailContainsAtSign(String email) {
+        if(email != null && !email.contains("@")) {
+            throw new StringValidatorException("Email musi zawierać '@' !");
+        }
+    }
+
     public void validatePhoneNumber(String phoneNumber) {
         if (!phoneNumber.matches(PHONE_NUMBER_REGEX)) {
             throw new StringValidatorException("Numer telefonu może zawierać tylko cyfry!");
