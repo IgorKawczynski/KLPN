@@ -17,11 +17,15 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("SELECT CASE WHEN COUNT(s) > 0 THEN true ELSE false END FROM Student s where s.indexNumber = :indexNumber and isAccepted = true")
     Boolean checkIfStudentIsAccepted(@Param("indexNumber") Integer indexNumber);
 
+    @Query("SELECT CASE WHEN COUNT(s) > 0 THEN true ELSE false END FROM Student s where s.id = :id and isAccepted = true")
+    Boolean checkIfStudentIsAcceptedById(@Param("id") Long id);
+
     @Query("SELECT CASE WHEN COUNT(s) > 0 THEN true ELSE false END FROM Student s where s.indexNumber = :indexNumber and team != null")
     Boolean checkIfStudentIsAssignedToAnotherTeam(@Param("indexNumber") Integer indexNumber);
 
     List<Student> findAllByIndexNumberIn(List<Integer> indexes);
 
+    Student findEntityById(Long id);
 
     @Transactional // potrzebna adnotacja do updatea, inaczej leci error
     @Modifying // potrzebna adnotacja do update'a, inaczej leci error
