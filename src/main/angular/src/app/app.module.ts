@@ -48,6 +48,7 @@ import {ScheduleComponent} from "./schedule/schedule.component";
 import {TreeTableModule} from 'primeng/treetable';
 import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -73,33 +74,34 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     AdminAcceptPlayerComponent,
     ReservationListComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    MenubarModule,
-    InputMaskModule,
-    InputTextModule,
-    FormsModule,
-    AvatarModule,
-    AvatarGroupModule,
-    PasswordModule,
-    CalendarModule,
-    GMapModule,
-    DividerModule,
-    BrowserAnimationsModule,
-    TableModule,
-    InputNumberModule,
-    KeyFilterModule,
-    ToastModule,
-    DialogModule,
-    DropdownModule,
-    AutoCompleteModule,
-    CascadeSelectModule,
-    CheckboxModule,
-    TreeTableModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        MenubarModule,
+        InputMaskModule,
+        InputTextModule,
+        FormsModule,
+        AvatarModule,
+        AvatarGroupModule,
+        PasswordModule,
+        CalendarModule,
+        GMapModule,
+        DividerModule,
+        BrowserAnimationsModule,
+        TableModule,
+        InputNumberModule,
+        KeyFilterModule,
+        ToastModule,
+        DialogModule,
+        DropdownModule,
+        AutoCompleteModule,
+        CascadeSelectModule,
+        CheckboxModule,
+        TreeTableModule,
+        RippleModule
+    ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, MessageService],
   bootstrap: [AppComponent]
 })
