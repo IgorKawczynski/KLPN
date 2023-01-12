@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from "primeng/api";
+import {LoginService} from "../login/login.service";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import {MenuItem} from "primeng/api";
 export class HomeComponent implements OnInit {
   model: any = {};
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
 
   ngOnInit(): void {

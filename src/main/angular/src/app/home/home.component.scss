@@ -68,12 +68,117 @@ main{
     transition: background-color, color 0.6s;
   }
 
+  .btn-mainpage-left-center {
+    position: absolute;
+    top: 45%;
+    left: 32%;
+    font-size: 25px;
+    font-family: Raleway;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    text-decoration: None;
+    border: white solid 1px;
+    border-radius: 5px;
+    transition: background-color, color 0.6s;
+  }
+
+  .btn-animation-right-center {
+    position: absolute;
+    transition: background-color, color 0.6s;
+    top: 45%;
+    left: 52%;
+    font-size: 25px;
+    font-family: Raleway;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    text-decoration: None;
+    border: white solid 1px;
+    border-radius: 5px;
+  }
+
+  .btn-profile{
+    position: absolute;
+    top: 45%;
+    left: 24%;
+    font-size: 25px;
+    font-family: Raleway;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    text-decoration: None;
+    border: white solid 1px;
+    border-radius: 5px;
+    transition: background-color, color 0.6s;
+  }
+
+  .btn-team{
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    font-size: 25px;
+    font-family: Raleway;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    text-decoration: None;
+    border: white solid 1px;
+    border-radius: 5px;
+    transition: background-color, color 0.6s;
+  }
+
+  .btn-animation-right{
+    position: absolute;
+    top: 45%;
+    left: 61%;
+    font-size: 25px;
+    font-family: Raleway;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    text-decoration: None;
+    border: white solid 1px;
+    border-radius: 5px;
+    transition: background-color, color 0.6s;
+  }
+
   .btn-mainpage:hover{
     background-color: white;
     color: black;
   }
 
   .btn-animation:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .btn-mainpage-left-center:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .btn-animation-right-center:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .btn-profile:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .btn-team:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .btn-animation-right:hover{
     background-color: white;
     color: black;
   }

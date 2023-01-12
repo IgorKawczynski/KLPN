@@ -11,8 +11,15 @@
     <p class="text-motto">
       Dołącz do nas i razem z drużyną sięgnij po tytuł mistrza Kortowa!
     </p>
-    <a href="/register" type="button" class="btn-mainpage">Rejestracja</a>
-    <a href="javascript:void(0)"  type="button" class="btn-animation" (click)="homePanelActivate()">Najbliższy Mecz</a>
+    <a *ngIf="!loginService.isLogged()" href="/register" type="button" class="btn-mainpage">Rejestracja</a>
+    <a *ngIf="!loginService.isLogged()" href="javascript:void(0)"  type="button" class="btn-animation" (click)="homePanelActivate()">Najbliższy Mecz</a>
+
+    <a *ngIf="loginService.isLogged() && !loginService.isStudent()" href="/users/update-to-student" type="button" class="btn-mainpage-left-center">Zgłoś się do gry</a>
+    <a *ngIf="loginService.isLogged() && !loginService.isStudent()" href="javascript:void(0)" type="button" class="btn-animation-right-center" (click)="homePanelActivate()">Najbliższy Mecz</a>
+
+    <a *ngIf="loginService.isLogged() && loginService.isStudent()" href="/users/my-profile" type="button" class="btn-profile">Profil Zawodnika</a>
+    <a *ngIf="loginService.isLogged() && loginService.isStudent()" href="/team/my-team" type="button" class="btn-team">Moja Drużyna</a>
+    <a *ngIf="loginService.isLogged() && loginService.isStudent()" href="javascript:void(0)" type="button" class="btn-animation-right" (click)="homePanelActivate()">Najbliższy Mecz</a>
   </div>
 
   <div class="home">
