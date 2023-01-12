@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   public getId() {
-    return localStorage.getItem("id");
+    return Number(localStorage.getItem("id"));
   }
 
 }
