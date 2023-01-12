@@ -5,6 +5,7 @@ import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.security.SessionRegistry;
+import com.io.klpn.student.StudentRepository;
 import com.io.klpn.student.StudentService;
 import com.io.klpn.user.dtos.*;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,8 @@ public class UserService {
     private final UserValidator userValidator;
     private final UserEditor userEditor;
     private final StudentService studentService;
+
+    private final StudentRepository studentRepository;
     private final AuthenticationManager manager;
     private final SessionRegistry sessionRegistry;
 
@@ -48,13 +51,15 @@ public class UserService {
         return errorsList;
     }
 
-    // TODO+ -- walidacja z loginem do UserValidator i ustawienie walidatorów na email + password...
     public UserLoginResponseDTO login(UserLoginRequestDTO user) {
         UserLoginResponseDTO response = new UserLoginResponseDTO(new ErrorsListDTO());
         try {
             manager.authenticate(new UsernamePasswordAuthenticationToken(user.email(), user.password()));
             final String sessionId = sessionRegistry.registerSession(user.email());
             response.setSessionId(sessionId);
+//            response.setId(userRepository.findByEmail(user.email()).getId());
+//            response.setIsAdmin(userRepository.findByEmail(user.email()).getIsAdmin());
+//            response.setIsStudent(studentRepository.existsById(userRepository.findByEmail(user.email()).getId()));
         }
         catch (BadCredentialsException | InternalAuthenticationServiceException exception) {
             if (Objects.isNull(user.email()) ) {

@@ -13,10 +13,12 @@ import { ReservationComponent } from "./reservation/reservation.component";
 import { MatchComponent } from "./match/match.component";
 import {ContactComponent} from "./contact/contact.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
-import { UpdateToStudentComponent } from './user/update-to-student/update-to-student.component';
-import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-player/admin-accept-player.component';
+import {UpdateToStudentComponent} from './user/update-to-student/update-to-student.component';
+import {AdminAcceptPlayerComponent} from './admin-components/admin-accept-player/admin-accept-player.component';
+import {AuthenticationGuard} from "./authentication.guard";
 
 const routes: Routes = [
+  { path: '', canActivate:[AuthenticationGuard], children: [
       { path: '', component: HomeComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'login', component: LoginComponent },
@@ -33,6 +35,7 @@ const routes: Routes = [
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: '**', redirectTo: '' }
+      ]}
 ];
 
 @NgModule({

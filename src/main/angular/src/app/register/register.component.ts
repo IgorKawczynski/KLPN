@@ -4,7 +4,6 @@ import {ErrorsListDTO} from "../basic/error-list/error-list";
 import {MessageService, PrimeNGConfig} from "primeng/api";
 import {RegisterService} from "./register.service";
 import {Router} from "@angular/router";
-import {SessionService} from "../session/session.service";
 
 @Component({
   selector: 'app-register',
@@ -21,7 +20,6 @@ export class RegisterComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private router: Router,
     private messageService: MessageService,
-    private sessionService: SessionService
   ){
   }
 

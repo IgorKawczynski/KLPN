@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   constructor() { }
+
+  public isLogged() {
+    return sessionStorage.length > 0;
+  }
+
 }

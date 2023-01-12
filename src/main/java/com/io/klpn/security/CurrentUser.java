@@ -10,15 +10,28 @@ import java.util.List;
 public class CurrentUser implements UserDetails {
 
     private String email;
+    private Long id;
+    private Boolean isAdmin;
+
+    private Boolean isStudent;
     private String password;
 
     public void setEmail(String email) {
         this.email = email;
     }
-
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    public void setIsStudent(Boolean isStudent) {
+        this.isStudent = isStudent;
+    }
     public void setPassword(String password) {
         this.password = password;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

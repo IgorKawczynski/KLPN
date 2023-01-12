@@ -14,9 +14,7 @@ export class AuthenticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-
       let token = sessionStorage.getItem('token');
-
 
       if (state.url == "/login") {
         if(token){
@@ -28,17 +26,16 @@ export class AuthenticationGuard implements CanActivate {
 
       if(!token) {
         let urlUserEdit = "/user/edit"
+        let urlAdmin = "/admin"
         let urlReservation = "/reservation"
-        let urlContact = "/contact"
         // TODO -- DO DODANIA KOLEJNE
-        if(state.url == urlUserEdit || state.url == urlReservation || state.url == urlContact) {
+        if(state.url == urlUserEdit || state.url == urlReservation || state.url == urlAdmin) {
           console.log("!!! !!! NIE JESTES ZALOGOWANY !!! !!!")
           this.messageService.add({life:3500, severity:'info', summary:'Login', detail:" Musisz się najpierw zalogować ! "})
           return this.router.parseUrl('/login');
         }
         return true;
       }
-
     return true;
   }
 
