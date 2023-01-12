@@ -24,7 +24,7 @@ export class ReservationEditComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // this.reservationUpdateDto.userId = localStorage.getItem('id');
+    this.reservationUpdateDto.userId = Number(localStorage.getItem("id"));
     this.reservationUpdateDto.id = this._Activatedroute.snapshot.params['id'];
   }
 
@@ -33,11 +33,8 @@ export class ReservationEditComponent implements OnInit {
   }
 
   btnConfirm(): void {
-    // TO DO WYRZUCENIA KIEDY ID BĘDZIE POBIERANE Z SESJI
-    this.reservationUpdateDto.userId = 1051;
     this.reservationUpdateDto.date.setHours(this.reservationUpdateDto.date.getHours() + 1);
 
-    console.log(this.reservationUpdateDto);
     this.updateReservation();
   }
 

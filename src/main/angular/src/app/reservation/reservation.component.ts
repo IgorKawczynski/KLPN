@@ -22,7 +22,7 @@ export class ReservationComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.reservationRequestDto.userId = localStorage.getItem('userId');
+    this.reservationRequestDto.userId = Number(localStorage.getItem("id"));
   }
 
   setPitchNumber(pitchNumber: number): void {
@@ -30,8 +30,6 @@ export class ReservationComponent implements OnInit {
   }
 
   btnConfirm(): void {
-    // TO DO WYRZUCENIA KIEDY ID BĘDZIE POBIERANE Z SESJI
-    this.reservationRequestDto.userId = 1051;
     this.reservationRequestDto.date.setHours(this.reservationRequestDto.date.getHours() + 1);
 
     this.createReservation();

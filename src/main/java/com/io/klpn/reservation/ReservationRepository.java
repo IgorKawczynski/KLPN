@@ -12,4 +12,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     List<Reservation> findReservationsByUser_IdAndDateAfter(Long userId, LocalDateTime date);
 
+    List<Reservation> findReservationsByUser_IdAndDateBefore(Long userId, LocalDateTime date);
+
 }

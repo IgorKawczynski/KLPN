@@ -26,9 +26,7 @@ export class ReservationListComponent implements OnInit {
   }
 
   public getReservations(): void {
-    // DODAĆ ID AKTUALNIE ZALOGOWANEGO UŻYTKOWNIKA
-    // let userId: number = localStorage.getItem("userId");
-    let userId: number = 1051;
+    let userId: number = Number(localStorage.getItem("id"));
     
     this.reservationListService.getReservationsByUserId(userId).subscribe((response: any) => {
       this.reservations = response;

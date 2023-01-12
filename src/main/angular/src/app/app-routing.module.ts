@@ -18,6 +18,7 @@ import { AdminAcceptPlayerComponent } from './admin-components/admin-accept-play
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { AuthenticationGuard } from "./authentication.guard";
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
+import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
 
 const routes: Routes = [
   { path: '', canActivate:[AuthenticationGuard], children: [
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
+      { path: 'reservation-history', component: ReservationHistoryComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];

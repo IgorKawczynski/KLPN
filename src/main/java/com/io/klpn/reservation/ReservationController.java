@@ -43,6 +43,11 @@ public class ReservationController {
         return reservationService.getReservationsByUserIdAndDateAfterNow(userId);
     }
 
+    @GetMapping("/list-history/{userId}")
+    public List<ReservationResponseDTO> getReservationsByUserIdAndDateBeforeNow(@PathVariable Long userId) {
+        return reservationService.getReservationsByUserIdAndDateBeforeNow(userId);
+    }
+
     @PatchMapping("")
     public ErrorsListDTO updateReservation(@RequestBody ReservationUpdateDto reservationToUpdate) {
         return reservationService.updateReservation(reservationToUpdate);

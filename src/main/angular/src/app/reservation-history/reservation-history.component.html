@@ -1,0 +1,30 @@
+<main>
+    <app-navbar></app-navbar>
+    <div class="past-reservations-table">
+        <p-table [value]="pastReservations" [paginator]="true" [rows]="7">
+                <ng-template pTemplate="caption">
+                    <div class="center-caption">
+                        Historia rezerwacji
+                    </div>
+                </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 350px;">Boisko</th>
+                    <th>Data</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-pastReservation>
+                <tr>
+                    <td> &nbsp;&nbsp;&nbsp; {{ pastReservation.pitch }}</td>
+                    <td>{{ pastReservation.date }}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div>
+                    Liczba rezerwacji w twojej historii: {{pastReservations.length}}
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+    <app-footer></app-footer>
+  </main>

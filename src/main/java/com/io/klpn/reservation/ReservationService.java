@@ -61,6 +61,21 @@ public class ReservationService {
         return reservationResponseDTOS;
     }
 
+    public List<ReservationResponseDTO> getReservationsByUserIdAndDateBeforeNow(Long userId) {
+        LocalDateTime actualDayAndHour = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+        List<Reservation> reservationList =  reservationRepository.findReservationsByUser_IdAndDateBefore(userId, actualDayAndHour);
+
+        List<ReservationResponseDTO> reservationResponseDTOS = new ArrayList<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+
+        for (Reservation reservation: reservationList) {
+            var reservationToAdd = new ReservationResponseDTO(reservation.getUser().getId(), reservation.getPitch(), formatter.format(reservation.getDate()), reservation.getId());
+            reservationResponseDTOS.add(reservationToAdd);
+        }
+        return reservationResponseDTOS;
+    }
+
     public ErrorsListDTO deleteReservationById(Long id) {
         var errorsList = new ErrorsListDTO();
         try {
