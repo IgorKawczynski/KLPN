@@ -46,9 +46,31 @@ public class AdminService {
         return errorListDto;
     }
 
-    public ErrorsListDTO acceptTeamById(Long teamId) {
+    public ErrorsListDTO acceptTeamsByIds(List<Long> teamsIds){
+        var errorListDto = new ErrorsListDTO();
+        for (Long teamId: teamsIds) {
+            var error = acceptTeamById(teamId);
+            errorListDto.addError(error);
+        }
+        return errorListDto;
+    }
+
+    private ErrorsListDTO acceptTeamById(Long teamId) {
         var updateDto = new UpdateDto(teamId, "isAccepted", true);
         return teamService.updateTeamField(updateDto);
+    }
+
+    public ErrorsListDTO deleteTeamsByIds(List<Long> teamsIds) {
+        var errorListDto = new ErrorsListDTO();
+        for (Long teamId: teamsIds) {
+            var error = deleteTeamById(teamId);
+            errorListDto.addError(error);
+        }
+        return errorListDto;
+    }
+
+    private ErrorsListDTO deleteTeamById(Long id) {
+        return teamService.deleteTeamById(id);
     }
 
 }

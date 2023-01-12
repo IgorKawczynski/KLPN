@@ -10,6 +10,7 @@ import com.io.klpn.student.StudentPlayerDTO;
 import com.io.klpn.student.StudentRepository;
 import com.io.klpn.student.enums.Role;
 import com.io.klpn.team.dtos.TeamCreateDTO;
+import com.io.klpn.team.dtos.TeamToAcceptDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -146,4 +147,9 @@ public class TeamService {
         }
         return errorsListDTO;
     }
+
+    public List<TeamToAcceptDTO> getTeamsToAccept() {
+        return teamRepository.findTeamsToAccept();
+    }
+
 }

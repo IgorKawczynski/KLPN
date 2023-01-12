@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.cfg.NotYetImplementedException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,9 +39,14 @@ public class AdminController {
         return adminService.deleteStudentsByIds(studentsIds);
     }
 
-    @PatchMapping("/team/{teamId}")
-    public ErrorsListDTO acceptTeamById(@PathVariable Long teamId) {
-        return adminService.acceptTeamById(teamId);
+    @PatchMapping("/accept-teams")
+    public ErrorsListDTO acceptTeamsByIds(@RequestBody List<Long> teamsIds) {
+        return adminService.acceptTeamsByIds(teamsIds);
+    }
+
+    @PostMapping("/reject-teams")
+    public ErrorsListDTO deleteTeamsByIds(@RequestBody List<Long> teamsIds) {
+        return adminService.deleteTeamsByIds(teamsIds);
     }
 
     @PatchMapping("/reservation/{reservationId}")

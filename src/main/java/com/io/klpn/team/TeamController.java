@@ -2,6 +2,7 @@ package com.io.klpn.team;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.team.dtos.TeamCreateDTO;
+import com.io.klpn.team.dtos.TeamToAcceptDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,6 +25,11 @@ public class TeamController {
         return teamService.generateTable();
     }
 
+    @GetMapping("/to-accept")
+    public List<TeamToAcceptDTO> getTeamsToAccept() {
+        return teamService.getTeamsToAccept();
+    }
+
     @GetMapping("")
     @ResponseStatus(HttpStatus.FOUND)
     public Team getTeamById(@RequestParam("id") Long id) {
@@ -33,12 +39,6 @@ public class TeamController {
     @PostMapping(path = "", produces = "application/json", consumes = "application/json")
     public ErrorsListDTO createTeam(@RequestBody TeamCreateDTO team) {
         return teamService.createTeam(team);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public ErrorsListDTO deleteTransferById(@PathVariable Long id) {
-        return teamService.deleteTeamById(id);
     }
 
 }
