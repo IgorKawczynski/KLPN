@@ -39,7 +39,8 @@ export class NavbarComponent implements OnInit {
               },
               {
                 label: 'Historia rezerwacji',
-                icon: 'pi pi-fw pi-clock'
+                icon: 'pi pi-fw pi-clock',
+                routerLink: "/reservation-history"
               }
             ]
           },
@@ -86,7 +87,8 @@ export class NavbarComponent implements OnInit {
               },
               {
                 label: 'Historia rezerwacji',
-                icon: 'pi pi-fw pi-clock'
+                icon: 'pi pi-fw pi-clock',
+                routerLink: "/reservation-history"
               }
             ]
           },

@@ -5,6 +5,7 @@ import { ReservationEditService } from './reservation-edit.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-reservation-edit',
@@ -21,10 +22,11 @@ export class ReservationEditComponent implements OnInit {
     private router: Router,
     private messageService: MessageService,
     private _Activatedroute: ActivatedRoute,
+    private loginService: LoginService
     ) { }
 
   ngOnInit(): void {
-    this.reservationUpdateDto.userId = Number(localStorage.getItem("id"));
+    this.reservationUpdateDto.userId = this.loginService.getId();
     this.reservationUpdateDto.id = this._Activatedroute.snapshot.params['id'];
   }
 
