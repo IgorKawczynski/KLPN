@@ -27,7 +27,6 @@ public class ReservationController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
     public ErrorsListDTO deleteReservationById(@PathVariable Long id) {
         return reservationService.deleteReservationById(id);
     }

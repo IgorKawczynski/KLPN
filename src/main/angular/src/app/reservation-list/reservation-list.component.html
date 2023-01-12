@@ -19,7 +19,7 @@
                 <tr>
                     <td> &nbsp;&nbsp;&nbsp; {{ reservationDTO.pitch }}</td>
                     <td>{{ reservationDTO.date }}</td>
-                    <td><button type="button" pButton label="Edytuj rezerwację" class="edit" ><i class="pi pi-file-edit"></i></button></td>
+                    <td><button type="button" pButton label="Edytuj rezerwację" class="edit" (click)="btnEdit(reservationDTO.id)"><i class="pi pi-file-edit"></i></button></td>
                     <td><button type="button" pButton label="Usuń rezerwację" class="delete" (click)="btnDelete(reservationDTO.id)"><i class="pi pi-trash"></i></button></td>
                 </tr>
             </ng-template>

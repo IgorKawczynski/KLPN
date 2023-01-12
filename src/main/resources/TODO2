@@ -1,27 +1,28 @@
 TODO do końca implementacji (15.01)
 
-(frontend + w ewentualności backend)
-
 1. (IGOR)
  - NOWE! trzeba dodać gdzieś do widoku usera opcje żeby wejść w widok do złożenia wniosku o konto studenta
  - NOWE! dodać tablice reprezentującą dodanych studentów do drużyny na widoku rejestracji drużyny + przycisk do usuwania ich z tabeli
 
-2. (Adam)
-- Rezerwacja boiska (dla usera) z walidacją --- (Zmienić jeszcze, żeby user.id było brane z sesji, a tak to zrobione)
-- Podgląd rezerwacji (dla usera) - w formie listy --- (Dodać funkcjonalności do przycisków "Usuń" i "Edytuj" - walidacja po stronie backendu gotowa)
-- Edycja + Usunięcie rezerwacji (dla usera) z walidacją ^^^
+2. (ADAM) --- GOTOWE
+- Rezerwacja boiska (dla usera) z walidacją
+- Podgląd rezerwacji (dla usera) - w formie listy
+- Edycja + Usunięcie rezerwacji (dla usera) z walidacją
 
 3. (GRZES)
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
 - Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami)
 
-4. (KTO?)
-- Generowanie ligi (utworzenie meczy dla wszystkich drużyn z ligi KLPN) można po prostu inserty dodać na bazę na sztywno a jemu powiemy że system to wygenerował, ewentualnie mega szybki i prosty controller z dodaniem meczu poprzez admina
+4. (KTO?) - na koniec
+- Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
 
-5. (KTO?)
-- Podgląd meczy (harmonogram jako lista) -> widzę to tak, że są dni i na dzień powiedzmy jest lista 3 meczy i tak zrobić z tydzień, aby każdy grał z każdym (żeby mu to pokazać)
-- Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego - ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZY" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem" i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
+5. (ADAM)
+- Podgląd meczów (harmonogram jako lista)
+- Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego -
+ ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZÓW" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem"
+ i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
+ (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
 
 6. (KTO?)
 - Utworzenie transferu (tylko kapitan drużyny) -> myślę ze jebać rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY

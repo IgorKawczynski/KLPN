@@ -36,7 +36,6 @@ export class ReservationEditComponent implements OnInit {
 
   btnConfirm(): void {
     this.reservationUpdateDto.date.setHours(this.reservationUpdateDto.date.getHours() + 1);
-
     this.updateReservation();
   }
 
@@ -56,7 +55,7 @@ export class ReservationEditComponent implements OnInit {
       }
       else{
         this.messageService.add({life: 8000, severity:'success', summary:'Edytowano rezerwację', detail:'Pomyślnie zmieniono dane rezerwacji!'});
-        setTimeout(location.reload.bind(location), 3000);
+        setTimeout(() => {this.router.navigateByUrl('/reservation-list');}, 1500);
       }
     })
   }
