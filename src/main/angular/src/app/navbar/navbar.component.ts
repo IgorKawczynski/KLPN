@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit {
               },
             ]
           },
-          {label: 'Tabela'},
+          {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}
         ];
@@ -110,7 +110,7 @@ export class NavbarComponent implements OnInit {
               },
             ]
           },
-          {label: 'Tabela'},
+          {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}
         ];
@@ -135,7 +135,7 @@ export class NavbarComponent implements OnInit {
             },
           ]
         },
-        {label: 'Tabela'},
+        {label: 'Tabela', routerLink: "/table"},
         {label: 'Harmonogram', routerLink: "/schedule"},
         {label: 'Kontakt', routerLink: "/contact"}
       ];
