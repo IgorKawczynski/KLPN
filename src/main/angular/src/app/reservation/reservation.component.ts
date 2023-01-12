@@ -55,6 +55,7 @@ export class ReservationComponent implements OnInit {
         setTimeout(() => {this.router.navigateByUrl('/reservation-list');}, 1500);
       }
     })
+    
   }
 
 }
