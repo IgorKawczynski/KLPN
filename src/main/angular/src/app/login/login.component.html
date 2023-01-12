@@ -20,8 +20,16 @@
           </div>
         </div>
       </div>
-      <button type="button" class="login-btn" (click)="btnLogin()"><p>Zaloguj się</p></button>
-      <p class="optional">Nie masz konta? <a href="/register"> Zarejestruj się </a></p>
+      <button pButton pRipple
+              class="p-button-outlined p-button-success"
+              style="top: 200px; left: 32%; color: #18c015"
+              type="button"
+              icon="pi pi-sign-in"
+              (click)="btnLogin()"
+              routerLinkActive="active"
+              label="Zaloguj się">
+      </button>
+      <p class="optional">Nie masz konta? <a href="/register"> Zarejestruj się </a> już teraz !</p>
     </div>
     <app-footer></app-footer>
   </div>
