@@ -125,16 +125,6 @@ export class NavbarComponent implements OnInit {
           label: 'Zaloguj się',
           routerLink: '/login'
         },
-        {
-          label: 'Drużyna',
-          items: [
-            {
-              label: 'Wyświetl Drużyny',
-              icon: 'pi pw-fw pi-pencil',
-              routerLink: "/team"
-            },
-          ]
-        },
         {label: 'Tabela', routerLink: "/table"},
         {label: 'Harmonogram', routerLink: "/schedule"},
         {label: 'Kontakt', routerLink: "/contact"}
