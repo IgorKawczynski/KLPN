@@ -31,7 +31,6 @@ export class ReservationListComponent implements OnInit {
 
   public getReservations(): void {
     let userId: number = this.loginService.getId();
-
     this.reservationListService.getReservationsByUserId(userId).subscribe((response: any) => {
       this.reservations = response;
     });
