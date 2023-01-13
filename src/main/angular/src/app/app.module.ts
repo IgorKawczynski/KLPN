@@ -53,6 +53,8 @@ import { ReservationEditComponent } from './reservation-edit/reservation-edit.co
 import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
 import { AdminAcceptTeamComponent } from './admin-components/admin-accept-team/admin-accept-team.component';
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
+import { TeamEditComponent } from './team/team-edit/team-edit.component';
+import { NotificationComponent } from './admin-components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { TeamDetailComponent } from './team/team-detail/team-detail.component';
     ReservationEditComponent,
     ReservationHistoryComponent,
     AdminAcceptTeamComponent,
+    TeamEditComponent,
+    NotificationComponent,
     TeamDetailComponent
   ],
     imports: [

@@ -10,8 +10,8 @@ import {LoginService} from "../login/login.service";
 export class NavbarComponent implements OnInit {
 
   items: MenuItem[ ] = [ ];
-
   itemsRight: MenuItem[ ] = [ ];
+  teamId: number = 0;
 
   constructor(
     public loginService: LoginService
@@ -52,7 +52,8 @@ export class NavbarComponent implements OnInit {
               },
               {
                 label: 'Zarządzaj drużyną',
-                icon: 'pi pw-fw pi-user-edit'
+                icon: 'pi pw-fw pi-user-edit',
+                routerLink: "TU ID DRUZYNY AKTUALNEJ DLA UZYTKOWNIKA< JESLI JEJ NIE MA TO PTOAST"
               },
               {
                 label: 'Transfer',
@@ -100,7 +101,8 @@ export class NavbarComponent implements OnInit {
               },
               {
                 label: 'Zarządzaj drużyną',
-                icon: 'pi pw-fw pi-user-edit'
+                icon: 'pi pw-fw pi-user-edit',
+                routerLink: "/team-edit"
               },
               {
                 label: 'Transfer',

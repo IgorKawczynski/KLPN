@@ -14,9 +14,7 @@ export class AuthenticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-
       let token = sessionStorage.getItem('token');
-
 
       if (state.url == "/login") {
         if(token){
@@ -25,20 +23,24 @@ export class AuthenticationGuard implements CanActivate {
         }
         return true;
       }
-
-
       if(!token) {
-        let urlTeam = "/team";
-        let urlReservation = "/reservation";
-        // TODO -- DO DODANIA KOLEJNE
-        if(state.url == urlReservation || state.url == urlTeam) {
-          console.log("!!! !!! NIE JESTES ZALOGOWANY !!! !!!")
+        let urls = [
+          "/admin",
+          "notification",
+          "/student",
+          "/reservation",
+          "/reservation-list",
+          "/reservation-history",
+          "/team",
+          "/team-edit",
+          "/transfer"
+        ]
+        if(urls.includes(state.url)) {
           this.messageService.add({life:3500, severity:'info', summary:'Login', detail:" Musisz się najpierw zalogować ! "})
           return this.router.parseUrl('/login');
         }
         return true;
       }
-
     return true;
   }
 
