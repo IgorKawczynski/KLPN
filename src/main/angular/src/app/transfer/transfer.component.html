@@ -1,1 +1,38 @@
-<p>transfer works!</p>
+<main>
+  <app-navbar></app-navbar>
+
+  <p class="main-text">Transfer</p>
+
+  <div class="time-field">
+    <p class="time-info">Podaj numer albumu studenta, którego chcesz dodać do swojej drużyny:</p>
+    <div class="input-wrapper">
+      <div class="p-inputgroup input-index" style="width: 200px">
+        <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
+       <input type="text" pInputText [maxLength]="6" min="100000" [(ngModel)]="singleTransferDTO.newPlayerIndex" placeholder="Numer albumu">
+      </div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <button pButton pRipple
+            class="p-button-lg p-button-outlined p-button-danger"
+            type="button"
+            style="margin-right: 10px; background-color:white "
+            icon="pi pi-times"
+            (click)="btnCancel()"
+            routerLinkActive="active"
+            label="Anuluj">
+    </button>
+    <button pButton pRipple
+            class="p-button-lg p-button-outlined p-button-success"
+            style="margin-left: 10px; background-color:white; color: forestgreen"
+            type="button"
+            icon="pi pi-check"
+            (click)="btnConfirm()"
+            routerLinkActive="active"
+            label="Zatwierdź">
+    </button>
+  </div>
+
+  <app-footer></app-footer>
+</main>

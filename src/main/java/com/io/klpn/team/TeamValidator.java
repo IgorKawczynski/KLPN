@@ -70,4 +70,11 @@ public class TeamValidator {
         }
     }
 
+    public void teamSizeLessThanTwelve(Long teamId) {
+        var team = teamRepository.getReferenceById(teamId);
+        var teamSize = teamRepository.getTeamSize(team).intValue();
+        if (teamSize >= 12) {
+            throw new IllegalStateException("Drużyna nie może mieć więcej niż 12 zawodników!");
+        }
+    }
 }

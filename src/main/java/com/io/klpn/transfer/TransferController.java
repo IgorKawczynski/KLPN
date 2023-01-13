@@ -1,6 +1,7 @@
 package com.io.klpn.transfer;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.transfer.dto.SingleTransferDTO;
 import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -36,10 +37,9 @@ public class TransferController {
         transferService.createHeadForHeadTransfer(transferRequestDTO);
     }
 
-    @PostMapping(path = "/single", produces = "application/json", consumes = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createSingleTransfer(@RequestBody TransferRequestDTO transferRequestDTO) {
-        transferService.createSingleTransfer(transferRequestDTO);
+    @PostMapping("/single")
+    public ErrorsListDTO createSingleTransfer(@RequestBody SingleTransferDTO singleTransferDTO) {
+        return transferService.createSingleTransfer(singleTransferDTO);
     }
 
     @DeleteMapping("/{id}")

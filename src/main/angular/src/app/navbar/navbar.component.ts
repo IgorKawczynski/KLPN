@@ -57,7 +57,8 @@ export class NavbarComponent implements OnInit {
               },
               {
                 label: 'Transfer',
-                icon: 'pi pw-fw pi-arrow-right-arrow-left'
+                icon: 'pi pw-fw pi-arrow-right-arrow-left',
+                routerLink: "/transfer"
               },
             ]
           },
