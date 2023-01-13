@@ -1,6 +1,7 @@
 main{
   height: auto;
 }
+
 .hero-img {
   position: relative;
   height: 84.2vh;
@@ -9,6 +10,7 @@ main{
   background-size: cover;
   background-attachment: fixed;
 }
+
 .main-text{
   padding-top: 50px;
   text-align: center;
@@ -20,19 +22,28 @@ main{
   text-transform: uppercase;
 }
 
-
-.content{
-  width: 80%;
-  margin-left: 50%;
-  margin-top: 5%;
+.content-img{
+  opacity: 0.85;
+  width: 60%;
+  height: 60%;
+  margin-left: 32%;
+  margin-top: 2%;
   transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
-
-  .table {
-  }
-
 }
+
+.content{
+  opacity: 0.85;
+  width: 40%;
+  margin-left: 48%;
+  margin-top: -24.7%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+
 
 
 
