@@ -20,6 +20,7 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { AuthenticationGuard } from "./authentication.guard";
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
+import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
       { path: 'reservation-history', component: ReservationHistoryComponent},
+      { path: 'team-detail', component: TeamDetailComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];

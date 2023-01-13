@@ -1,0 +1,42 @@
+main{
+  height: auto;
+}
+.hero-img {
+  position: relative;
+  height: 84.2vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../../assets/img/football-field-2588146.jpg");;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.main-text{
+  padding-top: 50px;
+  text-align: center;
+  font-size: 60px;
+  word-spacing: 14px;
+  background-image: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+
+.content{
+  width: 80%;
+  margin-left: 50%;
+  margin-top: 5%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+
+  .table {
+  }
+
+}
+
+
+
+
+
+
+

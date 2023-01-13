@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<main>
+  <app-navbar></app-navbar>
+  <div class="hero-img">
+    <p class="main-text">Kortowskie dziki</p>
+    <div class="content">
+      <img src="../../assets/img/KLPN_Github_logo.png">
+      <div class="table>">
+        <p-table [value]="playerstats" [tableStyle]="{'width': '70rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Imię i nazwiksko</th>
+              <th>Pozycja</th>
+              <th>Zdobyte bramki</th>
+              <th>Zaliczone asysty</th>
+              <th>Czerwone kartki</th>
+              <th>Zółte kartki</th>
+              <th>Samobóje</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>
+
+
+
+
+
+
+
