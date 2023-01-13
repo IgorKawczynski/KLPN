@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
+import {Router} from "@angular/router";
+import {MessageService} from "primeng/api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private messageService: MessageService
+  ) { }
 
   public isLogged() {
     return sessionStorage.length > 0;
@@ -29,6 +34,22 @@ export class LoginService {
 
   public getId() {
     return Number(localStorage.getItem("id"));
+  }
+
+
+  public btnLogout() {
+    this.logout();
+  }
+
+  public logout() {
+    if(sessionStorage.length > 0){
+      sessionStorage.removeItem('token')
+      this.router.navigateByUrl('/login').then(r => null);
+      this.messageService.add({life:3000, severity:'success', summary:'Wyloguj', detail:" Pomyślnie wylogowano!"})
+    }
+    else {
+      this.messageService.add({life:3000, severity:'info', summary:'Wyloguj', detail:" Najpierw się musisz zalogować!"})
+    }
   }
 
 

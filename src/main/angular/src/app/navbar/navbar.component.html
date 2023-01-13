@@ -8,9 +8,9 @@
         </a>
       </ng-template>
       <ng-template pTemplate="end">
-        <p-menubar [model]="itemsRight" [autoDisplay]="true">
+        <p-menubar [model]="itemsRight" [autoDisplay]="true" [style]="{'border': 'none'}">
           <button pButton pRipple class="p-button-help" type="button" *ngIf="this.loginService.isLogged()"
-                  icon="pi pi-sign-out" (click)="this.btnLogout()" routerLinkActive="active" label="Wyloguj"></button>
+                  icon="pi pi-sign-out" (click)="this.loginService.btnLogout()" routerLinkActive="active" label="Wyloguj"></button>
         </p-menubar>
       </ng-template>
     </p-menubar>

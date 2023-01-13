@@ -8,8 +8,10 @@
         </a>
       </ng-template>
       <ng-template pTemplate="end">
-        <a href='/login' class="btn-login" type="button"><p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle"></p-avatar></a>
-      </ng-template>
+        <p-menubar [model]="itemsRight" [autoDisplay]="true" [style]="{'background-color': 'rgb(157, 231, 250)', 'border': 'none'}">
+          <button pButton pRipple class="p-button-info" type="button" *ngIf="this.loginService.isLogged()"
+                  icon="pi pi-sign-out" (click)="this.loginService.btnLogout()" routerLinkActive="active" label="Wyloguj"></button>
+        </p-menubar>      </ng-template>
     </p-menubar>
   </section>
 </html>

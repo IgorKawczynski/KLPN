@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MenuItem, MessageService} from 'primeng/api';
+import {Component, OnInit} from '@angular/core';
+import {MenuItem} from 'primeng/api';
 import {LoginService} from "../login/login.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +13,8 @@ export class NavbarComponent implements OnInit {
 
   itemsRight: MenuItem[ ] = [ ];
 
-  constructor(public loginService: LoginService,
-              private router: Router,
-              private messageService: MessageService
+  constructor(
+    public loginService: LoginService
   ) { }
 
 
@@ -129,21 +127,6 @@ export class NavbarComponent implements OnInit {
         {label: 'Harmonogram', routerLink: "/schedule"},
         {label: 'Kontakt', routerLink: "/contact"}
       ];
-    }
-  }
-
-  public btnLogout() {
-    this.logout();
-  }
-
-  public logout() {
-    if(sessionStorage.length > 0){
-      sessionStorage.removeItem('token')
-      this.router.navigateByUrl('/login').then(r => null);
-      this.messageService.add({life:3000, severity:'success', summary:'Wyloguj', detail:" Pomyślnie wylogowano!"})
-    }
-    else {
-      this.messageService.add({life:3000, severity:'info', summary:'Wyloguj', detail:" Najpierw się musisz zalogować!"})
     }
   }
 }

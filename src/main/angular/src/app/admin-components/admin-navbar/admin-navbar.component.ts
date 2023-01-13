@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import {LoginService} from "../../login/login.service";
 
 @Component({
   selector: 'app-admin-navbar',
@@ -8,12 +9,15 @@ import { MenuItem } from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 })
 export class AdminNavbarComponent implements OnInit {
-  items: MenuItem[] = [];
 
-  constructor() { }
+  items: MenuItem[] = [];
+  itemsRight: MenuItem[ ] = [ ];
+
+  constructor(
+    public loginService: LoginService
+  ) { }
 
   ngOnInit(): void {
-
     this.items = [
       {label: 'Akceptuj',
       styleClass: 'admin-navbar-item',
@@ -75,7 +79,9 @@ export class AdminNavbarComponent implements OnInit {
       {label: 'Harmonogram', routerLink: "/", styleClass: 'admin-navbar-item'},
       {label: 'Tabela', routerLink: "/", styleClass: 'admin-navbar-item'}
       ];
-
+    this.itemsRight =  [
+      {label: 'Witaj ' + this.loginService.getName() || undefined, routerLink: "/users/my-profile"}
+    ]
   }
 
 }
