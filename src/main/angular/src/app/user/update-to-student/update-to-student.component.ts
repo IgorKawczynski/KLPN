@@ -25,6 +25,10 @@ export class UpdateToStudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  btnCancel(): void {
+    history.back();
+  }
+
   btnConfirm(): void {
     console.log(this.updateToStudent);
     this.updateToStudentDto.userId = this.loginservice.getId();
@@ -38,11 +42,12 @@ export class UpdateToStudentComponent implements OnInit {
       this.errorsListDto = response;
       if(!this.errorsListDto.listOfErrorsEmpty){
         this.errorsListDto.errors.forEach((error) => {
-          this.messageService.add({life: 8000, severity:'error', summary:'Błąd', detail:error})
+          this.messageService.add({life: 6000, severity:'error', summary:'Błąd', detail:error})
         });
       }
       else {
-        this.messageService.add({life: 8000, severity:'success', summary:'Zaakceptowane', detail:"Twój wniosek został zaakceptowany i czeka na akceptacje przez administratora."})
+        this.router.navigateByUrl('/');
+        this.messageService.add({life: 5000, severity:'success', summary:'Zaakceptowane', detail:"Twój wniosek został zaakceptowany i czeka na akceptacje przez administratora."})
       }
     })
   }
