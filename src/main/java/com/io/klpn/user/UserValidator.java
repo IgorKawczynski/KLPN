@@ -43,11 +43,12 @@ public class UserValidator {
         validatorService.isNull("Hasło", user.password());
         validatorService.validateString("Hasło", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
         checkIfExists(user.email());
+
     }
 
     public void checkIfExists(String email) {
         if (!userRepository.existsByEmail(email)) {
-            throw new BadCredentialsException("Podałeś zły email/hasło, spróbuj jeszcze raz !");
+            throw new BadCredentialsException("Nie ma użytkownika o podanym e-mailu !");
         }
     }
 

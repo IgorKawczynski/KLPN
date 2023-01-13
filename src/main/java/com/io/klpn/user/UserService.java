@@ -68,7 +68,12 @@ public class UserService {
             }
         }
         catch (StringValidatorException | BadCredentialsException | InternalAuthenticationServiceException | NullPointerException exception) {
-            response.addToErrorList(exception.getMessage());
+            if(exception.getClass() == BadCredentialsException.class) {
+                response.addToErrorList("Podałeś zły email / hasło, spróbuj jeszcze raz !");
+            }
+            else {
+                response.addToErrorList(exception.getMessage());
+            }
         }
         return response;
     }
