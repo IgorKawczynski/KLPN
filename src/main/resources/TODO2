@@ -1,21 +1,20 @@
 TODO do końca implementacji (15.01)
 
-1. (ADAM) --- GOTOWE
-- Rezerwacja boiska (dla usera) z walidacją
-- Podgląd rezerwacji (dla usera) - w formie listy
-- Edycja + Usunięcie rezerwacji (dla usera) z walidacją
-
-2. (GRZES)
-- Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
+1. (GRZES)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
 - Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami) (backend zrobiony)
 
-3. (ADAM)
+2. (ADAM)
 - Podgląd meczów (harmonogram jako lista)
 - Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego -
  ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZÓW" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem"
  i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
  (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
+
+3. (IGOR)
+- Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
+- kolejna poprawa navbara i nowe routingi + request z authentication guard do poprawy dla nowych url'ow
+- mozliwosc klikniecia na wiersz w TABELI i przejscie do szczegolow danej druzyny
 
 4. (KTO?)
 - Utworzenie transferu (tylko kapitan drużyny) -> myślę ze olać XD rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY
