@@ -11,10 +11,12 @@ import {TreeNode} from 'primeng/api';
   styles: [
     `tr.first {
       background-color: rgba(255, 204, 0, 0.61);
+      color: #160621;
     }
 
     tr.second {
       background-color: rgba(185, 185, 185, 0.61);
+      color: #160621;
     }
 
     tr.third {
