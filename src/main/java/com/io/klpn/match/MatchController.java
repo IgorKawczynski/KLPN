@@ -1,6 +1,7 @@
 package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.match.dtos.MatchResponseDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -47,5 +49,11 @@ public class MatchController {
     public ErrorsListDTO deleteMatchById(@PathVariable Long id) {
         return matchService.deleteMatchById(id);
     }
+
+    @PostMapping("/for-day")
+    public List<MatchResponseDTO> getMatchesListByDay(@RequestBody LocalDateTime date) {
+        return matchService.getMatchResponseDTOsListByDay(date);
+    }
+
 
 }
