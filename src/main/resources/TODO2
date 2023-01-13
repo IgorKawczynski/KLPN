@@ -12,6 +12,7 @@ TODO do końca implementacji (15.01)
 3. (GRZES)
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
+- Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami) (backend zrobiony)
 
 4. (KTO?) - na koniec
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
