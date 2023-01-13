@@ -44,7 +44,7 @@ export class TeamComponent implements OnInit {
     newPlayer.position = mapToEnumValue(newPlayer.position);
     newPlayer.isReferee == undefined ? newPlayer.isReferee = false : newPlayer.isReferee; // jesli nie zaznaczono checkboxa, to czasami isReferee leci jako undedfined, wiec zmieniam tutaj na false
     this.players.push(newPlayer);
-    console.log('ilosc plikarzy po dodaniu: ' + this.players.length);
+    console.log('Ilość plikarzy po dodaniu: ' + this.players.length);
     console.log(this.players);
   }
 
@@ -75,12 +75,12 @@ export class TeamComponent implements OnInit {
         this.errorsListDto = response;
         if(!this.errorsListDto.listOfErrorsEmpty) {
           this.errorsListDto.errors.forEach((error) =>
-            this.messageService.add({life:8000, severity:'error', summary:'Rejestracja drużyny', detail:error})
+            this.messageService.add({life:5000, severity:'error', summary:'Rejestracja drużyny', detail:error})
           );
         }
         else{
-          this.messageService.add({life: 8000, severity:'success', summary:'Rejestracja drużyny', detail:'Gratulacje! Udało się zarejestrować drużynę.'});
-          this.messageService.add({life: 15000, severity:'info', summary:'Informacja', closable:false , detail:'Teraz udaj się do zakładki kontakt, gdzie znajdziesz informacje o kolejnych krokach, aby twoja drużyna mogła uczestniczyć w KLPN.'});
+          this.messageService.add({life: 7000, severity:'success', summary:'Rejestracja drużyny', detail:'Gratulacje! Udało się zarejestrować drużynę.'});
+          this.messageService.add({life: 7000, severity:'info', summary:'Informacja', closable:false , detail:'Teraz udaj się do zakładki kontakt, gdzie znajdziesz informacje o kolejnych krokach, aby twoja drużyna mogła uczestniczyć w KLPN.'});
         }
       })
   }

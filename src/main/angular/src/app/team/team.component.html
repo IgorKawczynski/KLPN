@@ -54,14 +54,18 @@
     <div class="right">
       <p class="right-text">Aktualny skład:</p>
       <ul class="list">
-        <!-- <li *ngFor="let player of ">
-          {{player}} <button pButton pRipple (click)="removePlayer(Player)" type="button" icon="pi pi-minus" class="p-button-rounded p-button-danger p-button-sm"></button>;
-        </li> -->
+        <li *ngFor="let player of players">
+          {{player}}
+          <button pButton pRipple
+                  (click)="removePlayer(player)"
+                  type="button"
+                  icon="pi pi-minus"
+                  class="p-button-rounded p-button-danger p-button-sm">
+          </button>;
+        </li>
       </ul>
     </div>
-
-    </div>-->
-
+    </div>
 
 
   </div>
