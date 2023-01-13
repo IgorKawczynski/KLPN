@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {TreeNode} from 'primeng/api';
+import { Component, OnInit} from '@angular/core';
+import { MatchResponseDTO } from './matchResponseDTO';
 import { ScheduleService } from './schedule.service';
 
 @Component({
@@ -11,16 +11,17 @@ import { ScheduleService } from './schedule.service';
 
 export class ScheduleComponent implements OnInit {
 
-  schedule: TreeNode[] = [];
+  public chosenDate = new Date;
+  public date?: String;
 
-  dates: Date[] = [];
+  public matches: MatchResponseDTO[] = [];
 
   cols: any[] = [];
   constructor(private scheduleService: ScheduleService) { }
 
-  ngOnInit() {
-    this.getDates();
-    this.setSchedule();
+  ngOnInit(): void {
+    this.chosenDate = new Date(this.chosenDate.setHours(0, 0 ,0));
+    this.date = this.chosenDate.toLocaleDateString();
 
     this.cols = [
       { field: 'date', header: 'Data' },
@@ -34,41 +35,15 @@ export class ScheduleComponent implements OnInit {
 
   }
 
-  public getDates(): void {
-    this.scheduleService.getDatesOfMatches().subscribe((response: any) =>{
-      this.dates = response;
-    })
+  public getMatches(): void {
+    this.scheduleService.getMatchesByDay(this.chosenDate).subscribe((response: any) =>{
+      this.matches = response;
+    });
   }
 
-  public setSchedule(): void {
-    for(let i = 1; i <= 3; i++) {
-      let node = 
-      {
-        data:
-        {
-          date: "this.dates[i]"
-        },
-        children: 
-        [
-          {
-            data: 
-            {
-              team1: 'Kortowskie szczury',
-              team2: 'Dzikie ify',
-              hour: '17.00',
-              pitch_number: 3,
-              result: '3:3',
-              referee: 'Janek Takitego'
-            }
-          }
-        ]
-      };
-      this.schedule.push(node);
-    }
+  public showMatches() {
+    this.getMatches();
+    this.date = this.chosenDate.toLocaleDateString();
   }
 
-
-  public btnDelete(){
-    console.log(this.dates);
-  }
 }

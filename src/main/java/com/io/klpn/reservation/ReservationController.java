@@ -51,4 +51,5 @@ public class ReservationController {
     public ErrorsListDTO updateReservation(@RequestBody ReservationUpdateDto reservationToUpdate) {
         return reservationService.updateReservation(reservationToUpdate);
     }
+
 }
