@@ -33,11 +33,17 @@ public class StudentValidator {
         }
     }
 
+    public void existsInDatabaseByIndexNumber(Integer indexNumber) {
+        if (!studentRepository.existsByIndexNumber(indexNumber)) {
+            throw new IllegalStateException("Nie znaleziono studenta z podanym numerem albumu!");
+        }
+    }
+
     public void checkIfStudentsAreAccepted(List<Integer> indexNumbers) {
         indexNumbers.forEach(this::checkIfStudentIsAccepted);
     }
 
-    private void checkIfStudentIsAccepted(Integer indexNumber) {
+    public void checkIfStudentIsAccepted(Integer indexNumber) {
         if (!studentRepository.checkIfStudentIsAccepted(indexNumber)) {
             throw new IllegalStateException(String.format("Student o indeksie %d jeszcze nie został zaakceptowany przez Administratora.", indexNumber));
         }
@@ -47,7 +53,7 @@ public class StudentValidator {
         indexNumber.forEach(this::checkIfStudentIsAssignedToAnotherTeam);
     }
 
-    private void checkIfStudentIsAssignedToAnotherTeam(Integer indexNumber) {
+    public void checkIfStudentIsAssignedToAnotherTeam(Integer indexNumber) {
         if (studentRepository.checkIfStudentIsAssignedToAnotherTeam(indexNumber)){
             throw new IllegalStateException(String.format("Student o indeksie %d jest już przypisany do innej drużyny!", indexNumber));
         }

@@ -27,4 +27,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     List<Student> findAllByTeam_Id(Long id);
 
+    @Query("SELECT s FROM Student s WHERE s.indexNumber = :indexNumber")
+    Student getStudentByIndexNumber(@Param("indexNumber") Integer indexNumber);
 }

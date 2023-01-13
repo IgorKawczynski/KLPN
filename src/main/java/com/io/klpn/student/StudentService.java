@@ -42,6 +42,10 @@ public class StudentService {
                 .orElseThrow(() -> new NoSuchElementException(String.format("Student z podanym id: %d nie istnieje. ", id)));
     }
 
+    public Student getStudentByIndexNumber(Integer indexNumber) {
+        return studentRepository.getStudentByIndexNumber(indexNumber);
+    }
+
     public ErrorsListDTO updateStudentField(UpdateDto updateDto) {
         var errorsList = new ErrorsListDTO();
 
