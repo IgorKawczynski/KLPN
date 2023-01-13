@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<main>
+  <app-navbar></app-navbar>
+  <div class="hero-img">
+    <p class="main-text">Zarządzaj składem swojego zespołu</p>
+    <div class="content">
+
+      <p-table [value]="players" [(selection)]="selectedPlayers" [paginator]="true" [rows]="9" [selectionPageOnly]="true">
+        <ng-template pTemplate="caption">
+          <div class="center-caption">
+            Wybierz zadowników do wyrzucenia z drużyny:
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Id</th>
+            <th>Numer indeksu</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th></th>
+            <th style="width: 3rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+          <tr>
+            <td>{{ player.id }}</td>
+            <td>{{ player.indexNumber }}</td>
+            <td>{{ player.firstName }}</td>
+            <td>{{ player.lastName }}</td>
+            <td>
+              <p-tableCheckbox [value]="player"></p-tableCheckbox>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="flex-container">
+              Liczba graczy w zespole: {{players.length}}
+            <button  pButton pRipple type="button" label="Dodaj nowego zawodnika" class="p-button-rounded p-button-help"></button>
+            <button class="reject" type="button" pButton label="Wyrzuć z drużyny"><i class="pi pi-times"></i></button>
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>
+
+
+
+
+
+
+

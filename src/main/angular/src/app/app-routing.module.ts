@@ -23,6 +23,7 @@ import { ReservationHistoryComponent } from './reservation-history/reservation-h
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { TeamEditComponent } from "./team/team-edit/team-edit.component";
 import { NotificationComponent } from "./admin-components/notification/notification.component";
+import { TeamManageComponent } from "./team/team-manage/team-manage.component";
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
       { path: 'team-detail:teamId', component: TeamDetailComponent},
       { path: 'team-detail/:id', component: TeamDetailComponent},
       { path: 'team-detail/**', component: TeamDetailComponent},
+      { path: 'team-manage', component: TeamManageComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];

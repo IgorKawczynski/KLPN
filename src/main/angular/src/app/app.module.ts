@@ -55,6 +55,7 @@ import { AdminAcceptTeamComponent } from './admin-components/admin-accept-team/a
 import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { TeamEditComponent } from './team/team-edit/team-edit.component';
 import { NotificationComponent } from './admin-components/notification/notification.component';
+import { TeamManageComponent } from './team/team-manage/team-manage.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { NotificationComponent } from './admin-components/notification/notificat
     AdminAcceptTeamComponent,
     TeamEditComponent,
     NotificationComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    TeamManageComponent
   ],
     imports: [
         HttpClientModule,
