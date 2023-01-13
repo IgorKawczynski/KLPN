@@ -15,9 +15,14 @@ public class StudentMapper {
     public PlayerAndStatsDTO mapToPlayerAndStatsDto(Student student){
         var fullName = getStudentFullName(student);
         var playerStats = matchStatisticService.getPlayerStatsDtoByPlayerId(student.getId());
-        return new PlayerAndStatsDTO(student.getId(), fullName, student.getPosition().getPositionType(), playerStats.goals(),
-                                    playerStats.assists(), playerStats.redCards(),
-                                    playerStats.yellowCards(), playerStats.ownGoals(), student.getMotmAmount());
+        if(student.getPosition() != null) {
+            return new PlayerAndStatsDTO(student.getId(), fullName, student.getPosition().getPositionType(), playerStats.goals(),
+                    playerStats.assists(), playerStats.redCards(),
+                    playerStats.yellowCards(), playerStats.ownGoals(), student.getMotmAmount());
+        }
+        return new PlayerAndStatsDTO(student.getId(), fullName, null, playerStats.goals(),
+                playerStats.assists(), playerStats.redCards(),
+                playerStats.yellowCards(), playerStats.ownGoals(), student.getMotmAmount());
     }
 
     private String getStudentFullName(Student student) {
