@@ -55,7 +55,7 @@
       <p class="right-text">Aktualny skład:</p>
       <ul class="list">
         <li *ngFor="let player of players">
-          {{player}}
+          {{player.indexNumber}}
           <button pButton pRipple
                   (click)="removePlayer(player)"
                   type="button"

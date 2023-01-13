@@ -1,35 +1,33 @@
 TODO do końca implementacji (15.01)
 
-1. (IGOR)
- - NOWE! dodać tablice reprezentującą dodanych studentów do drużyny na widoku rejestracji drużyny + przycisk do usuwania ich z tabeli
-
-2. (ADAM) --- GOTOWE
+1. (ADAM) --- GOTOWE
 - Rezerwacja boiska (dla usera) z walidacją
 - Podgląd rezerwacji (dla usera) - w formie listy
 - Edycja + Usunięcie rezerwacji (dla usera) z walidacją
 
-3. (GRZES)
+2. (GRZES)
 - Zarządzanie drużyną (edycja + usunięcie) (tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem)
 - Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
 - Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami) (backend zrobiony)
 
-4. (KTO?) - na koniec
-- Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
-
-5. (ADAM)
+3. (ADAM)
 - Podgląd meczów (harmonogram jako lista)
 - Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego -
  ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZÓW" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem"
  i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
  (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
 
-6. (KTO?)
+4. (KTO?)
 - Utworzenie transferu (tylko kapitan drużyny) -> myślę ze jebać rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY
 - Ewentualnie możliwość zarządzaniem transferami (edycja + usunięcie) poprzez ADMINA
 - Podgląd transferów (lista)
 
-7. (KTO?)
+5. (KTO?)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
+
+6. (KTO?) - na koniec
+- Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
+
 
 *Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
 **Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**

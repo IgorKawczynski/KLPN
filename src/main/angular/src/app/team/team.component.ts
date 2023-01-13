@@ -49,7 +49,8 @@ export class TeamComponent implements OnInit {
   }
 
   removePlayer(player: StudentPlayer){
-    this.players = this.players.filter(e => e != e);
+    this.players = this.players.filter(e => e != player);
+    console.log("PLAYERS : " + this.players);
   }
 
   ngOnInit(): void {
