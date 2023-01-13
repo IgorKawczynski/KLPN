@@ -52,6 +52,8 @@ import {RippleModule} from "primeng/ripple";
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
 import { AdminAcceptTeamComponent } from './admin-components/admin-accept-team/admin-accept-team.component';
+import { TeamEditComponent } from './team/team-edit/team-edit.component';
+import { NotificationComponent } from './admin-components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { AdminAcceptTeamComponent } from './admin-components/admin-accept-team/a
     ReservationListComponent,
     ReservationEditComponent,
     ReservationHistoryComponent,
-    AdminAcceptTeamComponent
+    AdminAcceptTeamComponent,
+    TeamEditComponent,
+    NotificationComponent
   ],
     imports: [
         HttpClientModule,

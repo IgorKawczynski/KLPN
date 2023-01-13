@@ -20,6 +20,8 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { AuthenticationGuard } from "./authentication.guard";
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 import { ReservationHistoryComponent } from './reservation-history/reservation-history.component';
+import {TeamEditComponent} from "./team/team-edit/team-edit.component";
+import {NotificationComponent} from "./admin-components/notification/notification.component";
 
 
 const routes: Routes = [
@@ -33,6 +35,7 @@ const routes: Routes = [
       { path: 'reservation', component: ReservationComponent },
       { path: 'student', component: StudentComponent },
       { path: 'team', component: TeamComponent },
+      { path: 'team-edit/:id', component: TeamEditComponent },
       { path: 'transfer', component: TransferComponent },
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
@@ -40,6 +43,7 @@ const routes: Routes = [
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'admin-accept-team', component: AdminAcceptTeamComponent },
+      { path: 'notification', component: NotificationComponent },
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
       { path: 'reservation-history', component: ReservationHistoryComponent},
