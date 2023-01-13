@@ -4,9 +4,9 @@
   <p class="main-text">Zarezerwuj boisko</p>
 
   <div class="container">
-    <div class="pitch first" (click)="setPitchNumber(1)"><p class="pitch-number">Boisko 1</p></div>
-    <div class="pitch second" (click)="setPitchNumber(2)"><p class="pitch-number">Boisko 2</p></div>
-    <div class="pitch third" (click)="setPitchNumber(3)"><p class="pitch-number">Boisko 3</p></div>
+    <div [ngClass]="defaultFirstPitchClass" (click)="setPitchNumber(1)"  ><p class="pitch-number">Boisko 1</p></div>
+    <div [ngClass]="defaultSecondPitchClass" (click)="setPitchNumber(2)"><p class="pitch-number">Boisko 2</p></div>
+    <div [ngClass]="defaultThirdPitchClass" (click)="setPitchNumber(3)"><p class="pitch-number">Boisko 3</p></div>
   </div>
 
   <div class="time-field">

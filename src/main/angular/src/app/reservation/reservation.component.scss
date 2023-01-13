@@ -37,8 +37,7 @@ main{
     width: 250px;
     margin: 30px 20px;
     position: relative;
-    transition: height, width .5s;
-
+    transition: height, width .1ms;
 
     .pitch-number{
       position: absolute;
@@ -49,7 +48,62 @@ main{
       color: #310744;
     }
   }
+
+  .clicked{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../../assets/img/football-field-1428839.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+    height: 320px;
+    width: 250px;
+    margin: 30px 20px;
+    position: relative;
+    transition: height, width .1ms;
+
+    .pitch-number{
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 26px;
+      color: #ad44b4;
+    }
+  }
+
+  .hidden{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/football-field-1428839.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+    height: 320px;
+    width: 250px;
+    margin: 30px 20px;
+    position: relative;
+    transition: height, width .1ms;
+
+    .pitch-number{
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 26px;
+      color: #310744;
+    }
+  }
+
   .pitch:hover{
+    height: 350px;
+    width: 260px;
+    cursor: pointer;
+  }
+
+  .clicked:hover{
+    height: 350px;
+    width: 260px;
+    cursor: pointer;
+  }
+
+  .hidden:hover{
     height: 350px;
     width: 260px;
     cursor: pointer;

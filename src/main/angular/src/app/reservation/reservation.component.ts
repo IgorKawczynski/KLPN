@@ -13,6 +13,9 @@ import { LoginService } from '../login/login.service';
 })
 export class ReservationComponent implements OnInit {
 
+  defaultFirstPitchClass = 'pitch first';
+  defaultSecondPitchClass = 'pitch second';
+  defaultThirdPitchClass = 'pitch third';
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   reservationRequestDto: ReservationRequestDto = new ReservationRequestDto;
 
@@ -28,6 +31,21 @@ export class ReservationComponent implements OnInit {
   }
 
   setPitchNumber(pitchNumber: number): void {
+    if(pitchNumber == 1){
+      this.defaultFirstPitchClass = 'clicked'
+      this.defaultSecondPitchClass = 'hidden'
+      this.defaultThirdPitchClass = 'hidden'
+    }
+    else if(pitchNumber == 2) {
+      this.defaultSecondPitchClass = 'clicked'
+      this.defaultFirstPitchClass = 'hidden'
+      this.defaultThirdPitchClass = 'hidden'
+    }
+    else {
+      this.defaultThirdPitchClass = 'clicked'
+      this.defaultFirstPitchClass = 'hidden'
+      this.defaultSecondPitchClass = 'hidden'
+    }
     this.reservationRequestDto.pitch = pitchNumber;
   }
 
