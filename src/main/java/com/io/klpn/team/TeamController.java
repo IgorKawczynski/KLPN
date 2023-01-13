@@ -2,6 +2,7 @@ package com.io.klpn.team;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.team.dtos.TeamCreateDTO;
+import com.io.klpn.team.dtos.TeamDto;
 import com.io.klpn.team.dtos.TeamToAcceptDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,11 @@ public class TeamController {
     @ResponseStatus(HttpStatus.OK)
     public List<Team> generateTable() {
         return teamService.generateTable();
+    }
+
+    @GetMapping("/details/{teamId}")
+    public TeamDto getTeamDetails(@PathVariable Long teamId){
+        return teamService.getTeamDetails(teamId);
     }
 
     @GetMapping("/to-accept")
