@@ -1,7 +1,5 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TreeNode} from 'primeng/api';
-import * as Http from "http";
-import {formatDate} from '@angular/common';
 import { ScheduleService } from './schedule.service';
 
 @Component({
@@ -14,7 +12,6 @@ import { ScheduleService } from './schedule.service';
 export class ScheduleComponent implements OnInit {
 
   schedule: TreeNode[] = [];
-  selectedNode: TreeNode | undefined;
 
   dates: Date[] = [];
 
@@ -23,29 +20,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
     this.getDates();
-
-    console.log(this.dates);
-
-    this.schedule = [];
-    // for(let i = 1; i <= this.datesDTO.dates.length; i++) {
-    //   let node = {
-    //     data:{
-    //       date: this.datesDTO.dates
-    //     },
-    //     children: [
-    //       {
-    //         data: {
-    //           team1: 'Kortowskie szczury',
-    //           team2: 'Dzikie ify',
-    //           hour: '17.00',
-    //           pitch_number: 3,
-    //         }
-    //       }
-    //     ]
-    //   };
-
-    //   this.schedule.push(node);
-    // }
+    this.setSchedule();
 
     this.cols = [
       { field: 'date', header: 'Data' },
@@ -56,18 +31,44 @@ export class ScheduleComponent implements OnInit {
       { field: 'result', header: 'Wynik' },
       { field: 'referee', header: 'Sędzia' }
     ];
+
   }
 
   public getDates(): void {
     this.scheduleService.getDatesOfMatches().subscribe((response: any) =>{
       this.dates = response;
-      console.log(response);
     })
-    console.log(this.dates);
+  }
+
+  public setSchedule(): void {
+    for(let i = 1; i <= 3; i++) {
+      let node = 
+      {
+        data:
+        {
+          date: "this.dates[i]"
+        },
+        children: 
+        [
+          {
+            data: 
+            {
+              team1: 'Kortowskie szczury',
+              team2: 'Dzikie ify',
+              hour: '17.00',
+              pitch_number: 3,
+              result: '3:3',
+              referee: 'Janek Takitego'
+            }
+          }
+        ]
+      };
+      this.schedule.push(node);
+    }
   }
 
 
   public btnDelete(){
-    console.log();
+    console.log(this.dates);
   }
 }

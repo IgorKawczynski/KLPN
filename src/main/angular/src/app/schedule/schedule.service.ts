@@ -16,5 +16,4 @@ export class ScheduleService {
     return this.http.get<Date[]>(`${this.apiServerUrl}/api/match/dates`)
   }
 
-
 }

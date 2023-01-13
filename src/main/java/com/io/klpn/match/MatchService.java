@@ -2,7 +2,6 @@ package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
-import com.io.klpn.match.dtos.DatesDTO;
 import com.io.klpn.reservation.Reservation;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -14,10 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -61,32 +58,17 @@ public class MatchService {
         return errorsListDto;
     }
 
-//    public List<LocalDate> getDatesReservedForAdmin(){
-//        List<Object> datesAsObjects = matchRepository.getDatesReservedForAdmin();
-//        List<LocalDate> datesAsDays = new ArrayList<>();
-//
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//
-//        for (Object date: datesAsObjects) {
-//            var dateToAdd = date.toString().substring(0, 10);
-//            var formatedDate = LocalDate.parse(formatter.format(LocalDate.parse(dateToAdd)));
-//            datesAsDays.add(formatedDate);
-//        }
-//
-//        TreeSet<LocalDate> uniqueDatesSorted = new TreeSet<>(datesAsDays);
-//
-//        return uniqueDatesSorted.stream().toList();
-//    }
-
-    public List<LocalDateTime> getDatesReservedForAdmin(){
-        List<Reservation> reservationList = matchRepository.getDatesReservedForAdmin();
-        List<LocalDate> datesAsDays = new ArrayList<>();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    public List<LocalDate> getDatesReservedForAdmin(){
+        List<Reservation> reservationList = matchRepository.getReservationsForAdmin();
 
         List<LocalDateTime> reservationDates = reservationList.stream().map(Reservation::getDate).distinct().toList();
+        TreeSet<LocalDate> uniqueDatesSorted = new TreeSet<>();
 
-        return reservationDates;
+        for (LocalDateTime date: reservationDates) {
+            uniqueDatesSorted.add(date.toLocalDate());
+        }
+
+        return uniqueDatesSorted.stream().toList();
     }
 
 }

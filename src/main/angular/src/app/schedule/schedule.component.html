@@ -5,12 +5,12 @@
     <p class="title">Harmonogram rozgrywek</p>
     <div class="tabela">
 
-      <p-treeTable  [value]="schedule" [columns]="cols" [paginator]="false" [scrollable]="true" scrollHeight="600px" [rows]="10">
+      <p-treeTable [value]="schedule" [columns]="cols" [paginator]="false" [scrollable]="true" scrollHeight="600px" [rows]="10">
         
         <ng-template pTemplate="header" let-columns>
           <tr>
             <th *ngFor="let col of columns">
-              {{col.header}}
+              {{ col.header }}
             </th>
           </tr>
         </ng-template>
@@ -19,14 +19,15 @@
           <tr>
             <td *ngFor="let col of columns; let i = index">
               <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
-              {{rowData[col.field]}}
+              {{ rowData[col.field] }}
             </td>
-            <td><button type="button" pButton label="Usuń rezerwację" class="delete" (click)="btnDelete()"><i class="pi pi-trash"></i></button></td>
           </tr>
         </ng-template>
         
       </p-treeTable>
-      
+
+      <button type="button" pButton label="Usuń rezerwację" class="delete" (click)="btnDelete()"><i class="pi pi-trash"></i></button>
+    
     </div>
   </div>
 
