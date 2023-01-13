@@ -19,7 +19,7 @@ public class MatchValidator {
 
     public Match createMatch(Match match) {
         validatorService.validateIdsEquality(match.getFirstTeamId(), match.getSecondTeamId());
-        return new Match (match.getFirstTeamId(), match.getSecondTeamId(), match.getRefereeId(), match.getFirstTeamGoals(), match.getSecondTeamGoals());
+        return new Match (match.getFirstTeamId(), match.getSecondTeamId(), match.getRefereeId(), match.getFirstTeamGoals(), match.getSecondTeamGoals(), match.getReservation());
     }
 
     public void deleteMatchById(Long id) {

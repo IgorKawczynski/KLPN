@@ -1,29 +1,55 @@
-<!DOCTYPE html>
-
 <main>
   <app-navbar></app-navbar>
-  <div class="page">
-    <p class="title">Harmonogram rozgrywek</p>
-    <div class="tabela">
-      <p-treeTable  [value]="files" [columns]="cols" [paginator]="false" [scrollable]="true" scrollHeight="600px" [rows]="10">
-        <ng-template pTemplate="header" let-columns>
-          <tr>
-            <th *ngFor="let col of columns">
-              {{col.header}}
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
-          <tr>
-            <td *ngFor="let col of columns; let i = index">
-              <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
-              {{rowData[col.field]}}
-            </td>
-          </tr>
-        </ng-template>
-      </p-treeTable>
-    </div>
+
+  <div class="center-calendar">
+    <p-calendar appendTo="body" [(ngModel)]="chosenDate" placeholder="yyyy-mm-dd" [showIcon]="true" [inline]="true" [disabledDays]="[0,1,3,5,6]" [readonlyInput]="true">
+      <ng-template pTemplate="footer">
+        <div class="calendar-footer">
+          Wybierz interesującą Cię datę
+        </div>
+
+        <button pButton pRipple
+        class="p-button-lg p-button-outlined p-button-success"
+        style="margin-top: 10px; background-color:white; color: forestgreen"
+        type="button"
+        icon="pi pi-calendar"
+        (click)="showMatches()"
+        routerLinkActive="active"
+        label="Sprawdź mecze">
+        </button>
+
+      </ng-template>
+    </p-calendar>
   </div>
+
+  <div class="schedule">
+    <p-table [value]="matches" style="margin-bottom: 100px;">
+      <ng-template pTemplate="caption">
+          <div class="center-caption">
+          Harmonogram {{ date }}:
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 250px;">Drużyny</th>
+            <th style="width: 150px;">Data</th>
+            <th style="width: 100px;">Wynik</th>
+            <th style="width: 100px;">Sędzia</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-matchResponseDTO>
+        <tr>
+            <td>{{ matchResponseDTO.firstTeamName }} vs {{ matchResponseDTO.secondTeamName }}</td>
+            <td>{{ matchResponseDTO.date }}</td>
+            <td>&nbsp;&nbsp;{{ matchResponseDTO.firstTeamGoals }} : {{ matchResponseDTO.secondTeamGoals}}</td>
+            <td>{{ matchResponseDTO.refereeFullName }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div style="height: 100px;"></div>
+
   <app-footer></app-footer>
 </main>
 

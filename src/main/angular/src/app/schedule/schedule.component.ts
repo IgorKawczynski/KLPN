@@ -1,7 +1,6 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {TreeNode} from 'primeng/api';
-import * as Http from "http";
-import {formatDate} from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { MatchResponseDTO } from './matchResponseDTO';
+import { ScheduleService } from './schedule.service';
 
 @Component({
   selector: 'app-schedule',
@@ -12,74 +11,39 @@ import {formatDate} from '@angular/common';
 
 export class ScheduleComponent implements OnInit {
 
-  files: TreeNode[] = [];
-  //data = formatDate(Date.now(),'dd-MM-yyyy','en-US');
-  selectedNode: TreeNode | undefined;
+  public chosenDate = new Date;
+  public date?: String;
+
+  public matches: MatchResponseDTO[] = [];
+
   cols: any[] = [];
-  constructor() { }
+  constructor(private scheduleService: ScheduleService) { }
 
-  ngOnInit() {
-    this.files = [];
-    for(let i = 1; i <= 7; i++) {
-      let node = {
-        data:{
-          date: 'Data' + i,
-        },
-        children: [
-          {
-            data: {
-              team1: 'Kortowskie szczury',
-              team2: 'Dzikie ify',
-              hour: '17.00',
-              pitch_number: 3,
-            }
-          },
-          {
-            data: {
-              team1: 'Kortowskie szczury',
-              team2: 'Dzikie ify',
-              hour: '17.00',
-              pitch_number: 3,
-            }
-          },
-          {
-            data: {
-              team1: 'Kortowskie szczury',
-              team2: 'Dzikie ify',
-              hour: '17.00',
-              pitch_number: 3,
-            }
-          },
-          {
-            data: {
-              team1: 'Kortowskie szczury',
-              team2: 'Dzikie ify',
-              hour: '17.00',
-              pitch_number: 3,
-            }
-          },
-
-          {
-            data: {
-              team1: 'Kozaki z Olsztyna',
-              team2: 'Zwierzęta',
-              hour: '17.00',
-              pitch_number: 1,
-            }
-          },
-        ]
-      };
-
-      this.files.push(node);
-    }
+  ngOnInit(): void {
+    this.chosenDate = new Date(this.chosenDate.setHours(0, 0 ,0));
+    this.date = this.chosenDate.toLocaleDateString();
 
     this.cols = [
       { field: 'date', header: 'Data' },
       { field: 'team1', header: 'Pierwsza drużyna' },
       { field: 'team2', header: 'Druga drużyna' },
       { field: 'hour', header: 'Godzina spotkania' },
-      { field: 'pitch_number', header: 'Numer boiska' }
+      { field: 'pitch_number', header: 'Numer boiska' },
+      { field: 'result', header: 'Wynik' },
+      { field: 'referee', header: 'Sędzia' }
     ];
+
+  }
+
+  public getMatches(): void {
+    this.scheduleService.getMatchesByDay(this.chosenDate).subscribe((response: any) =>{
+      this.matches = response;
+    });
+  }
+
+  public showMatches() {
+    this.getMatches();
+    this.date = this.chosenDate.toLocaleDateString();
   }
 
 }
