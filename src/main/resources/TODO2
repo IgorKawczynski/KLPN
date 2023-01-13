@@ -13,10 +13,8 @@ TODO do końca implementacji (15.01)
 
 3. (IGOR)
 - Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
-- kolejna poprawa navbara i nowe routingi + request z authentication guard do poprawy dla nowych url'ow
-- mozliwosc klikniecia na wiersz w TABELI i przejscie do szczegolow danej druzyny
 
-4. (KTO?)
+4. (KTO?) -- Grzegorz utworzenie transferu robi
 - Utworzenie transferu (tylko kapitan drużyny) -> myślę ze olać XD rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY
 - Ewentualnie możliwość zarządzaniem transferami (edycja + usunięcie) poprzez ADMINA
 - Podgląd transferów (lista)
