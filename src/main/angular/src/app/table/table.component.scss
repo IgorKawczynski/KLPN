@@ -31,6 +31,30 @@ main{
       top: 14%;
       transform: translateX(-50%);
     }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 0.1px solid #b1a6bb;
+      position: relative;
+    }
+
+    tr:hover,
+    tr:focus-within {
+      background: rgba(33, 10, 65, 0.82);
+      outline: #6d20ac;
+      color: rgb(238, 212, 212);
+    }
+
+    td > a:first-child {
+      display: flex;
+      padding: 0.1px;
+      text-decoration: none;
+      color: inherit;
+      z-index: 0;
+    }
   }
 }
 

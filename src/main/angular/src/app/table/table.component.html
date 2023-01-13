@@ -27,16 +27,47 @@
                     'second': i+1 == 2,
                     'third': i+1 == 3,
                     'else': i+1 > 3}">
-            <td>{{i+1}}</td>
-            <td>{{teams.name}}</td>
-            <td>{{teams.numberOfMatches}}</td>
-            <td>{{teams.wins}}</td>
-            <td>{{teams.draws}}</td>
-            <td>{{teams.loses}}</td>
-            <td>{{teams.goalsFor}}</td>
-            <td>{{teams.goalsAgainst}}</td>
-            <td>{{teams.balance}}</td>
-            <td>{{teams.points}}</td>
+            <td>
+              <a *ngIf="i==0" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}} 🏆
+              </a>
+              <a *ngIf="i!=0" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.name}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.numberOfMatches}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.wins}}
+              </a>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.draws}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.loses}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.goalsFor}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.goalsAgainst}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.balance}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{teams.points}}
+              </a>
+            </td>
           </tr>
         </ng-template>
       </p-table>

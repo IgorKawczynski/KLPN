@@ -10,15 +10,15 @@ import {TreeNode} from 'primeng/api';
   styleUrls: ['./table.component.scss',],
   styles: [
     `tr.first {
-      background-color: rgba(255, 213, 28, 0.71);
+      background-color: rgba(255, 204, 0, 0.61);
     }
 
     tr.second {
-      background-color: rgba(192, 192, 192, 0.71);
+      background-color: rgba(185, 185, 185, 0.61);
     }
 
     tr.third {
-      background-color: rgba(139, 69, 19, 0.71);
+      background-color: rgba(115, 54, 9, 0.61);
       color: white;
     }
 

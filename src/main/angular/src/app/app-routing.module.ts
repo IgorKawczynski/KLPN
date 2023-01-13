@@ -48,7 +48,7 @@ const routes: Routes = [
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
       { path: 'reservation-history', component: ReservationHistoryComponent},
-      { path: 'team-detail', component: TeamDetailComponent},
+      { path: 'team-detail/:id', component: TeamDetailComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];
