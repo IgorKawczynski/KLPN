@@ -14,6 +14,9 @@ import { LoginService } from '../login/login.service';
 })
 export class ReservationEditComponent implements OnInit {
 
+  defaultFirstPitchClass = 'pitch first';
+  defaultSecondPitchClass = 'pitch second';
+  defaultThirdPitchClass = 'pitch third';
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   reservationUpdateDto: ReservationUpdateDto = new ReservationUpdateDto;
 
@@ -31,6 +34,21 @@ export class ReservationEditComponent implements OnInit {
   }
 
   setPitchNumber(pitchNumber: number): void {
+    if(pitchNumber == 1){
+      this.defaultFirstPitchClass = 'clicked'
+      this.defaultSecondPitchClass = 'hidden'
+      this.defaultThirdPitchClass = 'hidden'
+    }
+    else if(pitchNumber == 2) {
+      this.defaultSecondPitchClass = 'clicked'
+      this.defaultFirstPitchClass = 'hidden'
+      this.defaultThirdPitchClass = 'hidden'
+    }
+    else {
+      this.defaultThirdPitchClass = 'clicked'
+      this.defaultFirstPitchClass = 'hidden'
+      this.defaultSecondPitchClass = 'hidden'
+    }
     this.reservationUpdateDto.pitch = pitchNumber;
   }
 
@@ -50,12 +68,12 @@ export class ReservationEditComponent implements OnInit {
       this.errorsListDto = response;
       if(!this.errorsListDto.listOfErrorsEmpty) {
         this.errorsListDto.errors.forEach((error) => {
-          this.messageService.add({life: 8000, severity:'error', summary:'Błąd', detail:error})
+          this.messageService.add({life: 7000, severity:'error', summary:'Błąd', detail:error})
         });
       }
       else{
-        this.messageService.add({life: 8000, severity:'success', summary:'Edytowano rezerwację', detail:'Pomyślnie zmieniono dane rezerwacji!'});
-        setTimeout(() => {this.router.navigateByUrl('/reservation-list');}, 1500);
+        window.location.reload();
+        this.messageService.add({life: 7000, severity:'success', summary:'Edytowano rezerwację', detail:'Pomyślnie zmieniono dane rezerwacji!'});
       }
     })
   }
