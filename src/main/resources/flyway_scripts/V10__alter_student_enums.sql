@@ -1,0 +1,1 @@
+UPDATE public.student s SET role = 'PLAYER' where s.role = 'player';
