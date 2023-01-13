@@ -3,6 +3,9 @@ package com.io.klpn.match_statistic;
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
+import com.io.klpn.match_statistic.dtos.MatchStatisticMapper;
+import com.io.klpn.match_statistic.dtos.PlayerStatisticsSummaryDTO;
+import com.io.klpn.student.StudentRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -21,6 +24,14 @@ public class MatchStatisticService {
     final MatchStatisticRepository matchStatisticRepository;
 
     final MatchStatisticValidator matchStatisticValidator;
+    final StudentRepository studentRepository;
+    final MatchStatisticMapper mapper;
+
+    public PlayerStatisticsSummaryDTO getPlayerStatsDtoByPlayerId(Long userId) {
+        var student = studentRepository.getReferenceById(userId);
+        var playerStats = matchStatisticRepository.findAllMatchStatisticsByUserId(student);
+        return mapper.toMatchStatisticSummaryDTO(playerStats);
+    }
     public ErrorsListDTO createMatchStatistic(MatchStatisticCreateDTO dto){
         var errorsList = new ErrorsListDTO();
 

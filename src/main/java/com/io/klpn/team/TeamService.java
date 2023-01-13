@@ -9,7 +9,9 @@ import com.io.klpn.student.Student;
 import com.io.klpn.student.StudentPlayerDTO;
 import com.io.klpn.student.StudentRepository;
 import com.io.klpn.student.enums.Role;
+import com.io.klpn.student.enums.StudentMapper;
 import com.io.klpn.team.dtos.TeamCreateDTO;
+import com.io.klpn.team.dtos.TeamDto;
 import com.io.klpn.team.dtos.TeamToAcceptDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +33,7 @@ public class TeamService {
     final TeamValidator teamValidator;
     final TeamEditor teamEditor;
     final StudentRepository studentRepository;
+    final StudentMapper studentMapper;
     final Comparator<Student> studentIndexNumber = Comparator.comparingInt(Student::getIndexNumber);
     final Comparator<StudentPlayerDTO> playerIndexNumber = Comparator.comparingInt(StudentPlayerDTO::indexNumber);
 
@@ -46,7 +49,6 @@ public class TeamService {
             assignTeamCaptain(teamDTO.captainId());
             var createdTeam = teamRepository.saveAndFlush(team);
             assignStudentsToTeam(students, createdTeam);
-            // TODO : w sesji przekaż id studenta i mu przypisz rolę kapitana drużyny
         }
         catch(AlreadyExistsException | StringValidatorException | NullPointerException |
               IllegalStateException exception) {
@@ -150,6 +152,16 @@ public class TeamService {
 
     public List<TeamToAcceptDTO> getTeamsToAccept() {
         return teamRepository.findTeamsToAccept();
+    }
+
+    public TeamDto getTeamDetails(Long teamId) {
+        var team = getTeamById(teamId);
+        var teamPlayers = studentRepository.findAllByTeam_Id(teamId);
+        var playersWithStats =
+                    teamPlayers.stream()
+                            .map(studentMapper::mapToPlayerAndStatsDto)
+                            .toList();
+        return new TeamDto(teamId, team.getName(), playersWithStats);
     }
 
 }
