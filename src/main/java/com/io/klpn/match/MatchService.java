@@ -2,7 +2,11 @@ package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import com.io.klpn.match.dtos.MatchResponseDTO;
 import com.io.klpn.reservation.Reservation;
+import com.io.klpn.reservation.ReservationRepository;
+import com.io.klpn.team.TeamRepository;
+import com.io.klpn.user.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -13,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -23,6 +28,12 @@ public class MatchService {
 
     final MatchRepository matchRepository;
     final MatchValidator matchValidator;
+
+    final TeamRepository teamRepository;
+
+    final UserRepository userRepository;
+
+    final ReservationRepository reservationRepository;
 
     public ErrorsListDTO createMatch (Match matchToCreate) {
         var errorsList = new ErrorsListDTO();
@@ -59,7 +70,7 @@ public class MatchService {
     }
 
     public List<LocalDate> getDatesReservedForAdmin(){
-        List<Reservation> reservationList = matchRepository.getReservationsForAdmin();
+        List<Reservation> reservationList = reservationRepository.getReservationsForAdmin();
 
         List<LocalDateTime> reservationDates = reservationList.stream().map(Reservation::getDate).distinct().toList();
         TreeSet<LocalDate> uniqueDatesSorted = new TreeSet<>();
@@ -69,6 +80,34 @@ public class MatchService {
         }
 
         return uniqueDatesSorted.stream().toList();
+    }
+
+    public List<MatchResponseDTO> getMatchResponseDTOsListByDay(LocalDateTime date){
+        LocalDateTime dateEnd = date.plusDays(1);
+        List<Reservation> reservationListForAdminAndDay = reservationRepository.getReservationsForAdminAndDate(date, dateEnd);
+
+        List<MatchResponseDTO> matchResponseDTOS = new ArrayList<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        for(Reservation reservation: reservationListForAdminAndDay){
+            var match = matchRepository.findMatchByReservation_Id(reservation.getId());
+            var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
+            var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
+            var referee = userRepository.findById(match.getRefereeId()).get();
+
+            String refereeName = referee.getFirstName() + " " + referee.getLastName();
+
+            String formattedDate = reservation.getDate().format(formatter);
+
+            MatchResponseDTO matchResponseDTO =
+                    new MatchResponseDTO(firstTeam.getName(), secondTeam.getName(),
+                                            formattedDate, match.getFirstTeamGoals(),
+                                            match.getSecondTeamGoals(), refereeName);
+
+            matchResponseDTOS.add(matchResponseDTO);
+        }
+        return matchResponseDTOS;
     }
 
 }
