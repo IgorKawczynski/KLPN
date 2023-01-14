@@ -49,8 +49,8 @@ export class RegisterComponent implements OnInit {
           );
         }
         else{
-          this.messageService.add({life: 3000, severity:'success', summary:'Register', detail:'You have successfully signed up!'});
-          this.messageService.add({life: 5500, severity:'info', summary:'Register', detail:'Now you can log in with your credentials!'});
+          this.messageService.add({life: 3000, severity:'success', summary:'Register', detail:'Rejestracja przebiegła pomyślnie.'});
+          this.messageService.add({life: 5500, severity:'info', summary:'Register', detail:'Możesz zalogować się do swojego konta.'});
           this.router.navigateByUrl('/login');
         }
       });
