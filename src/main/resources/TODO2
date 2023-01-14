@@ -18,13 +18,7 @@ TODO do końca implementacji (15.01)
 3. IGOR
 - Widok panelu Użytkownika/Studenta/itd
 
-4. (KTO?)
-- Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
-
-5. (KTO?)
-- Dodanie widoku z powiadomieniami (każda metoda niech wykonuje insert na tabeli 'notification' a admin niech pobiera WSZYSTKO z niej)
-
-6. Spotkanie stacjonarne
+4. Spotkanie stacjonarne
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
 - Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
 

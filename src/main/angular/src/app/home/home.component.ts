@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getTeam();
+    if(this.loginService.isStudent()) {
+      this.getTeam();
+    }
   }
 
   homePanelActivate() {
