@@ -2,6 +2,7 @@ package com.io.klpn.transfer;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.transfer.dto.SingleTransferDTO;
+import com.io.klpn.transfer.dto.SingleTransferResultDTO;
 import com.io.klpn.transfer.dto.TransferRequestDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -21,8 +24,8 @@ public class TransferController {
 
     @GetMapping("/list")
     @ResponseStatus(HttpStatus.OK)
-    public Page<Transfer> getAllTransfers(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page) {
-        return transferService.getAllTransfers(page);
+    public List<SingleTransferResultDTO> getAllTransfers() {
+        return transferService.getAllTransfers();
     }
 
     @GetMapping("")
