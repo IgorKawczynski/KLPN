@@ -58,6 +58,7 @@ import { NotificationComponent } from './admin-components/notification/notificat
 import { TeamManageComponent } from './team/team-manage/team-manage.component';
 import { RefereeMatchesComponent } from './referee-matches/referee-matches.component';
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
+import { StudentMatchesComponent } from './student-matches/student-matches.component';
 import { MatchEditComponent } from './match-edit/match-edit.component';
 
 @NgModule({
@@ -93,7 +94,8 @@ import { MatchEditComponent } from './match-edit/match-edit.component';
     RefereeMatchesComponent,
     TeamManageComponent,
     TransferListComponent,
-    MatchEditComponent
+    MatchEditComponent,
+    StudentMatchesComponent
   ],
     imports: [
         HttpClientModule,

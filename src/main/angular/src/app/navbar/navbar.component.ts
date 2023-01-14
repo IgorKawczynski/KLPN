@@ -216,6 +216,7 @@ export class NavbarComponent implements OnInit {
               },
             ]
           },
+          {label: 'Moje mecze', routerLink: "/student-matches"},
           {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}

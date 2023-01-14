@@ -27,6 +27,7 @@ import { TeamManageComponent } from "./team/team-manage/team-manage.component";
 import { RefereeMatchesComponent } from './referee-matches/referee-matches.component';
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 import { MatchEditComponent } from './match-edit/match-edit.component';
+import { StudentMatchesComponent } from './student-matches/student-matches.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'schedule', component: ScheduleComponent },
+      { path: 'student-matches', component: StudentMatchesComponent },
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'admin-accept-team', component: AdminAcceptTeamComponent },

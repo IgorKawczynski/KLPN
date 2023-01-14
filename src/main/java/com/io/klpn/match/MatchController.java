@@ -1,7 +1,7 @@
 package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
-import com.io.klpn.match.dtos.MatchForRefereeResponseDTO;
+import com.io.klpn.match.dtos.MatchForStudentResponseDTO;
 import com.io.klpn.match.dtos.MatchResponseDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -57,8 +57,13 @@ public class MatchController {
     }
 
     @PostMapping("/referee-matches")
-    public List<MatchForRefereeResponseDTO> getMatchesForReferee(@RequestBody Long refereeId) {
+    public List<MatchForStudentResponseDTO> getMatchesForReferee(@RequestBody Long refereeId) {
         return matchService.getMatchesForRefereeByRefereeId(refereeId);
+    }
+
+    @GetMapping("/student-matches/{studentId}")
+    public List<MatchForStudentResponseDTO> getMatchesForStudent(@PathVariable Long studentId) {
+        return matchService.getMatchesForStudentTeam(studentId);
     }
 
 }
