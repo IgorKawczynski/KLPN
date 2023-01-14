@@ -24,6 +24,7 @@ import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { TeamEditComponent } from "./team/team-edit/team-edit.component";
 import { NotificationComponent } from "./admin-components/notification/notification.component";
 import { TeamManageComponent } from "./team/team-manage/team-manage.component";
+import { RefereeMatchesComponent } from './referee-matches/referee-matches.component';
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 
 
@@ -55,6 +56,7 @@ const routes: Routes = [
       { path: 'team-detail/:id', component: TeamDetailComponent},
       { path: 'team-detail/**', component: TeamDetailComponent},
       { path: 'team-manage', component: TeamManageComponent},
+      { path: 'referee-matches', component: RefereeMatchesComponent},
       { path: '**', redirectTo: '' }
   ]}
 ];
