@@ -5,11 +5,18 @@ import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
+import com.io.klpn.student.dtos.PlayerAndStatsDTO;
+import com.io.klpn.student.enums.StudentMapper;
+import com.io.klpn.team.Team;
+import com.io.klpn.team.TeamRepository;
+import com.io.klpn.team.TeamService;
+import com.io.klpn.team.dtos.TeamDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -21,6 +28,8 @@ public class StudentService {
     final StudentRepository studentRepository;
     final StudentValidator studentValidator;
     final StudentEditor studentEditor;
+    final StudentMapper studentMapper;
+    final TeamService teamService;
 
     public ErrorsListDTO createStudent(Long id, Integer indexNumber) {
         var errorsList = new ErrorsListDTO();
@@ -40,6 +49,25 @@ public class StudentService {
         return studentRepository
                 .findById(id)
                 .orElseThrow(() -> new NoSuchElementException(String.format("Student z podanym id: %d nie istnieje. ", id)));
+    }
+
+    // Tylko student ma mieć dostępny ten widok więc póki co żadnej error listy i walidacji nie wysyłam
+    public TeamDto getTeamByStudentId(Long id) {
+        Student student = studentRepository.findEntityById(id);
+        var team = teamService.getTeamById(student.getTeam().getId());
+        var teamPlayers = studentRepository.findAllByTeam_Id(student.getTeam().getId());
+        var playersWithStats =
+                teamPlayers.stream()
+                        .map(studentMapper::mapToPlayerAndStatsDto)
+                        .sorted(
+                                Comparator.comparing(
+                                                PlayerAndStatsDTO::motmAmount,
+                                                Comparator.nullsFirst(Comparator.naturalOrder())
+                                        )
+                                        .reversed()
+                        )
+                        .toList();
+        return new TeamDto(team.getId(), team.getName(), playersWithStats);
     }
 
     public Student getStudentByIndexNumber(Integer indexNumber) {
