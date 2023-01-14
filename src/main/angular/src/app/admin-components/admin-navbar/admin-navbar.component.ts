@@ -19,6 +19,7 @@ export class AdminNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
+      {label: 'Powrót', routerLink: "/", styleClass: 'admin-navbar-item'},
       {label: 'Akceptuj',
       styleClass: 'admin-navbar-item',
         items:[
@@ -74,10 +75,7 @@ export class AdminNavbarComponent implements OnInit {
             routerLink: "/"
           },
           ]
-      },
-      {label: 'Powiadomienia', routerLink: "/", styleClass: 'admin-navbar-item'},
-      {label: 'Harmonogram', routerLink: "/", styleClass: 'admin-navbar-item'},
-      {label: 'Tabela', routerLink: "/", styleClass: 'admin-navbar-item'}
+      }
       ];
     this.itemsRight =  [
       {label: 'Witaj ' + this.loginService.getName() || undefined, routerLink: "/users/my-profile"}
