@@ -12,7 +12,7 @@
                 <th style="width: 10px;"></th>
                 <th style="width: 500px;">Spotkanie</th>
                 <th style="width: 300px;">Data</th>
-                <!-- <th>Edytuj statystykę meczową</th> ngIf? -->
+                <th *ngIf="loginService.isCaptain()">Edytuj statystykę meczową</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-matchForStudentResponseDTO>
@@ -20,7 +20,12 @@
                 <td></td>
                 <td>{{ matchForStudentResponseDTO.teams }}</td>
                 <td>{{ matchForStudentResponseDTO.date }}</td>
-                <!-- <td><button type="button" pButton label="Edytuj statystyki" class="edit" (click)="btnEdit(matchForRefereeResponseDTO.matchId)"><i class="pi pi-file-edit"></i></button></td> -->
+                <td *ngIf="loginService.isCaptain()">
+                  <button type="button" pButton label="Edytuj statystyki" class="edit">
+                    <!-- (click)="btnEdit(matchForRefereeResponseDTO.matchId) -->
+                    <i class="pi pi-file-edit"></i>
+                  </button>
+                </td>
             </tr>
         </ng-template>
     </p-table>

@@ -13,7 +13,7 @@ export class StudentMatchesComponent implements OnInit {
   public studentMatches: MatchForStudentResponseDTO[] = [];
 
   constructor(
-    private loginService: LoginService,
+    public loginService: LoginService,
     private studentMatchesService: StudentMatchesService,
   ) { }
 
