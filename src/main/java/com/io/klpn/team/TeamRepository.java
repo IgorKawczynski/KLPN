@@ -20,4 +20,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
 
     @Query("SELECT COUNT(s) FROM Student s WHERE s.team = :teamId")
     Long getTeamSize(@Param("teamId") Team team);
+
+    Team findEntityById(Long id);
 }
