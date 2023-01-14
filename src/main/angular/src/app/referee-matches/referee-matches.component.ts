@@ -33,7 +33,7 @@ export class RefereeMatchesComponent implements OnInit {
   }
 
   public btnEdit(matchId: number){
-    // this.router.navigateByUrl(`/match-edit/${matchId}`);
+    this.router.navigateByUrl(`/match-edit/${matchId}`);
   }
 
 }

@@ -1,0 +1,45 @@
+<main>
+    <app-navbar></app-navbar>
+    <div class="container">
+        <div class="match">
+            mecz
+        </div>
+        <div class="statistics-table">
+            <!-- [value]="refereeMatches" -->
+            <p-table  [paginator]="true" [rows]="7">
+                    <ng-template pTemplate="caption">
+                        <div class="center-caption">
+                            Edytuj statystyki meczu
+                        </div>
+                    </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Zdarzenie</th>
+                        <th>Minuta</th>
+                        <th>Numer indeksu zawodnika</th>
+                        <th style="width: 100px;">Usuń</th>
+                    </tr>
+                </ng-template>
+                <!-- let-matchForRefereeResponseDTO -->
+                <ng-template pTemplate="body" >
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <!-- <td>{{ matchForRefereeResponseDTO.teams }}</td>
+                        <td>{{ matchForRefereeResponseDTO.date }}</td>
+                        <td><button type="button" pButton label="Edytuj statystyki" class="delete" (click)="btnEdit(matchForRefereeResponseDTO.matchId)"><i class="pi pi-file-edit"></i></button></td> -->
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="footer">
+                        Dodaj statystykę(przycisk)
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+        <div style="height: 100px;"></div>
+    </div>
+    <app-footer></app-footer>
+  </main>

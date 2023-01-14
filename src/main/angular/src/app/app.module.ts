@@ -58,6 +58,7 @@ import { NotificationComponent } from './admin-components/notification/notificat
 import { TeamManageComponent } from './team/team-manage/team-manage.component';
 import { RefereeMatchesComponent } from './referee-matches/referee-matches.component';
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
+import { MatchEditComponent } from './match-edit/match-edit.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { TransferListComponent } from './transfer/transfer-list/transfer-list.co
     TeamManageComponent,
     RefereeMatchesComponent,
     TeamManageComponent,
-    TransferListComponent
+    TransferListComponent,
+    MatchEditComponent
   ],
     imports: [
         HttpClientModule,
