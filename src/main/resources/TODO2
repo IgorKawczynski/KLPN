@@ -1,27 +1,22 @@
 TODO do końca implementacji (15.01)
 
-1. (GRZES)
-
-2. (ADAM)
+1. (ADAM)
 - Podgląd meczów (harmonogram jako lista)
 - Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego -
  ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZÓW" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem"
  i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
  (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
 
-3. (IGOR)
+2. (IGOR)
 - Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
 
-4. (KTO?) -- Grzegorz utworzenie transferu robi
-- Ewentualnie możliwość zarządzaniem transferami (edycja + usunięcie) poprzez ADMINA
-
-5. (KTO?)
+3. (KTO?)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
 
-6. (KTO?)
+4. (KTO?)
 - Dodanie widoku z powiadomieniami (każda metoda niech wykonuje insert na tabeli 'notification' a admin niech pobiera WSZYSTKO z niej)
 
-7. (KTO?) - na koniec
+5. (KTO?) - na koniec
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
 
 *Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
