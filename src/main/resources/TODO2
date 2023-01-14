@@ -10,8 +10,13 @@ TODO do końca implementacji (15.01)
 2. (IGOR)
 - Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
 
-3. (KTO?)
+3. (GRZES)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
+- Widok dla studenta 'MOJE MECZE'
+- dla kapitana to samo + 'opcja wybrania meczu i wniosek o zmiane daty spotkania'
+- widok do zmiany daty spotkania (zmieniony widok 'edytuj rezerwacje')
+- encja przetrzymująca te prośby o daty spotkań
+- widok dla admina z wszystkimi prośbami o daty spotkań
 
 4. (KTO?)
 - Dodanie widoku z powiadomieniami (każda metoda niech wykonuje insert na tabeli 'notification' a admin niech pobiera WSZYSTKO z niej)
