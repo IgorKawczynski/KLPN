@@ -24,6 +24,7 @@ import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { TeamEditComponent } from "./team/team-edit/team-edit.component";
 import { NotificationComponent } from "./admin-components/notification/notification.component";
 import { TeamManageComponent } from "./team/team-manage/team-manage.component";
+import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: 'team', component: TeamComponent },
       { path: 'team-edit/:id', component: TeamEditComponent },
       { path: 'transfer', component: TransferComponent },
+      { path: 'transfer-list', component: TransferListComponent },
       { path: 'table', component: TableComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'schedule', component: ScheduleComponent },

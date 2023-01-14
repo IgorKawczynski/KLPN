@@ -56,6 +56,7 @@ import { TeamDetailComponent } from './team/team-detail/team-detail.component';
 import { TeamEditComponent } from './team/team-edit/team-edit.component';
 import { NotificationComponent } from './admin-components/notification/notification.component';
 import { TeamManageComponent } from './team/team-manage/team-manage.component';
+import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { TeamManageComponent } from './team/team-manage/team-manage.component';
     TeamEditComponent,
     NotificationComponent,
     TeamDetailComponent,
-    TeamManageComponent
+    TeamManageComponent,
+    TransferListComponent
   ],
     imports: [
         HttpClientModule,

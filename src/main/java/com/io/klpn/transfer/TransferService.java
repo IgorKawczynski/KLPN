@@ -7,7 +7,9 @@ import com.io.klpn.team.TeamRepository;
 import com.io.klpn.team.TeamService;
 import com.io.klpn.team.TeamValidator;
 import com.io.klpn.transfer.dto.SingleTransferDTO;
+import com.io.klpn.transfer.dto.SingleTransferResultDTO;
 import com.io.klpn.transfer.dto.TransferRequestDTO;
+import com.io.klpn.user.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -29,6 +32,7 @@ public class TransferService {
     final TeamValidator teamValidator;
     final StudentService studentService;
     final StudentRepository studentRepository;
+    final UserRepository userRepository;
 
     public void createHeadForHeadTransfer(TransferRequestDTO transferRequestDTO){
         transferRepository.save(transferValidator.createHeadForHeadTransfer(transferRequestDTO.firstId(), transferRequestDTO.secondId()));
@@ -61,9 +65,19 @@ public class TransferService {
                 .orElseThrow(() -> new NoSuchElementException(String.format("Transfer z podanym id: %d nie istnieje. ", id)));
     }
 
-    public Page<Transfer> getAllTransfers(Integer page){
-        Pageable paginated = PageRequest.of(page, 20);
-        return transferRepository.findAll(paginated);
+    public List<SingleTransferResultDTO> getAllTransfers(){
+        var transfers = transferRepository.getAllSingleTransfers();
+        var dtoList =
+                transfers.stream()
+                        .map(transfer -> {
+                            var student = userRepository.findById(transfer.getSecondStudentId()).get();
+                            var team = teamRepository.findById(transfer.getFirstTeamId()).get();
+                            var studentFullName = student.getFirstName() + ' ' + student.getLastName();
+                            return new SingleTransferResultDTO(studentFullName, team.getName());
+                        })
+                        .toList();
+
+        return dtoList;
     }
 
     public ErrorsListDTO deleteTransferById(Long id){
