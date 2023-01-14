@@ -96,20 +96,23 @@ public class MatchService {
 
         for(Reservation reservation: reservationListForAdminAndDay){
             var match = matchRepository.findMatchByReservation_Id(reservation.getId());
-            var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
-            var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
-            var referee = userRepository.findById(match.getRefereeId()).get();
+            if(match != null) {
+                var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
+                var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
+                var referee = userRepository.findById(match.getRefereeId()).get();
 
-            String refereeName = referee.getFirstName() + " " + referee.getLastName();
+                String refereeName = referee.getFirstName() + " " + referee.getLastName();
 
-            String formattedDate = reservation.getDate().format(formatter);
+                String formattedDate = reservation.getDate().format(formatter);
 
-            MatchResponseDTO matchResponseDTO =
-                    new MatchResponseDTO(firstTeam.getName(), secondTeam.getName(),
-                                            formattedDate, match.getFirstTeamGoals(),
-                                            match.getSecondTeamGoals(), refereeName);
+                MatchResponseDTO matchResponseDTO =
+                        new MatchResponseDTO(firstTeam.getName(), secondTeam.getName(),
+                                formattedDate, match.getFirstTeamGoals(),
+                                match.getSecondTeamGoals(), refereeName);
 
-            matchResponseDTOS.add(matchResponseDTO);
+                matchResponseDTOS.add(matchResponseDTO);
+            }
+
         }
         return matchResponseDTOS;
     }
