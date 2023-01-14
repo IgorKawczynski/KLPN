@@ -5,7 +5,8 @@
   <div class="page">
     <p class="title">Tabela ligowa</p>
     <div class="tabela">
-      <p-table [value]="teams" [tableStyle]="{'min-width': '50rem'} " [paginator]="false" [scrollable]="true" scrollHeight="620px" [rows]="10">
+                                                      <!-- Nie zmieniać stylu ! Wartość pod 100% i domyślne ustawienia Windowsa -->
+      <p-table [value]="teams" [tableStyle]="{'min-width': '50rem'} " [paginator]="false" [scrollable]="true" scrollHeight="465px" [rows]="10">
         <ng-template pTemplate="header">
           <tr>
             <th>Pozycja</th>
@@ -30,7 +31,11 @@
             <td>
               <a *ngIf="i==0" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}} 🏆
               </a>
-              <a *ngIf="i!=0" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}}
+              <a *ngIf="i==1" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}} 🥈
+              </a>
+              <a *ngIf="i==2" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}} 🥉
+              </a>
+              <a *ngIf="i>=3" [routerLink]="['/team-detail/', teams.id]" class="row-link" tabindex="-1"> {{i+1}}
               </a>
             </td>
             <td>
