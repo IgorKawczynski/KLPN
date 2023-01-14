@@ -1,6 +1,7 @@
 package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.match.dtos.MatchForRefereeResponseDTO;
 import com.io.klpn.match.dtos.MatchResponseDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -55,5 +56,9 @@ public class MatchController {
         return matchService.getMatchResponseDTOsListByDay(date);
     }
 
+    @PostMapping("/referee-matches")
+    public List<MatchForRefereeResponseDTO> getMatchesForReferee(@RequestBody Long refereeId) {
+        return matchService.getMatchesForRefereeByRefereeId(refereeId);
+    }
 
 }

@@ -2,6 +2,7 @@ package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import com.io.klpn.match.dtos.MatchForRefereeResponseDTO;
 import com.io.klpn.match.dtos.MatchResponseDTO;
 import com.io.klpn.reservation.Reservation;
 import com.io.klpn.reservation.ReservationRepository;
@@ -108,6 +109,28 @@ public class MatchService {
             matchResponseDTOS.add(matchResponseDTO);
         }
         return matchResponseDTOS;
+    }
+
+    public List<MatchForRefereeResponseDTO> getMatchesForRefereeByRefereeId(Long refereeId) {
+        List<Match> matchesForReferee = matchRepository.getMatchesByRefereeId(refereeId);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        List<MatchForRefereeResponseDTO> matchForRefereeResponseDTOS = new ArrayList<>();
+
+        for (Match match: matchesForReferee) {
+            var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
+            var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
+            String teams = firstTeam.getName() + " vs " + secondTeam.getName();
+
+            var reservation = reservationRepository.findById(match.getReservation().getId()).get();
+            String formattedDate = reservation.getDate().format(formatter);
+
+            var matchResponse = new MatchForRefereeResponseDTO(teams, formattedDate, match.getId());
+            matchForRefereeResponseDTOS.add(matchResponse);
+        }
+
+        return matchForRefereeResponseDTOS;
     }
 
 }
