@@ -69,6 +69,7 @@ export class NavbarComponent implements OnInit {
                 },
               ]
             },
+            {label: 'Moje mecze', routerLink: "/student-matches"},
             {label: 'Tabela', routerLink: "/table"},
             {label: 'Harmonogram', routerLink: "/schedule"},
             {label: 'Kontakt', routerLink: "/contact"}
@@ -119,6 +120,7 @@ export class NavbarComponent implements OnInit {
               ]
             },
             {label: 'Panel Sędziego', routerLink: "/referee-matches"},
+            {label: 'Moje mecze', routerLink: "/student-matches"},
             {label: 'Tabela', routerLink: "/table"},
             {label: 'Harmonogram', routerLink: "/schedule"},
             {label: 'Kontakt', routerLink: "/contact"}
@@ -167,6 +169,7 @@ export class NavbarComponent implements OnInit {
                 },
               ]
             },
+            {label: 'Moje mecze', routerLink: "/student-matches"},
             {label: 'Tabela', routerLink: "/table"},
             {label: 'Harmonogram', routerLink: "/schedule"},
             {label: 'Kontakt', routerLink: "/contact"}
@@ -216,7 +219,6 @@ export class NavbarComponent implements OnInit {
               },
             ]
           },
-          {label: 'Moje mecze', routerLink: "/student-matches"},
           {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}
