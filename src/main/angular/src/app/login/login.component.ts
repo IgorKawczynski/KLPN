@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
           else {
             this.router.navigateByUrl("/");
             if(res.isStudent == true) {
-              this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
-              this.messageService.add({life:3000, severity:'info', summary:'Login', detail:" Posiadasz konto o statusie studenta !"})
+              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+              this.messageService.add({life:4000, severity:'info', summary:'Login', detail:" Posiadasz konto o statusie studenta !"})
             }
             else {
-              this.messageService.add({life:3000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
             }
           }
           // NIE ZMIENIAĆ TU NICZEGO, JAK MASZ PYTANIE PISZ : kluseczkidziadka96@onet.pl
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
         }
         else {
           res.errorsListDTO.errors.forEach((error: any) =>
-            this.messageService.add({life:10000, severity:'error', summary:'Login', detail: error})
+            this.messageService.add({life:4000, severity:'error', summary:'Login', detail: error})
           );
         }
       });
