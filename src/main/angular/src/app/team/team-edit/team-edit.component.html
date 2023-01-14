@@ -17,8 +17,7 @@
       <ng-template pTemplate="body" let-playerStats>
         <tr>
           <td> &nbsp;&nbsp;&nbsp; {{ playerStats.fullName }}</td>
-<!--          <td><button type="button" pButton label="Edytuj rezerwację" class="edit" (click)="btnEdit(reservationDTO.id)"><i class="pi pi-file-edit"></i></button></td>-->
-          <td><button type="button" pButton label="Usuń Zawodnika" class="delete" (click)=null ><i class="pi pi-trash"></i></button></td>
+          <td><button type="button" pButton label="Usuń Zawodnika" class="delete" (click)="btnDelete(playerStats.playerId)" ><i class="pi pi-trash"></i></button></td>
         </tr>
       </ng-template>
     </p-table>

@@ -14,20 +14,11 @@ export class TeamEditService {
 
   constructor(private http: HttpClient) { }
 
-  // do zmiany requestBodi
   public getTeam(id: any): Observable<TeamDTO> {
     return this.http.post<TeamDTO>(`${this.apiServerUrl}/api/student/my-team/${id}`, null);
   }
 
   public deletePlayerFromTeam(studentId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/student/student-edit${studentId}`)
+    return this.http.patch<void>(`${this.apiServerUrl}/api/student/my-team/edit/${studentId}`, null)
   }
-
-  // public getTeamDetail(teamId: number): Observable<PlayerStatsDTO[]>{
-  //   return this.http.get<PlayerStatsDTO[]>(`${this.apiServerUrl}/api/teams/details/${teamId}`);
-  // }
-
-  // public updateTeam(teamUpdateDto: TeamUpdateDto): Observable<Object> {
-  //   return this.http.patch<ReservationUpdateDto>(`${this.apiServerUrl}/api/student/my-team/{studentId}`, reservationUpdateDto);
-  // }
 }
