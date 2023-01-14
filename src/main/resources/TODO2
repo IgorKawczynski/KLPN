@@ -1,8 +1,6 @@
 TODO do końca implementacji (15.01)
 
 1. (GRZES)
-- Podgląd drużyn (lista drużyn aktualnie grających w KLPN) - jebać myślę podgląd własnej drużyny, każdy po prostu będzie miał listę (drużyn nie będzie dużo więc nie trudno będzie swoją znaleźć)
-- Szczegóły danej drużyny (na widoku ma się znajdować nazwa drużyny, logo + tabela z zawodnikami i ich staystykami) (backend zrobiony)
 
 2. (ADAM)
 - Podgląd meczów (harmonogram jako lista)
@@ -15,9 +13,7 @@ TODO do końca implementacji (15.01)
 - Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
 
 4. (KTO?) -- Grzegorz utworzenie transferu robi
-- Utworzenie transferu (tylko kapitan drużyny) -> myślę ze olać XD rozróżnienie na transfer głowa za głowę/pojedynczy i zrobić to tak, że kapitan meczu może po prostu przetransferować STUDENTA bądź zwykłego USERA do swojego zespołu o ile ten nie ma przypisanej DRUŻYNY
 - Ewentualnie możliwość zarządzaniem transferami (edycja + usunięcie) poprzez ADMINA
-- Podgląd transferów (lista)
 
 5. (KTO?)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
