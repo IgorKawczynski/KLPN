@@ -1,1 +1,36 @@
-<p>team-edit works!</p>
+<main>
+  <app-navbar></app-navbar>
+  <div class="team-table">
+    <p-table [value]="playerStats" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="caption">
+<!--        ngIf potrzebny do przeładowania team'u -- ngAfter -->
+        <div *ngIf="this.team != null || this.team != undefined" class="center-caption">
+          Edytuj  zespół  "{{this.team.Name}}"
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: auto;">Zawodnik</th>
+          <th style="width: auto;">Akcja</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-playerStats>
+        <tr>
+          <td> &nbsp;&nbsp;&nbsp; {{ playerStats.fullName }}</td>
+<!--          <td><button type="button" pButton label="Edytuj rezerwację" class="edit" (click)="btnEdit(reservationDTO.id)"><i class="pi pi-file-edit"></i></button></td>-->
+          <td><button type="button" pButton label="Usuń Zawodnika" class="delete" (click)=null ><i class="pi pi-trash"></i></button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="team-new">
+    <button pButton
+            type="button"
+            label="Dodaj nowego zawodnika"
+            class="add"
+            (click)="btnRoute()" >
+      <i class="pi pi-user-plus"></i>
+    </button>
+  </div>
+  <app-footer></app-footer>
+</main>
