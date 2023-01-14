@@ -6,8 +6,8 @@ export class PlayerStatsDTO{
   goals!: number;
   assists!: number;
   redCards!: number;
-  yellowCards!: number;
   ownGoals!: number;
+  motmAmount!: number;
 
 
 }

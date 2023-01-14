@@ -18,11 +18,11 @@ public class StudentMapper {
         if(student.getPosition() != null) {
             return new PlayerAndStatsDTO(student.getId(), fullName, student.getPosition().getPositionType(), playerStats.goals(),
                     playerStats.assists(), playerStats.redCards(),
-                    playerStats.yellowCards(), playerStats.ownGoals(), student.getMotmAmount());
+                    playerStats.ownGoals(), student.getMotmAmount());
         }
         return new PlayerAndStatsDTO(student.getId(), fullName, null, playerStats.goals(),
                 playerStats.assists(), playerStats.redCards(),
-                playerStats.yellowCards(), playerStats.ownGoals(), student.getMotmAmount());
+                playerStats.ownGoals(), student.getMotmAmount());
     }
 
     private String getStudentFullName(Student student) {

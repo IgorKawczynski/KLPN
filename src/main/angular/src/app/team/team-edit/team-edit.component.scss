@@ -1,0 +1,50 @@
+main{
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../../assets/img/football-field-2588146.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+.team-table {
+  width: 60%;
+  height: 50%;
+  opacity: 0.92;
+  margin: 2% 7% auto;
+}
+
+.team-new {
+  width: 35%;
+  height: 50%;
+  opacity: 0.95;
+  margin: -14% 69% -25%;
+}
+
+.delete {
+  width: 200px;
+  background-color: rgba(225, 7, 7, 0.92);
+}
+
+.delete:hover {
+  border-color: rgba(19, 0, 0, 0.96);
+  background-color: rgba(133, 0, 0, 0.95);
+}
+
+.add {
+  height: 180px;
+  width: 350px;
+  background-color: rgba(48, 255, 2, 0.11);
+}
+
+.add:hover {
+  border-color: rgba(5, 107, 252, 0.75);
+  background-color: rgba(13, 69, 143, 0.5);
+}
+
+.center-caption {
+  text-align: center;
+  font-size: large;
+}

@@ -7,10 +7,7 @@ TODO do końca implementacji (15.01)
  i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
  (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
 
-2. (IGOR)
-- Zarządzanie drużyną (dodanie[plus i przejscie do widoku 'transfer' + usunięcie zawodnika[minus]) -> tylko KAPITAN może przejść do tego widoku -- inne osoby dostaną komunikat z ostrzeżeniem
-
-3. (GRZES)
+2. (GRZEGORZ)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
 - Widok dla studenta 'MOJE MECZE'
 - dla kapitana to samo + 'opcja wybrania meczu i wniosek o zmiane daty spotkania'
@@ -18,19 +15,20 @@ TODO do końca implementacji (15.01)
 - encja przetrzymująca te prośby o daty spotkań
 - widok dla admina z wszystkimi prośbami o daty spotkań
 
+3. IGOR
+- Widok panelu Użytkownika/Studenta/itd
+
 4. (KTO?)
+- Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
+
+5. (KTO?)
 - Dodanie widoku z powiadomieniami (każda metoda niech wykonuje insert na tabeli 'notification' a admin niech pobiera WSZYSTKO z niej)
 
-5. (KTO?) - na koniec
+6. Spotkanie stacjonarne
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
-
-*Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
-**Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**
-***DEADLINE 15.01***
-
-
-CO DODATKOWO :
 - Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
 
 CO POKAZAĆ :
 - responsywność strony rejestracji/logowania
+***DEADLINE 15.01***
+

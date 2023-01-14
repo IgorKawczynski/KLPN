@@ -19,11 +19,11 @@
             <tr>
               <th>Imię i nazwisko</th>
               <th>Pozycja</th>
-              <th>Liczba bramek</th>
+              <th>⚽</th>
               <th>Asysty</th>
-              <th>Czerwone kartki</th>
-              <th>Zółte kartki</th>
+              <th>📕</th>
               <th>Samobóje</th>
+              <th>Zawodnik meczu</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-playerstats>
@@ -33,8 +33,10 @@
               <td>{{ playerstats.goals }}</td>
               <td>{{ playerstats.assists }}</td>
               <td>{{ playerstats.redCards }}</td>
-              <td>{{ playerstats.yellowCards }}</td>
               <td>{{ playerstats.ownGoals }}</td>
+              <td *ngIf="playerstats.motmAmount >= 20">🏆{{ playerstats.motmAmount }}</td>
+              <td *ngIf="playerstats.motmAmount >= 10 && playerstats.motmAmount < 20">🥈{{ playerstats.motmAmount }}</td>
+              <td *ngIf="playerstats.motmAmount < 10">{{ playerstats.motmAmount }}</td>
             </tr>
           </ng-template>
         </p-table>

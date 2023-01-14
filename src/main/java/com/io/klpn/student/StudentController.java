@@ -2,6 +2,7 @@ package com.io.klpn.student;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.UpdateDto;
+import com.io.klpn.team.dtos.TeamDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -20,9 +21,20 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    // Pościk :)
+    @PostMapping("/my-team/{studentId}")
+    public TeamDto getTeamDetailsByStudentId(@PathVariable Long studentId) {
+        return studentService.getTeamByStudentId(studentId);
+    }
+
     @PatchMapping("")
     public ErrorsListDTO updateStudentField(@RequestBody UpdateDto updateDto) {
         return studentService.updateStudentField(updateDto);
+    }
+
+    @PatchMapping("/my-team/edit/{playerId}")
+    public ErrorsListDTO deleteStudentFromTeam(@PathVariable Long playerId) {
+        return studentService.deleteStudentFromTeam(playerId);
     }
 
     @DeleteMapping("/{id}")

@@ -8,6 +8,7 @@ import com.io.klpn.basic.exceptions.StringValidatorException;
 import com.io.klpn.student.Student;
 import com.io.klpn.student.StudentPlayerDTO;
 import com.io.klpn.student.StudentRepository;
+import com.io.klpn.student.dtos.PlayerAndStatsDTO;
 import com.io.klpn.student.enums.Role;
 import com.io.klpn.student.enums.StudentMapper;
 import com.io.klpn.team.dtos.TeamCreateDTO;
@@ -164,6 +165,13 @@ public class TeamService {
         var playersWithStats =
                     teamPlayers.stream()
                             .map(studentMapper::mapToPlayerAndStatsDto)
+                            .sorted(
+                                    Comparator.comparing(
+                                            PlayerAndStatsDTO::motmAmount,
+                                            Comparator.nullsFirst(Comparator.naturalOrder())
+                                    )
+                                    .reversed()
+                            )
                             .toList();
         return new TeamDto(teamId, team.getName(), playersWithStats);
     }
