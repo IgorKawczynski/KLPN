@@ -1,0 +1,28 @@
+<main>
+  <app-navbar></app-navbar>
+
+    <div class="transfers-table">
+      <p-table [value]="transfers" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="caption">
+          <div class="center-caption">
+            Lista transferów
+          </div>
+        </ng-template>
+        
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 300px">Zawodnik</th>
+            <th style="width: 300px">Drużyna</th>
+          </tr>
+        </ng-template>
+        
+        <ng-template pTemplate="body" let-transfersDTO>
+          <tr>
+            <td>{{transfersDTO.playerName}}</td>
+            <td>{{transfersDTO.playerTeamName}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  <app-footer></app-footer>
+</main>
