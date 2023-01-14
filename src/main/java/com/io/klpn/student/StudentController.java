@@ -2,12 +2,10 @@ package com.io.klpn.student;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.UpdateDto;
-import com.io.klpn.team.Team;
 import com.io.klpn.team.dtos.TeamDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,6 +30,11 @@ public class StudentController {
     @PatchMapping("")
     public ErrorsListDTO updateStudentField(@RequestBody UpdateDto updateDto) {
         return studentService.updateStudentField(updateDto);
+    }
+
+    @PatchMapping("/my-team/edit/{playerId}")
+    public ErrorsListDTO deleteStudentFromTeam(@PathVariable Long playerId) {
+        return studentService.deleteStudentFromTeam(playerId);
     }
 
     @DeleteMapping("/{id}")

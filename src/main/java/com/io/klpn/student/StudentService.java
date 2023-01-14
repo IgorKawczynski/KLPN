@@ -5,6 +5,7 @@ import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
 import com.io.klpn.basic.exceptions.StringValidatorException;
+import com.io.klpn.basic.exceptions.TeamPlayersNumberException;
 import com.io.klpn.student.dtos.PlayerAndStatsDTO;
 import com.io.klpn.student.enums.StudentMapper;
 import com.io.klpn.team.Team;
@@ -17,7 +18,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -30,6 +30,8 @@ public class StudentService {
     final StudentEditor studentEditor;
     final StudentMapper studentMapper;
     final TeamService teamService;
+
+    final TeamRepository teamRepository;
 
     public ErrorsListDTO createStudent(Long id, Integer indexNumber) {
         var errorsList = new ErrorsListDTO();
@@ -84,6 +86,26 @@ public class StudentService {
         }
         catch (NoSuchElementException | StringValidatorException | IntegerValidatorException |
                NullPointerException | IllegalArgumentException exception) {
+            errorsList.addError(exception.getMessage());
+        }
+        return errorsList;
+    }
+
+    public ErrorsListDTO deleteStudentFromTeam(Long id) {
+        var errorsList = new ErrorsListDTO();
+        try {
+            var student = getStudentById(id);
+            Team team = teamRepository.findEntityById(student.getTeam().getId());
+            if(teamRepository.getTeamSize(team) > 8) {
+                student.setTeam(null);
+                studentRepository.save(student);
+            }
+            else {
+                throw new TeamPlayersNumberException("Twój zespół musi liczyć conajmniej 8 zawodników !");
+            }
+        }
+        catch (NoSuchElementException | StringValidatorException | IntegerValidatorException |
+               NullPointerException | IllegalArgumentException | TeamPlayersNumberException exception) {
             errorsList.addError(exception.getMessage());
         }
         return errorsList;
