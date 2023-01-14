@@ -2,10 +2,12 @@ package com.io.klpn.match;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
-import com.io.klpn.match.dtos.MatchForRefereeResponseDTO;
+import com.io.klpn.match.dtos.MatchForStudentResponseDTO;
 import com.io.klpn.match.dtos.MatchResponseDTO;
 import com.io.klpn.reservation.Reservation;
 import com.io.klpn.reservation.ReservationRepository;
+import com.io.klpn.student.Student;
+import com.io.klpn.student.StudentService;
 import com.io.klpn.team.TeamRepository;
 import com.io.klpn.user.UserRepository;
 import lombok.AccessLevel;
@@ -35,6 +37,7 @@ public class MatchService {
     final UserRepository userRepository;
 
     final ReservationRepository reservationRepository;
+    final StudentService studentService;
 
     public ErrorsListDTO createMatch (Match matchToCreate) {
         var errorsList = new ErrorsListDTO();
@@ -111,14 +114,16 @@ public class MatchService {
         return matchResponseDTOS;
     }
 
-    public List<MatchForRefereeResponseDTO> getMatchesForRefereeByRefereeId(Long refereeId) {
+    public List<MatchForStudentResponseDTO> getMatchesForRefereeByRefereeId(Long refereeId) {
         List<Match> matchesForReferee = matchRepository.getMatchesByRefereeId(refereeId);
+        return matchListToMatchForStudentResposneDtoList(matchesForReferee);
+    }
 
+    public List<MatchForStudentResponseDTO> matchListToMatchForStudentResposneDtoList(List<Match> matches) {
+        List<MatchForStudentResponseDTO> matchForStudentResponseDTOS = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-        List<MatchForRefereeResponseDTO> matchForRefereeResponseDTOS = new ArrayList<>();
-
-        for (Match match: matchesForReferee) {
+        for (Match match: matches) {
             var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
             var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
             String teams = firstTeam.getName() + " vs " + secondTeam.getName();
@@ -126,11 +131,24 @@ public class MatchService {
             var reservation = reservationRepository.findById(match.getReservation().getId()).get();
             String formattedDate = reservation.getDate().format(formatter);
 
-            var matchResponse = new MatchForRefereeResponseDTO(teams, formattedDate, match.getId());
-            matchForRefereeResponseDTOS.add(matchResponse);
+            var matchResponse = new MatchForStudentResponseDTO(teams, formattedDate, match.getId());
+            matchForStudentResponseDTOS.add(matchResponse);
         }
 
-        return matchForRefereeResponseDTOS;
+        return matchForStudentResponseDTOS;
+    }
+
+    public List<MatchForStudentResponseDTO> getMatchesForStudentTeam(Long studentId) {
+        var student = studentService.getStudentById(studentId);
+        isStudentAssignedToAnyTeam(student);
+        var studentMatches = matchRepository.getMatchesForTeam(student.getTeam().getId());
+        return matchListToMatchForStudentResposneDtoList(studentMatches);
+    }
+
+    public void isStudentAssignedToAnyTeam(Student student) {
+        if(student.getTeam() == null) {
+            throw new IllegalArgumentException("Nie jesteś przypisany do żadnej drużyny!");
+        }
     }
 
 }
