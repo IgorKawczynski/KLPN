@@ -33,13 +33,6 @@ public class TeamValidator {
         return new Team(teamDTO.name());
     }
 
-    public void deleteTeamById(Long id) {
-        if(!teamRepository.existsById(id)) {
-            throw new NoSuchElementException(String.format("Drużyna z podanym id: %d nie istnieje!", id));
-        }
-        teamRepository.deleteById(id);
-    }
-
     public void isAnyRefreeGiven(List<Boolean> referees) {
         var refereeGiven = false;
         for (Boolean element: referees) {

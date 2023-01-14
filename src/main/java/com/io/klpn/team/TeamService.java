@@ -139,10 +139,14 @@ public class TeamService {
         return errorsList;
     }
 
-    public ErrorsListDTO deleteTeamById(Long id){
+    public ErrorsListDTO deleteTeamById(Long teamId){
         var errorsListDTO = new ErrorsListDTO();
         try {
-            teamValidator.deleteTeamById(id);
+            var team = getTeamById(teamId);
+            var teamPlayers = studentRepository.findAllByTeam_Id(teamId);
+            teamPlayers.forEach(student -> student.setTeam(null));
+            studentRepository.saveAll(teamPlayers);
+            teamRepository.deleteById(teamId);
         }
         catch(NoSuchElementException exception) {
             errorsListDTO.addError(exception.getMessage());
