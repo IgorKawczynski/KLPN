@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.loginService.isLogged()) {
-      if(this.loginService.isStudent()) {
+      if(this.loginService.isStudent() && !this.loginService.isReferee()) {
         this.items = [
           {
             label: 'Rezerwacja',
@@ -67,6 +67,57 @@ export class NavbarComponent implements OnInit {
               },
             ]
           },
+          {label: 'Tabela', routerLink: "/table"},
+          {label: 'Harmonogram', routerLink: "/schedule"},
+          {label: 'Kontakt', routerLink: "/contact"}
+        ];
+        this.itemsRight =  [
+          {label: 'Witaj ' + this.loginService.getName() || undefined, routerLink: "/users/my-profile"}
+        ]
+      }
+      else if(this.loginService.isReferee()) {
+        this.items = [
+          {
+            label: 'Rezerwacja',
+            items: [
+              {
+                label: 'Rezerwuj boisko',
+                icon: 'pi pi-fw pi-calendar',
+                routerLink: "/reservation"
+              },
+              {
+                label:'Zarządzaj rezerwacją',
+                icon:'pi pi-fw pi-cog',
+                routerLink: "/reservation-list"
+              },
+              {
+                label: 'Historia rezerwacji',
+                icon: 'pi pi-fw pi-clock',
+                routerLink: "/reservation-history"
+              }
+            ]
+          },
+          {
+            label: 'Drużyna',
+            items: [
+              {
+                label: 'Zarejestruj drużynę',
+                icon: 'pi pw-fw pi-pencil',
+                routerLink: "/team"
+              },
+              {
+                label: 'Zarządzaj drużyną',
+                icon: 'pi pw-fw pi-user-edit',
+                routerLink: "TU ID DRUZYNY AKTUALNEJ DLA UZYTKOWNIKA< JESLI JEJ NIE MA TO PTOAST"
+              },
+              {
+                label: 'Transfer',
+                icon: 'pi pw-fw pi-arrow-right-arrow-left',
+                routerLink: "/transfer"
+              },
+            ]
+          },
+          {label: 'Panel Sędziego', routerLink: "/referee-matches"},
           {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}

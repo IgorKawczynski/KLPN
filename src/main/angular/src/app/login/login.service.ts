@@ -24,6 +24,10 @@ export class LoginService {
     return localStorage.getItem("isStudent") ===  "true"
   }
 
+  public isReferee() {
+    return localStorage.getItem("role") === "REFEREE"
+  }
+
   public getName() {
     return localStorage.getItem("name");
   }
