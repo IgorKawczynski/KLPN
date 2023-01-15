@@ -60,6 +60,7 @@ import { RefereeMatchesComponent } from './referee-matches/referee-matches.compo
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 import { StudentMatchesComponent } from './student-matches/student-matches.component';
 import { MatchEditComponent } from './match-edit/match-edit.component';
+import { MatchDateEditComponent } from './match-date-edit/match-date-edit.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { MatchEditComponent } from './match-edit/match-edit.component';
     TeamManageComponent,
     TransferListComponent,
     MatchEditComponent,
-    StudentMatchesComponent
+    StudentMatchesComponent,
+    MatchDateEditComponent
   ],
     imports: [
         HttpClientModule,

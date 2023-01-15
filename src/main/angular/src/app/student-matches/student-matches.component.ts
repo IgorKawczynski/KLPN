@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { MatchForStudentResponseDTO } from './match-for-student';
 import { StudentMatchesService } from './student-matches.service';
@@ -15,6 +16,7 @@ export class StudentMatchesComponent implements OnInit {
   constructor(
     public loginService: LoginService,
     private studentMatchesService: StudentMatchesService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +28,10 @@ export class StudentMatchesComponent implements OnInit {
     this.studentMatchesService.getMatchesForStudent(studentId).subscribe((response: any) => {
       this.studentMatches = response;
     })
+  }
+
+  public btnEdit(reservationId: number): void {
+    this.router.navigateByUrl(`/student-matches/edit-date/${reservationId}`);
   }
 
 }

@@ -28,6 +28,7 @@ import { RefereeMatchesComponent } from './referee-matches/referee-matches.compo
 import { TransferListComponent } from './transfer/transfer-list/transfer-list.component';
 import { MatchEditComponent } from './match-edit/match-edit.component';
 import { StudentMatchesComponent } from './student-matches/student-matches.component';
+import { MatchDateEditComponent } from './match-date-edit/match-date-edit.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'student-matches', component: StudentMatchesComponent },
+      { path: 'student-matches/edit-date/:id', component: MatchDateEditComponent },
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'admin-accept-team', component: AdminAcceptTeamComponent },
