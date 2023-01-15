@@ -2,6 +2,7 @@ package com.io.klpn.user;
 
 import com.io.klpn.basic.ValidatorService;
 import com.io.klpn.basic.exceptions.AlreadyExistsException;
+import com.io.klpn.user.dtos.UserEditDTO;
 import com.io.klpn.user.dtos.UserLoginRequestDTO;
 import com.io.klpn.user.dtos.UserRegisterDTO;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,18 @@ public class UserValidator {
         validatorService.validateString("Hasło", user.password(), PASSWORD_REGEX, MAX_LENGTH_255);
         checkIfExists(user.email());
 
+    }
+
+    public void editUser(UserEditDTO user) {
+        validatorService.isNull("Imię", user.firstName());
+        validatorService.validateString("Imię", user.firstName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Nazwisko", user.lastName());
+        validatorService.validateString("Nazwisko", user.lastName(), NAME_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Email", user.email());
+        validatorService.emailContainsAtSign(user.email());
+        validatorService.validateString("Email", user.email(), EMAIL_REGEX, MAX_LENGTH_45);
+        validatorService.isNull("Numer Telefonu", user.phoneNumber());
+        validatorService.validatePhoneNumber(user.phoneNumber());
     }
 
     public void checkIfExists(String email) {

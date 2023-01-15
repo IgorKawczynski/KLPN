@@ -7,18 +7,7 @@ TODO do końca implementacji (15.01)
  i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
  (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
 
-3. IGOR
-- Widok panelu Użytkownika/Studenta/itd
-
-4. (KTO?)
-- Przypisz sędziego do meczu
-- Przypisz drużyny do meczu
-
-5. (KTO?)
-- Edytuj termin meczu
-- Edytuj rezerwację
-
-6. Spotkanie stacjonarne
+2. Spotkanie stacjonarne
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów (można wywalić widok 'Przepisz drużyny do meczu')
 - Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
 

@@ -30,6 +30,7 @@ import { MatchEditComponent } from './match-edit/match-edit.component';
 import { StudentMatchesComponent } from './student-matches/student-matches.component';
 import { MatchDateEditComponent } from './match-date-edit/match-date-edit.component';
 import { AdminMatchDateEditRequestsComponent } from './admin-components/admin-match-date-edit-requests/admin-match-date-edit-requests.component';
+import {UserPanelComponent} from "./user/user-panel/user-panel.component";
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: 'admin', component: AdminComponent },
       { path: 'login', component: LoginComponent },
       { path: 'users', component: UserComponent },
+      { path: 'users/my-profile', component: UserPanelComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'match', component: MatchComponent },
       { path: 'reservation', component: ReservationComponent },

@@ -17,6 +17,7 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.List;
@@ -100,6 +101,38 @@ public class UserService {
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new NoSuchElementException("User z podanym id nie istnieje!"));
+    }
+
+    public UserEditDTO getUserEditDTOById(Long userId) {
+        User user = userRepository.findEntityById(userId);
+        return UserEditDTO
+                .builder()
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .phoneNumber(user.getPhoneNumber())
+                .build();
+    }
+
+
+    public ErrorsListDTO updateUser(Long id, UserEditDTO updatedUser) {
+        ErrorsListDTO errorsListDTO = new ErrorsListDTO();
+        try {
+            userValidator.editUser(updatedUser);
+        }
+        catch (StringValidatorException | AlreadyExistsException | NullPointerException exception) {
+            errorsListDTO.addError(exception.getMessage());
+        }
+        if(errorsListDTO.isListOfErrorsEmpty()) {
+            User userTemp= userRepository.findEntityById(id);
+            userTemp.setEmail(updatedUser.email());
+            userTemp.setFirstName(updatedUser.firstName());
+            userTemp.setLastName(updatedUser.lastName());
+            userTemp.setPhoneNumber(updatedUser.phoneNumber());
+            userRepository.save(userTemp);
+        }
+        return errorsListDTO;
     }
 
     public List<UserToAcceptDTO> getUsersToAccept() {
