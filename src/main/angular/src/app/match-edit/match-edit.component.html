@@ -2,11 +2,29 @@
     <app-navbar></app-navbar>
     <div class="container">
         <div class="match">
-            mecz
+            <div class="inner-div">
+                {{ thisMatch.teams }}
+            </div>
+            <div class="inner-div">
+                {{ thisMatch.date }}
+            </div>
+            <div class="inner-div">
+                {{ thisMatch.result }}
+            </div>
+            <div class="inner-div">
+                <button pButton pRipple
+                class="p-button-lg p-button-outlined p-button-success"
+                style="background-color:white; color: forestgreen"
+                type="button"
+                icon="pi pi-file-edit"
+                (click)="btnAdd()"
+                routerLinkActive="active"
+                label="Edytuj wynik meczu">
+                </button>
+            </div>
         </div>
         <div class="statistics-table">
-            <!-- [value]="refereeMatches" -->
-            <p-table  [paginator]="true" [rows]="7">
+            <p-table [value]="matchStatistics" [paginator]="true" [rows]="4">
                     <ng-template pTemplate="caption">
                         <div class="center-caption">
                             Edytuj statystyki meczu
@@ -16,25 +34,38 @@
                     <tr>
                         <th>Zdarzenie</th>
                         <th>Minuta</th>
-                        <th>Numer indeksu zawodnika</th>
-                        <th style="width: 100px;">Usuń</th>
+                        <th>Indeks zawodnika</th>
+                        <th style="width: 100px; text-align: center;">Usuń</th>
                     </tr>
                 </ng-template>
-                <!-- let-matchForRefereeResponseDTO -->
-                <ng-template pTemplate="body" >
+                <ng-template pTemplate="body" let-matchStatisticResponseDTO>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <!-- <td>{{ matchForRefereeResponseDTO.teams }}</td>
-                        <td>{{ matchForRefereeResponseDTO.date }}</td>
-                        <td><button type="button" pButton label="Edytuj statystyki" class="delete" (click)="btnEdit(matchForRefereeResponseDTO.matchId)"><i class="pi pi-file-edit"></i></button></td> -->
+                        <td>&nbsp; {{ matchStatisticResponseDTO.event }}</td>
+                        <td>&nbsp;&nbsp;&nbsp; {{ matchStatisticResponseDTO.minute }}</td>
+                        <td> {{ matchStatisticResponseDTO.studentIndex }}</td>
+                        <td><button type="button" pButton label="Usuń" class="delete" (click)="btnDelete(matchStatisticResponseDTO.id)"><i class="pi pi-trash"></i></button></td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="summary">
                     <div class="footer">
-                        Dodaj statystykę(przycisk)
+                        <span>
+                            <p-dropdown [options]="events" [(ngModel)]="matchStatistic.event" placeholder="Zdarzenie" [showClear]="true" [style]="{'width':'220px'}"></p-dropdown>
+
+                            <p-inputMask [(ngModel)]="matchStatistic.minute" mask="99" [unmask]="true" placeholder="Minuta" styleClass="input-mask" [style]="{'width':'100px', 'margin-left':'20px'}"></p-inputMask>
+
+                            <p-inputMask [(ngModel)]="matchStatistic.studentIndex" mask="999999" [unmask]="true" placeholder="Indeks" styleClass="input-mask" [style]="{'width':'100px', 'margin-left':'20px'}"></p-inputMask>
+
+                            <button pButton pRipple
+                            class="p-button-lg p-button-outlined p-button-success"
+                            style="margin-left: 220px; background-color:white; color: forestgreen"
+                            type="button"
+                            icon="pi pi-check"
+                            (click)="btnAdd()"
+                            routerLinkActive="active"
+                            label="Dodaj statystykę">
+                            </button>
+
+                        </span>
                     </div>
                 </ng-template>
             </p-table>

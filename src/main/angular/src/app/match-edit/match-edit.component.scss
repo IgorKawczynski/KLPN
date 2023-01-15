@@ -15,11 +15,6 @@ main{
     margin-left: 40%;
 }
 
-.edit {
-    width: 200px;
-    background-color: rgb(76, 185, 66);
-}
-
 .center-caption {
     text-align: center;
     font-size: large;
@@ -43,9 +38,11 @@ main{
     background-color: rgba(243, 243, 243, 0.9);
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    flex-direction: column;
 }
-
-.footer {
+.inner-div {
+    margin-top: 30px;
+    font-size: 30px;
     text-align: center;
 }
