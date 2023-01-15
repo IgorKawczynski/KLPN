@@ -2,25 +2,14 @@
     <app-navbar></app-navbar>
     <div class="container">
         <div class="match">
-            <div class="inner-div">
+            <div class="inner-div" style="font-weight: 600; font-size: 40px;">
                 {{ thisMatch.teams }}
             </div>
-            <div class="inner-div">
+            <div class="inner-div" style="font-weight: 400; font-size: 30px;">
                 {{ thisMatch.date }}
             </div>
-            <div class="inner-div">
+            <div class="inner-div" style="font-weight: 700; font-size: 50px;">
                 {{ thisMatch.result }}
-            </div>
-            <div class="inner-div">
-                <button pButton pRipple
-                class="p-button-lg p-button-outlined p-button-success"
-                style="background-color:white; color: forestgreen"
-                type="button"
-                icon="pi pi-file-edit"
-                (click)="btnAdd()"
-                routerLinkActive="active"
-                label="Edytuj wynik meczu">
-                </button>
             </div>
         </div>
         <div class="statistics-table">
@@ -40,8 +29,8 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-matchStatisticResponseDTO>
                     <tr>
-                        <td>&nbsp; {{ matchStatisticResponseDTO.event }}</td>
-                        <td>&nbsp;&nbsp;&nbsp; {{ matchStatisticResponseDTO.minute }}</td>
+                        <td> {{ matchStatisticResponseDTO.event }}</td>
+                        <td> {{ matchStatisticResponseDTO.minute }}</td>
                         <td> {{ matchStatisticResponseDTO.studentIndex }}</td>
                         <td><button type="button" pButton label="Usuń" class="delete" (click)="btnDelete(matchStatisticResponseDTO.id)"><i class="pi pi-trash"></i></button></td>
                     </tr>

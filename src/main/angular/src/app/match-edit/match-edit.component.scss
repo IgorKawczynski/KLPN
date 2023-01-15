@@ -23,6 +23,14 @@ main{
 .delete {
     width: 200px;
     background-color: rgb(255, 60, 0);
+    border-color: rgb(255, 60, 0);
+}
+
+.delete:hover {
+    width: 200px;
+    background-color: rgb(175, 23, 23);
+    border-color: rgb(175, 23, 23);
+
 }
 
 .container {
@@ -40,6 +48,7 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .inner-div {
     margin-top: 30px;
