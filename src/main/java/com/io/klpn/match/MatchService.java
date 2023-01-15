@@ -126,7 +126,7 @@ public class MatchService {
         var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
         String teams = firstTeam.getName() + " vs " + secondTeam.getName();
 
-        String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+        String result = match.getFirstTeamGoals() + " : " + match.getSecondTeamGoals();
 
         var reservation = reservationRepository.findById(match.getReservation().getId()).get();
         String formattedDate = reservation.getDate().format(formatter);
@@ -148,7 +148,7 @@ public class MatchService {
             var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
             String teams = firstTeam.getName() + " vs " + secondTeam.getName();
 
-            String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+            String result = match.getFirstTeamGoals() + " : " + match.getSecondTeamGoals();
 
             var reservation = reservationRepository.findById(match.getReservation().getId()).get();
             String formattedDate = reservation.getDate().format(formatter);
@@ -182,7 +182,7 @@ public class MatchService {
         var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
         String teams = firstTeam.getName() + " vs " + secondTeam.getName();
 
-        String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+        String result = match.getFirstTeamGoals() + " : " + match.getSecondTeamGoals();
 
         return new MatchForStudentResponseDTO(teams, result, formattedDate, match.getId(), reservation.getId());
     }
