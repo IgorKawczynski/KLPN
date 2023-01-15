@@ -1,6 +1,5 @@
 package com.io.klpn.student;
 
-import com.io.klpn.team.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -33,4 +32,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s WHERE s.indexNumber = :indexNumber")
     Student getStudentByIndexNumber(@Param("indexNumber") Integer indexNumber);
+
+    Student findStudentByIndexNumber(Integer studentIndex);
 }

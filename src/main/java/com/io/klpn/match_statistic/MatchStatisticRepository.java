@@ -19,4 +19,5 @@ public interface MatchStatisticRepository extends JpaRepository<MatchStatistic, 
            """)
     List<MatchStatisticCountDTO> findAllMatchStatisticsByUserId(@Param("userId") Student student);
 
+    List<MatchStatistic> getMatchStatisticsByMatch_Id(Long matchId);
 }
