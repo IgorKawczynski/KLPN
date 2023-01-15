@@ -134,7 +134,7 @@ public class MatchService {
             var reservation = reservationRepository.findById(match.getReservation().getId()).get();
             String formattedDate = reservation.getDate().format(formatter);
 
-            var matchResponse = new MatchForStudentResponseDTO(teams, formattedDate, match.getId());
+            var matchResponse = new MatchForStudentResponseDTO(teams, formattedDate, match.getId(), reservation.getId());
             matchForStudentResponseDTOS.add(matchResponse);
         }
 
@@ -152,6 +152,18 @@ public class MatchService {
         if(student.getTeam() == null) {
             throw new IllegalArgumentException("Nie jesteś przypisany do żadnej drużyny!");
         }
+    }
+
+    public MatchForStudentResponseDTO getMatchForStudentByReservationId(Long reservationId) {
+        var reservation = reservationRepository.findById(reservationId).get();
+        var match = matchRepository.findMatchByReservation_Id(reservationId);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDate = reservation.getDate().format(formatter);
+        var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
+        var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
+        String teams = firstTeam.getName() + " vs " + secondTeam.getName();
+
+        return new MatchForStudentResponseDTO(teams, formattedDate, match.getId(), reservation.getId());
     }
 
 }

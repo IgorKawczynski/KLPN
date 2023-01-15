@@ -66,4 +66,9 @@ public class MatchController {
         return matchService.getMatchesForStudentTeam(studentId);
     }
 
+    @GetMapping("/to-edit/{reservationId}")
+    public MatchForStudentResponseDTO getMatchByReservationId(@PathVariable Long reservationId) {
+        return matchService.getMatchForStudentByReservationId(reservationId);
+    }
+
 }
