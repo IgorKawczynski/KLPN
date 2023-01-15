@@ -2,6 +2,7 @@ package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
+import com.io.klpn.match.MatchRepository;
 import com.io.klpn.match_statistic.dtos.*;
 import com.io.klpn.student.StudentRepository;
 import lombok.AccessLevel;
@@ -12,10 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +25,7 @@ public class MatchStatisticService {
     final MatchStatisticValidator matchStatisticValidator;
     final StudentRepository studentRepository;
     final MatchStatisticMapper mapper;
+    final MatchRepository matchRepository;
 
     public PlayerStatisticsSummaryDTO getPlayerStatsDtoByPlayerId(Long userId) {
         var student = studentRepository.getReferenceById(userId);
@@ -56,6 +55,15 @@ public class MatchStatisticService {
         try {
             var matchStatistic = matchStatisticValidator.createMatchStatistic(dto);
             matchStatisticRepository.save(matchStatistic);
+
+            if(dto.event().isGoal()) {
+                addGoalToTeam(student.getTeam().getId(), dto.matchId());
+            }
+
+            if(dto.event().isOwnGoal()) {
+                addGoalToOppositeTeam(student.getTeam().getId(), dto.matchId());
+            }
+
         }
         catch (IntegerValidatorException exception) {
             errorsList.addError(exception.getMessage());
@@ -78,8 +86,20 @@ public class MatchStatisticService {
 
     public ErrorsListDTO deleteMatchStatisticById(Long id) {
         var errorsListDTO = new ErrorsListDTO();
+
+        var matchStatistic = matchStatisticRepository.findById(id).get();
+
+        var student = studentRepository.findById(matchStatistic.getStudent().getId()).get();
+
         try {
             matchStatisticValidator.deleteMatchStatisticById(id);
+            if(matchStatistic.getEvent().isGoal()) {
+                subtractGoalFromTeam(student.getTeam().getId(), matchStatistic.getMatch().getId());
+            }
+
+            if(matchStatistic.getEvent().isOwnGoal()) {
+                subtractGoalFromOppositeTeam(student.getTeam().getId(), matchStatistic.getMatch().getId());
+            }
         }
         catch (NoSuchElementException exception) {
             errorsListDTO.addError(exception.getMessage());
@@ -116,4 +136,47 @@ public class MatchStatisticService {
 
         return matchStatisticResponseDTOS;
     }
+
+        public void changeGoals(Long teamId, Long matchId, Integer value){
+        var match = matchRepository.findById(matchId).get();
+
+        if(Objects.equals(teamId, match.getFirstTeamId())) {
+            match.setFirstTeamGoals(match.getFirstTeamGoals() + value);
+            matchRepository.save(match);
+        }
+        if(Objects.equals(teamId, match.getSecondTeamId())) {
+            match.setSecondTeamGoals(match.getSecondTeamGoals() + value);
+            matchRepository.save(match);
+        }
+    }
+
+    public void addGoalToTeam(Long teamId, Long matchId) {
+        changeGoals(teamId, matchId, 1);
+    }
+
+    public void subtractGoalFromTeam(Long teamId, Long matchId) {
+        changeGoals(teamId, matchId, -1);
+    }
+
+    public void changeGoalsInOpposite(Long teamId, Long matchId, Integer value){
+        var match = matchRepository.findById(matchId).get();
+
+        if(Objects.equals(teamId, match.getFirstTeamId())) {
+            match.setSecondTeamGoals(match.getSecondTeamGoals()  + value);
+            matchRepository.save(match);
+        }
+        if(Objects.equals(teamId, match.getSecondTeamId())) {
+            match.setFirstTeamGoals(match.getFirstTeamGoals() + value);
+            matchRepository.save(match);
+        }
+    }
+
+    public void addGoalToOppositeTeam(Long teamId, Long matchId) {
+        changeGoalsInOpposite(teamId, matchId, 1);
+    }
+
+    public void subtractGoalFromOppositeTeam(Long teamId, Long matchId) {
+        changeGoalsInOpposite(teamId, matchId, -1);
+    }
+
 }
