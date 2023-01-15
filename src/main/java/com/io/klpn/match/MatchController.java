@@ -39,6 +39,11 @@ public class MatchController {
         return matchService.getMatchById(id);
     }
 
+    @GetMapping("/for-referee/{id}")
+    public MatchForStudentResponseDTO getMatchForRefereeById(@PathVariable Long id){
+        return matchService.getMatchForRefereeByMatchId(id);
+    }
+
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public ErrorsListDTO createMatch(@RequestBody Match match) {

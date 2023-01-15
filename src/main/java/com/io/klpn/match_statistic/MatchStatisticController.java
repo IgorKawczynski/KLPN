@@ -1,13 +1,17 @@
 package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.match_statistic.dtos.MatchStatisticCreateByIndexDTO;
 import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
+import com.io.klpn.match_statistic.dtos.MatchStatisticResponseDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -35,9 +39,20 @@ public class MatchStatisticController {
         return matchStatisticService.createMatchStatistic(dto);
     }
 
+    @PostMapping("/create-by-index")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ErrorsListDTO createMatchStatisticByIndex(@RequestBody MatchStatisticCreateByIndexDTO dto) {
+        return matchStatisticService.createMatchStatisticForStudentIndex(dto);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ErrorsListDTO deleteMatchStatisticById(@PathVariable Long id){
         return matchStatisticService.deleteMatchStatisticById(id);
+    }
+
+    @GetMapping("/list-for-match/{id}")
+    public List<MatchStatisticResponseDTO> getMatchStatisticsForMatchId(@PathVariable Long id) {
+        return matchStatisticService.getMatchStatisticsForMatchId(id);
     }
 }
