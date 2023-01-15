@@ -117,6 +117,23 @@ public class MatchService {
         return matchResponseDTOS;
     }
 
+    public MatchForStudentResponseDTO getMatchForRefereeByMatchId(Long matchId) {
+        Match match = matchRepository.findById(matchId).get();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        var firstTeam = teamRepository.findById(match.getFirstTeamId()).get();
+        var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
+        String teams = firstTeam.getName() + " vs " + secondTeam.getName();
+
+        String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+
+        var reservation = reservationRepository.findById(match.getReservation().getId()).get();
+        String formattedDate = reservation.getDate().format(formatter);
+
+        return new MatchForStudentResponseDTO(teams, result, formattedDate, reservation.getId(), matchId);
+    }
+
     public List<MatchForStudentResponseDTO> getMatchesForRefereeByRefereeId(Long refereeId) {
         List<Match> matchesForReferee = matchRepository.getMatchesByRefereeId(refereeId);
         return matchListToMatchForStudentResposneDtoList(matchesForReferee);
@@ -131,10 +148,12 @@ public class MatchService {
             var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
             String teams = firstTeam.getName() + " vs " + secondTeam.getName();
 
+            String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+
             var reservation = reservationRepository.findById(match.getReservation().getId()).get();
             String formattedDate = reservation.getDate().format(formatter);
 
-            var matchResponse = new MatchForStudentResponseDTO(teams, formattedDate, match.getId(), reservation.getId());
+            var matchResponse = new MatchForStudentResponseDTO(teams, result, formattedDate, match.getId(), reservation.getId());
             matchForStudentResponseDTOS.add(matchResponse);
         }
 
@@ -163,7 +182,9 @@ public class MatchService {
         var secondTeam = teamRepository.findById(match.getSecondTeamId()).get();
         String teams = firstTeam.getName() + " vs " + secondTeam.getName();
 
-        return new MatchForStudentResponseDTO(teams, formattedDate, match.getId(), reservation.getId());
+        String result = match.getSecondTeamGoals() + " : " + match.getSecondTeamGoals();
+
+        return new MatchForStudentResponseDTO(teams, result, formattedDate, match.getId(), reservation.getId());
     }
 
 }

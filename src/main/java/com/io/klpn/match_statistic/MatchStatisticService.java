@@ -2,9 +2,7 @@ package com.io.klpn.match_statistic;
 
 import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.exceptions.IntegerValidatorException;
-import com.io.klpn.match_statistic.dtos.MatchStatisticCreateDTO;
-import com.io.klpn.match_statistic.dtos.MatchStatisticMapper;
-import com.io.klpn.match_statistic.dtos.PlayerStatisticsSummaryDTO;
+import com.io.klpn.match_statistic.dtos.*;
 import com.io.klpn.student.StudentRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +12,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -34,6 +35,23 @@ public class MatchStatisticService {
     }
     public ErrorsListDTO createMatchStatistic(MatchStatisticCreateDTO dto){
         var errorsList = new ErrorsListDTO();
+
+        try {
+            var matchStatistic = matchStatisticValidator.createMatchStatistic(dto);
+            matchStatisticRepository.save(matchStatistic);
+        }
+        catch (IntegerValidatorException exception) {
+            errorsList.addError(exception.getMessage());
+        }
+        return errorsList;
+    }
+
+    public ErrorsListDTO createMatchStatisticForStudentIndex(MatchStatisticCreateByIndexDTO dtoWithIndex){
+        var errorsList = new ErrorsListDTO();
+
+        Integer index = dtoWithIndex.studentIndex().intValue();
+        var student = studentRepository.findStudentByIndexNumber(index);
+        var dto = new MatchStatisticCreateDTO(dtoWithIndex.event(), dtoWithIndex.minute(), student.getId(), dtoWithIndex.matchId());
 
         try {
             var matchStatistic = matchStatisticValidator.createMatchStatistic(dto);
@@ -67,5 +85,35 @@ public class MatchStatisticService {
             errorsListDTO.addError(exception.getMessage());
         }
         return errorsListDTO;
+    }
+
+    public String polishEvents(String event) {
+        if(event.equals("GOAL")) return "Goal";
+        if(event.equals("ASSIST")) return "Asysta";
+        if(event.equals("OWN_GOAL")) return "Bramka samobójcza";
+        if(event.equals("RED_CARD")) return "Czerwona kartka";
+        if(event.equals("YELLOW_CARD")) return "Żółta kartka";
+        return "";
+    }
+
+    public List<MatchStatisticResponseDTO> getMatchStatisticsForMatchId(Long matchId) {
+        List<MatchStatistic> matchStatistics = matchStatisticRepository.getMatchStatisticsByMatch_Id(matchId);
+
+        List<MatchStatisticResponseDTO> matchStatisticResponseDTOS = new ArrayList<>();
+
+        for(MatchStatistic matchStatistic: matchStatistics) {
+            String event = matchStatistic.getEvent().toString();
+            event = polishEvents(event);
+            Integer minute = matchStatistic.getMinute();
+
+            var student = studentRepository.findById(matchStatistic.getStudent().getId()).get();
+            MatchStatisticResponseDTO matchStatisticResponseDTO = new MatchStatisticResponseDTO(event, minute, student.getIndexNumber(), matchStatistic.getId());
+
+            matchStatisticResponseDTOS.add(matchStatisticResponseDTO);
+        }
+
+        matchStatisticResponseDTOS.sort(Comparator.comparingInt(MatchStatisticResponseDTO::minute));
+
+        return matchStatisticResponseDTOS;
     }
 }
