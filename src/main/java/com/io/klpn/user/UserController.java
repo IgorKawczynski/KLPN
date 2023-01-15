@@ -4,6 +4,7 @@ import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.basic.UpdateDto;
 import com.io.klpn.user.dtos.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,18 @@ public class UserController {
     @GetMapping("/{userId}")
     public UserResponseDTO getUserById(@PathVariable Long userId) {
         return userService.getUserResponseDto(userId);
+    }
+
+
+    @GetMapping("/me")
+    public UserEditDTO getUserEditDTOById(@RequestParam Long id) {
+        return userService.getUserEditDTOById(id);
+    }
+
+    @PutMapping("/my-profile")
+    @ResponseStatus(HttpStatus.OK)
+    public ErrorsListDTO changeUserById(@RequestParam Long id, @RequestBody UserEditDTO updatedUser){
+        return userService.updateUser(id, updatedUser);
     }
 
     @PostMapping("/register")
