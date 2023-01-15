@@ -43,7 +43,7 @@ public class ReservationService {
 
     public Reservation getReservationById(Long id) {
         return reservationRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Reserwacja z podanym id nie istnieje!"));
+                .orElseThrow(() -> new IllegalArgumentException("Rezerwacja z podanym id nie istnieje!"));
     }
 
     public List<ReservationResponseDTO> getReservationsByUserIdAndDateAfterNow(Long userId) {

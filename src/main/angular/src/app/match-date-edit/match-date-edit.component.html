@@ -1,7 +1,7 @@
 <main>
   <app-navbar></app-navbar>
 
-  <p class="main-text">Edytuj date spotkania</p>
+  <p class="main-text">Edytuj datę spotkania</p>
   <p class="main-text" style="font-size:24px">{{matchToEdit.teams}} {{matchToEdit.date}}</p>
 
   <div class="container">
@@ -12,7 +12,7 @@
 
   <div class="time-field">
     <p class="time-info">Wybierz nowy termin spotkania:</p>
-    <p-calendar appendTo="body" indputId="date" [(ngModel)]="matchDateEditDTO.date" [showTime]="true" placeholder="yyyy-mm-dd hh:mm" [showIcon]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}">
+    <p-calendar appendTo="body" indputId="date" [(ngModel)]="matchDateEditDTO.newMatchDate" [showTime]="true" placeholder="yyyy-mm-dd hh:mm" [showIcon]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}">
       <ng-template pTemplate="footer"><div class="calendar-footer">Wybierz pełną godzinę!</div></ng-template>
     </p-calendar>
   </div>
