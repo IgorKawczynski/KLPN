@@ -19,11 +19,26 @@ main{
 .delete {
     width: 200px;
     background-color: rgb(255, 60, 0);
+    border-color: rgb(255, 60, 0);
+}
+
+.delete:hover {
+    width: 200px;
+    background-color: rgb(175, 23, 23);
+    border-color: rgb(175, 23, 23);
+
 }
 
 .edit {
     width: 200px;
     background-color: rgb(76, 185, 66);
+    border-color: rgb(76, 185, 66);
+}
+
+.edit:hover {
+    width: 200px;
+    background-color: rgb(48, 141, 40);
+    border-color: rgb(48, 141, 40);
 }
 
 .center-caption {
