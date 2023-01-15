@@ -1,5 +1,6 @@
 package com.io.klpn.match_date_edit;
 
+import com.io.klpn.basic.ErrorsListDTO;
 import com.io.klpn.match_date_edit.dtos.MatchDateEditDTO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,9 @@ public class MatchDateEditController {
 
     final MatchDateEditService service;
 
-    @PostMapping("")
-    public void matchDateEditRequest(@RequestBody MatchDateEditDTO dto) {
-        service.createMatchDateEditRequest(dto);
+    @PostMapping("/request")
+    public ErrorsListDTO matchDateEditRequest(@RequestBody MatchDateEditDTO dto) {
+        return service.createMatchDateEditRequest(dto);
     }
 
 }

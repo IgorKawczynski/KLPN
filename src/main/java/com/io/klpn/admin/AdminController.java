@@ -1,6 +1,8 @@
 package com.io.klpn.admin;
 
 import com.io.klpn.basic.ErrorsListDTO;
+import com.io.klpn.match_date_edit.dtos.MatchDateEditDTO;
+import com.io.klpn.match_date_edit.dtos.MatchDateEditResponseDTO;
 import com.io.klpn.reservation.dtos.ReservationRequestDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +49,21 @@ public class AdminController {
     @PostMapping("/reject-teams")
     public ErrorsListDTO deleteTeamsByIds(@RequestBody List<Long> teamsIds) {
         return adminService.deleteTeamsByIds(teamsIds);
+    }
+
+    @PatchMapping("/accept-match-date-changes")
+    public ErrorsListDTO acceptMatchDateChangesByIds(@RequestBody List<Long> requestsIds) {
+        return adminService.acceptMatchDateChangesByIds(requestsIds);
+    }
+
+    @PostMapping("/reject-match-date-changes")
+    public ErrorsListDTO rejectMatchDateChangesByIds(@RequestBody List<Long> requestsIds) {
+        return adminService.rejectMatchDateChangesByIds(requestsIds);
+    }
+
+    @GetMapping("/matches-date-change-requests")
+    public List<MatchDateEditResponseDTO> getMatchDateChangeRequests() {
+        return adminService.getMatchDateChangeDtoList();
     }
 
     @PatchMapping("/reservation/{reservationId}")
