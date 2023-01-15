@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ErrorsListDTO } from '../basic/error-list/error-list';
 import { LoginService } from '../login/login.service';
@@ -27,6 +27,7 @@ export class MatchDateEditComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private matchEditService: MatchDateEditService,
     private messageService: MessageService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -82,6 +83,7 @@ export class MatchDateEditComponent implements OnInit {
       }
       else{
         this.messageService.add({life: 7000, severity:'success', summary:'Edycja daty spotkania', detail:'Twoja prośba o zmianę terminu spotkania została przesłana do Administratora.'});
+        setTimeout(() => {this.router.navigateByUrl('/student-matches');}, 1500);
       }
     })
   }

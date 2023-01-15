@@ -1,7 +1,8 @@
 <main>
     <app-navbar></app-navbar>
 
-    <p class="main-text">Edytuj rezerwację</p>
+    <p class="main-text">Edytujesz rezerwację</p>
+    <p class="main-text" style="font-size:24px">Dla boiska {{ reservation.pitch }} i daty: {{ reservation.date }} </p>
 
     <div class="container">
       <div [ngClass]="defaultFirstPitchClass" (click)="setPitchNumber(1)"  ><p class="pitch-number">Boisko 1</p></div>

@@ -37,6 +37,11 @@ public class ReservationController {
         return reservationService.getReservationById(id);
     }
 
+    @GetMapping("/response/{id}")
+    public ReservationResponseDTO getReservationResponseById(@PathVariable Long id) {
+        return reservationService.getReservationResponseById(id);
+    }
+
     @GetMapping("/list/{userId}")
     public List<ReservationResponseDTO> getReservationsByUserIdAndDateAfterNow(@PathVariable Long userId) {
         return reservationService.getReservationsByUserIdAndDateAfterNow(userId);

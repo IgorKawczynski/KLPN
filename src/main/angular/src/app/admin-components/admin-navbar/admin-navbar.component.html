@@ -10,7 +10,7 @@
       <ng-template pTemplate="end">
         <p-menubar [model]="itemsRight" [autoDisplay]="true" [style]="{'background-color': 'rgb(157, 231, 250)', 'border': 'none'}">
           <button pButton pRipple class="p-button-info" type="button" *ngIf="this.loginService.isLogged()"
-                  icon="pi pi-sign-out" (click)="this.loginService.btnLogout()" routerLinkActive="active" label="Wyloguj"></button>
+                  icon="pi pi-sign-out" (click)="this.loginService.btnLogout()" routerLinkActive="active" label="Wyloguj" style="margin-left: 10px;"></button>
         </p-menubar>      </ng-template>
     </p-menubar>
   </section>

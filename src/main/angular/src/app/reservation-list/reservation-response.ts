@@ -1,6 +1,6 @@
 export class ReservationResponseDTO {
     userId!: number;
     pitch!: number;
-    String!: Date;
+    date!: String;
     id!: number;
   }

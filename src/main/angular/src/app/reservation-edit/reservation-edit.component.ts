@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { ReservationResponseDTO } from '../reservation-list/reservation-response';
 
 @Component({
   selector: 'app-reservation-edit',
@@ -19,6 +20,7 @@ export class ReservationEditComponent implements OnInit {
   defaultThirdPitchClass = 'pitch third';
   errorsListDto: ErrorsListDTO = new ErrorsListDTO;
   reservationUpdateDto: ReservationUpdateDto = new ReservationUpdateDto;
+  reservation: ReservationResponseDTO = new ReservationResponseDTO;
 
   constructor(
     private reservationEditService: ReservationEditService,
@@ -29,8 +31,7 @@ export class ReservationEditComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.reservationUpdateDto.userId = this.loginService.getId();
-    this.reservationUpdateDto.id = this._Activatedroute.snapshot.params['id'];
+    this.getData();
   }
 
   setPitchNumber(pitchNumber: number): void {
@@ -72,10 +73,23 @@ export class ReservationEditComponent implements OnInit {
         });
       }
       else{
-        window.location.reload();
         this.messageService.add({life: 7000, severity:'success', summary:'Edytowano rezerwację', detail:'Pomyślnie zmieniono dane rezerwacji!'});
+        setTimeout(() => {this.router.navigateByUrl('/reservation-list');}, 1500);
       }
     })
+  }
+
+  public getReservation(): void {
+    let id: number = this._Activatedroute.snapshot.params['id'];
+    this.reservationEditService.getReservationById(id).subscribe((response: any) => {
+      this.reservation = response;
+    });
+  }
+
+  public getData(): void {
+    this.getReservation();
+    this.reservationUpdateDto.userId = this.loginService.getId();
+    this.reservationUpdateDto.id = this._Activatedroute.snapshot.params['id'];
   }
 
 }

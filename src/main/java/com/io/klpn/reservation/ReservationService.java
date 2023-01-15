@@ -46,6 +46,13 @@ public class ReservationService {
                 .orElseThrow(() -> new IllegalArgumentException("Rezerwacja z podanym id nie istnieje!"));
     }
 
+    public ReservationResponseDTO getReservationResponseById(Long id) {
+        var reservation = reservationRepository.findById(id).get();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+
+        return new ReservationResponseDTO(reservation.getUser().getId(), reservation.getPitch(), formatter.format(reservation.getDate()), reservation.getId());
+    }
+
     public List<ReservationResponseDTO> getReservationsByUserIdAndDateAfterNow(Long userId) {
         LocalDateTime actualDayAndHour = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
         List<Reservation> reservationList =  reservationRepository.findReservationsByUser_IdAndDateAfter(userId, actualDayAndHour);

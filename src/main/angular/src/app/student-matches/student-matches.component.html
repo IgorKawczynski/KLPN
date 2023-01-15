@@ -20,10 +20,10 @@
                 <td></td>
                 <td>{{ matchForStudentResponseDTO.teams }}</td>
                 <td>{{ matchForStudentResponseDTO.date }}</td>
-                <td *ngIf="loginService.isCaptain()">
+                <td *ngIf="loginService.isCaptain()" style="text-align: center;">
                   <button 
                   type="button" 
-                  pButton label="Zmień date spotkania" 
+                  pButton label="Zmień datę spotkania" 
                   class="edit" 
                   (click)="btnEdit(matchForStudentResponseDTO.reservationId)">
                   </button>

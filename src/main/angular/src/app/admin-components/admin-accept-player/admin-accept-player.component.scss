@@ -21,12 +21,24 @@ main {
     width: 280px;
     margin-right: 20px;
     background-color: rgb(0, 183, 255);
+    border-color: rgb(0, 183, 255);
+}
+
+.accept:hover {
+    background-color: rgb(14, 122, 165);
+    border-color: rgb(14, 122, 165);
 }
 
 .reject {
     width: 280px;
     margin-right: 20px;
     background-color: rgb(250, 59, 25);
+    border-color: rgb(250, 59, 25);
+}
+
+.reject:hover {
+    background-color: rgb(153, 28, 6);
+    border-color: rgb(153, 28, 6);
 }
 
 .flex-container {
