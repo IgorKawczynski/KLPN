@@ -9,10 +9,10 @@ TODO do końca implementacji (15.01)
 
 2. (GRZEGORZ)
 - Prośba o zmianę terminu meczu poprzez studenta (admin dostanie to w liście wniosków o zmianę terminu i będzie mógł zaakceptować/odrzucić termin zależnie od tego czy data nie koliduje)
-- Widok dla studenta 'MOJE MECZE'
-- dla kapitana to samo + 'opcja wybrania meczu i wniosek o zmiane daty spotkania'
-- widok do zmiany daty spotkania (zmieniony widok 'edytuj rezerwacje')
-- encja przetrzymująca te prośby o daty spotkań
+- Widok dla studenta 'MOJE MECZE' -> DONE
+- dla kapitana to samo + 'opcja wybrania meczu i wniosek o zmiane daty spotkania' FRONTEND DONE (POZOSTALO PODLACZYC RESTA)
+- widok do zmiany daty spotkania (zmieniony widok 'edytuj rezerwacje') -> DONE
+- encja przetrzymująca te prośby o zmiany dat spotkań
 - widok dla admina z wszystkimi prośbami o daty spotkań
 
 3. IGOR
