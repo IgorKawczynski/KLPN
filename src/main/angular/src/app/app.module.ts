@@ -61,6 +61,7 @@ import { TransferListComponent } from './transfer/transfer-list/transfer-list.co
 import { StudentMatchesComponent } from './student-matches/student-matches.component';
 import { MatchEditComponent } from './match-edit/match-edit.component';
 import { MatchDateEditComponent } from './match-date-edit/match-date-edit.component';
+import { AdminMatchDateEditRequestsComponent } from './admin-components/admin-match-date-edit-requests/admin-match-date-edit-requests.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { MatchDateEditComponent } from './match-date-edit/match-date-edit.compon
     TransferListComponent,
     MatchEditComponent,
     StudentMatchesComponent,
-    MatchDateEditComponent
+    MatchDateEditComponent,
+    AdminMatchDateEditRequestsComponent
   ],
     imports: [
         HttpClientModule,

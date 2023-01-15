@@ -1,6 +1,6 @@
 export class MatchDateEditDTO {
   pitch!: number;
-  date!: Date;
-  userId!: number;
+  newMatchDate!: Date;
+  captainId!: number;
   reservationId!: number;
 }

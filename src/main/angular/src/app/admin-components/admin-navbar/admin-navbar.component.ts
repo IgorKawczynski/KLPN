@@ -39,7 +39,7 @@ export class AdminNavbarComponent implements OnInit {
             label:'Zaakceptuj prośbę o zmianę terminu meczu',
             styleClass: 'admin-navbar-subitem',
             icon:'pi pi-calendar-plus',
-            routerLink: "/"
+            routerLink: "/admin-accept-requests"
           }
             ]
       },

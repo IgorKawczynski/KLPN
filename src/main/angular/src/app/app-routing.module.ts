@@ -29,6 +29,7 @@ import { TransferListComponent } from './transfer/transfer-list/transfer-list.co
 import { MatchEditComponent } from './match-edit/match-edit.component';
 import { StudentMatchesComponent } from './student-matches/student-matches.component';
 import { MatchDateEditComponent } from './match-date-edit/match-date-edit.component';
+import { AdminMatchDateEditRequestsComponent } from './admin-components/admin-match-date-edit-requests/admin-match-date-edit-requests.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'users/update-to-student', component: UpdateToStudentComponent },
       { path: 'admin-accept-player', component: AdminAcceptPlayerComponent },
       { path: 'admin-accept-team', component: AdminAcceptTeamComponent },
+      { path: 'admin-accept-requests', component: AdminMatchDateEditRequestsComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'reservation-list', component: ReservationListComponent},
       { path: 'reservation-edit/:id', component: ReservationEditComponent},
