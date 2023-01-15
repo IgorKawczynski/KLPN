@@ -1,0 +1,102 @@
+main{
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../../assets/img/football-field-2588146.jpg");
+}
+
+@font-face {
+  font-family: 'PremierSans-Regular';
+  src: url('../../../assets/fonts/PremierLeagueW01-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'PremierSans-Bold';
+  src: url('../../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'PremierSans-Light';
+  src: url('../../../assets/fonts/PremierLeagueW01-Light.woff2') format('woff2');
+}
+
+.responsive-layout {
+  font-size: x-large;
+  margin-top: 130px;
+  margin-left: 600px;
+  margin-bottom: -60px;
+}
+
+.add {
+  height: 180px;
+  width: 350px;
+  background-color: rgba(48, 255, 2, 0.11);
+}
+
+.add:hover {
+  border-color: rgba(5, 107, 252, 0.75);
+  background-color: rgba(13, 69, 143, 0.5);
+}
+
+.center-caption {
+  text-align: center;
+  font-size: large;
+}
+
+.container {
+  box-shadow: 0 0 15px rgba(85, 140, 42, 0.27);
+  width: 32%;
+  height: 430px;
+  background-color: rgba(250, 250, 250, 0.5);
+  margin: 0% auto 3%;
+}
+
+.left-half {
+  background-color: rgba(252, 252, 252, 0.5);
+  float: left;
+  width: 30%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.details {
+  text-align: right;
+}
+
+.right-half {
+  background-color: rgba(252, 252, 252, 0.5);
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+
+.left-half p {
+  font-size: large;
+  color: rgb(38, 20, 20);
+  margin-top: 34px;
+}
+
+.name-top {
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 200px;
+  font-size: large;
+}
+
+.right-half p {
+  margin-left: 20px;
+  text-align: left;
+}
+
+input {
+  margin-bottom: 14px;
+  width: 235px;
+}
+
+:host ::ng-deep .input-mask{
+  width: 235px;
+}
