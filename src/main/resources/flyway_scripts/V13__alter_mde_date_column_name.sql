@@ -1,0 +1,1 @@
+alter table public.match_date_edit RENAME COLUMN date to new_match_date;
