@@ -15,3 +15,37 @@ CO POKAZAĆ :
 - responsywność strony rejestracji/logowania
 ***DEADLINE 15.01***
 
+TODO POPRAWKOWE:
+Widok profilu użytkownika:
+-zmienić kolor przycisku z fioletowego (hover też)
+-przycisk do usunięcia konta z aplikacji
+
+Widok rejestracji użytkownika:
+-siła hasła
+
+Widok edycji rezerwacji
+-poprawa widoku (@Krystian)
+
+Widok zakładania drużyny
+-przekierowanie do zakładki kontakt po założeniu drużyny + zmiana komunikatu
+-losowanie numeru koszulki
+
+Widok moje mecze
+-poprawa widoku - rozszerzyć tabelę (@Krystian)
+
+Navbar admina
+-zmienić przekierowania itd
+
+Widok meczów dla sędziego
+-poprawa widoku - rozszerzyć tabelę (@Krystian)
+
+
+Widok meczu dla sędziego
+-poprawa widoku (@Krystian)
+
+Dodanie widoku meczu
+-przechodzenie z poziomu listy
+
+przycisk ze strony głównej - profil użytkownika - brak przekierowania
+
+Ewenutalnie "stwórz mecz" dla admina -> taki sam jak rezerwacja + id drużyn
