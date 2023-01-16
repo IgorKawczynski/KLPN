@@ -1,33 +1,36 @@
 <main>
   <app-navbar></app-navbar>
   <div class="responsive-layout" style="font-family: PremierSans-Bold, serif;">Panel Uzytkownika {{user.firstName}}</div>
-  <div class="container">
-    <div class="left-half">
-      <div class="details">
-        <div class="name-top">
-          <p style="margin-top: 100px; font-family: PremierSans-Regular serif;">Imię:</p>
+    <div class="container">
+      <div class="left-half">
+        <div class="details">
+          <div class="name-top">
+            <p style="margin-top: 100px; font-family: PremierSans-Regular serif;">Imię:</p>
+          </div>
+          <p style="font-family: PremierSans-Regular serif;">Nazwisko:</p>
+          <p style="font-family: PremierSans-Regular, serif;">Email:</p>
+          <p style="font-family: PremierSans-Regular, serif;">Numer tel:</p>
         </div>
-        <p style="font-family: PremierSans-Regular serif;">Nazwisko:</p>
-        <p style="font-family: PremierSans-Regular, serif;">Email:</p>
-        <p style="font-family: PremierSans-Regular, serif;">Numer tel:</p>
       </div>
-    </div>
-    <div class="right-half">
-      <p style="margin-top: 66px;">
-        <input type="text" pInputText [(ngModel)]="user.firstName" placeholder="{{user.firstName}}" style="margin-top: 25px;">
-      </p>
-      <p>
-        <input type="text" pInputText [(ngModel)]="user.lastName" placeholder="{{user.lastName}}">
-      </p>
-      <p>
-        <input type="text" pInputText [(ngModel)]="user.email" placeholder="{{user.email}}">
-      </p>
-      <p>
-        <p-inputMask [(ngModel)]="user.phoneNumber" mask="999 999 999" [unmask]="true" placeholder="Numer tel." styleClass="input-mask"></p-inputMask>
-      </p>
-      <p>
-        <button type="button" pButton label="Zmień dane" class="p-button p-button-help" (click)="btnUpdate()"></button>
-      </p>
+      <div class="right-half">
+        <p style="margin-top: 66px;">
+          <input type="text" pInputText [(ngModel)]="user.firstName" placeholder="{{user.firstName}}" style="margin-top: 25px;">
+        </p>
+        <p>
+          <input type="text" pInputText [(ngModel)]="user.lastName" placeholder="{{user.lastName}}">
+        </p>
+        <p>
+          <input type="text" pInputText [(ngModel)]="user.email" placeholder="{{user.email}}">
+        </p>
+        <p>
+          <p-inputMask [(ngModel)]="user.phoneNumber" mask="999 999 999" [unmask]="true" placeholder="Numer tel." styleClass="input-mask"></p-inputMask>
+        </p>
+        <p>
+          <button type="button" pButton label="Zmień dane" class="change" (click)="btnUpdate()"></button>
+        </p>
+        <p>
+          <button type="button" pButton label="Usuń konto" class="delete" (click)="btnDelete()"></button>
+        </p>
     </div>
   </div>
   <app-footer></app-footer>

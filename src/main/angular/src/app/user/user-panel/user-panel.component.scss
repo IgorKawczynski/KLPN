@@ -45,7 +45,7 @@ main{
 .container {
   box-shadow: 0 0 15px rgba(85, 140, 42, 0.27);
   width: 32%;
-  height: 430px;
+  height: 470px;
   background-color: rgba(250, 250, 250, 0.5);
   margin: 0% auto 3%;
 }
@@ -99,4 +99,26 @@ input {
 
 :host ::ng-deep .input-mask{
   width: 235px;
+}
+
+.change {
+  background-color: rgb(21, 175, 7);
+  border-color: rgb(21, 175, 7);
+}
+
+.change:hover {
+  background-color: rgb(13, 112, 4);
+  border-color: rgb(13, 112, 4);
+}
+
+.delete {
+  width: 200px;
+  background-color: rgb(255, 60, 0);
+  border-color: rgb(255, 60, 0);
+}
+
+.delete:hover {
+  width: 200px;
+  background-color: rgb(175, 23, 23);
+  border-color: rgb(175, 23, 23);
 }

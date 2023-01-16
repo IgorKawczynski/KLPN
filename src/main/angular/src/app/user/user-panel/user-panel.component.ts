@@ -53,6 +53,28 @@ export class UserPanelComponent implements OnInit {
       }
     });
   }
+
+  public deleteUserById(): void {
+    let userId: number = this.loginService.getId();
+    this.userPanelService.deleteUserById(userId).subscribe((response: any) =>{
+      this.errorsListDto = response;
+      if(!this.errorsListDto.listOfErrorsEmpty) {
+        this.errorsListDto.errors.forEach((error) => {
+          this.messageService.add({life: 8000, severity:'error', summary:'Błąd', detail:error})
+        });
+      }
+      else{
+        this.messageService.add({life: 8000, severity:'success', summary:'Usunięto', detail:'Pomyślnie usunięto konto!'});
+        this.loginService.logout();
+        this.router.navigateByUrl("/");
+      }
+    })
+  }
+
+  public btnDelete(){
+    this.deleteUserById();
+  }
+
   public btnUpdate() {
     console.log(this.user)
     this.updateUser();

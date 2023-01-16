@@ -44,13 +44,10 @@ export class TeamComponent implements OnInit {
     newPlayer.position = mapToEnumValue(newPlayer.position);
     newPlayer.isReferee == undefined ? newPlayer.isReferee = false : newPlayer.isReferee; // jesli nie zaznaczono checkboxa, to czasami isReferee leci jako undedfined, wiec zmieniam tutaj na false
     this.players.push(newPlayer);
-    console.log('Ilość plikarzy po dodaniu: ' + this.players.length);
-    console.log(this.players);
   }
 
   removePlayer(player: StudentPlayer){
     this.players = this.players.filter(e => e != player);
-    console.log("PLAYERS : " + this.players);
   }
 
   ngOnInit(): void {

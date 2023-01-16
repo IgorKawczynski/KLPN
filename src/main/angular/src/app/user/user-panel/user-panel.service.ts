@@ -22,4 +22,8 @@ export class UserPanelService {
   public getUserEditDTOById(): Observable<UserEditDTO>{
     return this.http.get<UserEditDTO>(`${this.apiServerUrl}/api/user/me?id=${this.loginService.getId()}`);
   }
+
+  public deleteUserById(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/api/user/${userId}`);
+  }
 }
