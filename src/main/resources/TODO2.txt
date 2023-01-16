@@ -3,17 +3,16 @@ TODO do końca implementacji (15.01)
 Spotkanie stacjonarne
 - Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
 - Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
+- plan prezentacji
 
-CO POKAZAĆ :
-- responsywność strony rejestracji/logowania
 ***DEADLINE 15.01***
 
 TODO POPRAWKOWE:
 
 KRYSTIAN**************************************************************:
 
-
-
+Widok meczu (harmonogram -> jakiś mecz z tabeli)
+-poprawa widoku
 
 Widok meczu dla sędziego
 -poprawa widoku
@@ -25,11 +24,4 @@ KRYSTIAN^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Widok rejestracji użytkownika:
 -siła hasła
 
-Dodanie widoku meczu - ADAM
--przechodzenie z poziomu listy
-
-
-
-
-xD
 Ewenutalnie "stwórz mecz" dla admina -> taki sam jak rezerwacja + id drużyn
