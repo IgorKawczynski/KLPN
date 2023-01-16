@@ -12,11 +12,7 @@ TODO POPRAWKOWE:
 
 KRYSTIAN**************************************************************:
 
-Widok moje mecze
--poprawa widoku - rozszerzyć tabelę
 
-Widok edycji rezerwacji
--poprawa widoku
 
 Widok meczów dla sędziego
 -poprawa widoku - rozszerzyć tabelę
