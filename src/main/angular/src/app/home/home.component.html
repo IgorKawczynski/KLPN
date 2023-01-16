@@ -17,10 +17,10 @@
     <a *ngIf="loginService.isLogged() && !loginService.isStudent()" href="/users/update-to-student" type="button" class="btn-mainpage-left-center">Zgłoś się do gry</a>
     <a *ngIf="loginService.isLogged() && !loginService.isStudent()" href="javascript:void(0)" type="button" class="btn-animation-right-center" (click)="homePanelActivate()">Najbliższy Mecz</a>
 
-    <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId == null || this.teamId == undefined)" href="/student/my-profile" type="button" class="btn-mainpage-left-center">Profil Zawodnika</a>
+    <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId == null || this.teamId == undefined)" href="/users/my-profile" type="button" class="btn-mainpage-left-center">Profil Zawodnika</a>
     <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId == null || this.teamId == undefined)" href="javascript:void(0)" type="button" class="btn-animation-right-center" (click)="homePanelActivate()">Najbliższy Mecz</a>
 
-    <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId != null || this.teamId != undefined)" href="/student/my-profile" type="button" class="btn-profile">Profil Zawodnika</a>
+    <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId != null || this.teamId != undefined)" href="/users/my-profile" type="button" class="btn-profile">Profil Zawodnika</a>
     <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId != null || this.teamId != undefined)" href="/team-detail/{{ this.teamId }}" type="button" class="btn-team">Moja Drużyna</a>
     <a *ngIf="loginService.isLogged() && loginService.isStudent() && (this.teamId != null || this.teamId != undefined)" href="javascript:void(0)" type="button" class="btn-animation-right" (click)="homePanelActivate()">Najbliższy Mecz</a>
   </div>

@@ -1,14 +1,7 @@
 TODO do końca implementacji (15.01)
 
-1. (ADAM)
-- Podgląd meczów (harmonogram jako lista)
-- Możliwość edytowania i usunięcia meczu + możliwość edytowania statystyki meczowej rozegranego meczu poprzez sędziego -
- ja to widzę tak, że wszystko jest w liście z wyżej czyli "PODGLĄD MECZÓW" - i tylko sędzia będzie miał dostępny przycisk przy każdym meczu "zarządzaj meczem"
- i "zarządzaj statystyką meczu" (przy czym statystyką będzie mógł zarządzać tylko dla meczów już rozegranych
- (jeden if - jeśli data meczu jest > bieżąca to przycisk widoczny) a samym meczem, czyli terminem i numerem boiska tylko dla rekordów, gdzie data meczu < bieżąca.
-
-2. Spotkanie stacjonarne
-- Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów (można wywalić widok 'Przepisz drużyny do meczu')
+Spotkanie stacjonarne
+- Generowanie ligi (utworzenie meczów dla wszystkich drużyn z ligi KLPN) - dodanie insertów
 - Krystianowi uzupelnic i backend i frontend (dodac admina, usera, studenta) zeby ladnie pokazac
 
 CO POKAZAĆ :
@@ -30,26 +23,18 @@ Widok meczów dla sędziego
 Widok meczu dla sędziego
 -poprawa widoku
 
+SPRAWDŹ WIDOK EDYCJI DANYCH USERA, ZMIENIŁEM WYSOKOŚĆ KONTENERU
+
 KRYSTIAN^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Widok profilu użytkownika - ADAM:
--zmienić kolor przycisku z fioletowego (hover też)
--przycisk do usunięcia konta z aplikacji
 
 Widok rejestracji użytkownika:
 -siła hasła
 
-Widok zakładania drużyny
+Widok zakładania drużyny - GRZES
 -przekierowanie do zakładki kontakt po założeniu drużyny + zmiana komunikatu
 -losowanie numeru koszulki
 
-Navbar admina - GRZES:
--zmienić przekierowania itd
-
 Dodanie widoku meczu
 -przechodzenie z poziomu listy
-
-przycisk ze strony głównej - profil użytkownika - brak przekierowania
 
 Ewenutalnie "stwórz mecz" dla admina -> taki sam jak rezerwacja + id drużyn
