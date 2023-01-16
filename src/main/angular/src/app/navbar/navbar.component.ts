@@ -108,11 +108,6 @@ export class NavbarComponent implements OnInit {
                   routerLink: "/team"
                 },
                 {
-                  label: 'Transfer',
-                  icon: 'pi pw-fw pi-arrow-right-arrow-left',
-                  routerLink: "/transfer"
-                },
-                {
                   label: 'Lista Transferowa',
                   icon: 'pi pi-fw pi-calendar',
                   routerLink: "/transfer-list"
@@ -157,10 +152,6 @@ export class NavbarComponent implements OnInit {
                   label: 'Zarejestruj drużynę',
                   icon: 'pi pw-fw pi-pencil',
                   routerLink: "/team"
-                },
-                {
-                  label: 'Transfer',
-                  icon: 'pi pw-fw pi-arrow-right-arrow-left'
                 },
                 {
                   label: 'Lista Transferowa',
