@@ -46,6 +46,43 @@ TODO do końca implementacji (15.01)
 - Użytkownik zalogowany klikający w prawy górny róg (ikonka użytkownika systemu) zostaje przekierowany na profil swojego konta (Profil użytkownika z danymi jak email, numer telefonu, itd itp)
 
 
+
+TODO POPRAWKOWE:
+Widok profilu użytkownika:
+-zmienić kolor przycisku z fioletowego (hover też)
+-przycisk do usunięcia konta z aplikacji
+
+Widok rejestracji użytkownika:
+-siła hasła
+
+Widok edycji rezerwacji
+-poprawa widoku (@Krystian)
+
+Widok zakładania drużyny
+-przekierowanie do zakładki kontakt po założeniu drużyny + zmiana komunikatu
+-losowanie numeru koszulki
+
+Widok moje mecze
+-poprawa widoku - rozszerzyć tabelę (@Krystian)
+
+Navbar admina
+-zmienić przekierowania itd
+
+Widok meczów dla sędziego
+-poprawa widoku - rozszerzyć tabelę (@Krystian)
+
+
+Widok meczu dla sędziego
+-poprawa widoku (@Krystian)
+
+Dodanie widoku meczu
+-przechodzenie z poziomu listy
+
+przycisk ze strony głównej - profil użytkownika - brak przekierowania
+
+Ewenutalnie "stwórz mecz" dla admina -> taki sam jak rezerwacja + id drużyn
+
+
 *Do wszystkiego jakaś drobna walidacja, aby cokolwiek wyrzucać na ekran i mu to pokazać*
 **Trzeba uzupełnić navbar i dodać wszystkie przyciski + przekierowania, bo póki co jest mało na navbarze**
 ***DEADLINE 15.01***
