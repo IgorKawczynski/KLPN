@@ -2,28 +2,36 @@ main{
   height: 100vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../../assets/img/football-field-2588146.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-@font-face {
-  font-family: 'PremierSans-Regular';
-  src: url('../../../assets/fonts/PremierLeagueW01-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'PremierSans-Bold';
-  src: url('../../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'PremierSans-Light';
-  src: url('../../../assets/fonts/PremierLeagueW01-Light.woff2') format('woff2');
-}
+//@font-face {
+//  font-family: 'PremierSans-Regular';
+//  src: url('../../../assets/fonts/PremierLeagueW01-Regular.woff2') format('woff2');
+//}
+//
+//@font-face {
+//  font-family: 'PremierSans-Bold';
+//  src: url('../../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
+//}
+//
+//@font-face {
+//  font-family: 'PremierSans-Light';
+//  src: url('../../../assets/fonts/PremierLeagueW01-Light.woff2') format('woff2');
+//}
 
 .responsive-layout {
-  font-size: x-large;
+  font-family: 'Rubik Bubbles';
+  font-size: 30px;
   margin-top: 130px;
-  margin-left: 600px;
+  margin-left: 554px;
   margin-bottom: -60px;
+  background-image: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 }
 
 .add {
@@ -47,15 +55,15 @@ main{
   width: 32%;
   height: 470px;
   background-color: rgba(250, 250, 250, 0.5);
-  margin: 0% auto 3%;
+  margin: 0 auto 3%;
+  border-radius: 20px;
 }
 
 .left-half {
-  background-color: rgba(252, 252, 252, 0.5);
   float: left;
   width: 30%;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  //font-family: Arial, Helvetica, sans-serif;
 }
 
 .details {
@@ -63,10 +71,10 @@ main{
 }
 
 .right-half {
-  background-color: rgba(252, 252, 252, 0.5);
   float: left;
   width: 70%;
   height: 100%;
+
 }
 
 .left-half p {
@@ -80,8 +88,7 @@ main{
 }
 
 button {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 10px;
   height: 40px;
   width: 200px;
   font-size: large;
@@ -122,3 +129,5 @@ input {
   background-color: rgb(175, 23, 23);
   border-color: rgb(175, 23, 23);
 }
+
+
