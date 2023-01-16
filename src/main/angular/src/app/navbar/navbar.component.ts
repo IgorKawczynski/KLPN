@@ -191,10 +191,7 @@ export class NavbarComponent implements OnInit {
               }
             ]
           },
-          {
-              label: 'Lista Transferowa',
-              routerLink: "/transfer-list"
-          },
+          {label: 'Lista Transferowa', routerLink: "/transfer-list"},
           {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
           {label: 'Kontakt', routerLink: "/contact"}
@@ -212,6 +209,7 @@ export class NavbarComponent implements OnInit {
         },
         {label: 'Tabela', routerLink: "/table"},
         {label: 'Harmonogram', routerLink: "/schedule"},
+        {label: 'Lista Transferowa', routerLink: "/transfer-list"},
         {label: 'Kontakt', routerLink: "/contact"}
       ];
     }
