@@ -46,7 +46,6 @@ export class MatchEditComponent implements OnInit {
 
   public btnAdd(){
     this.createMatchStatistic();
-    console.log(this.matchStatistic);
   }
 
   public deleteMatchStatisticById(rowId: number): void {
@@ -95,7 +94,6 @@ export class MatchEditComponent implements OnInit {
 
     this.matchEditService.getMatchForReferee(matchId).subscribe((response: any) =>{
       this.thisMatch = response;
-      console.log(this.thisMatch);
     })
   }
 

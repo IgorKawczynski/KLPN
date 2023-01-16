@@ -7,7 +7,8 @@ public record MatchResponseDTO(String firstTeamName,
                                String date,
                                Integer firstTeamGoals,
                                Integer secondTeamGoals,
-                               String refereeFullName) {
+                               String refereeFullName,
+                               Long matchId) {
 
     @Builder
     public MatchResponseDTO {}

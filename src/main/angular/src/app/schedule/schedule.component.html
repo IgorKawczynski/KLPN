@@ -39,10 +39,26 @@
       </ng-template>
       <ng-template pTemplate="body" let-matchResponseDTO>
         <tr>
-            <td>{{ matchResponseDTO.firstTeamName }} vs {{ matchResponseDTO.secondTeamName }}</td>
-            <td>{{ matchResponseDTO.date }}</td>
-            <td>&nbsp;&nbsp;{{ matchResponseDTO.firstTeamGoals }} : {{ matchResponseDTO.secondTeamGoals}}</td>
-            <td>{{ matchResponseDTO.refereeFullName }}</td>
+            <td>
+              <a [routerLink]="['/match/', matchResponseDTO.matchId]" class="row-link" tabindex="-1">
+                {{ matchResponseDTO.firstTeamName }} vs {{ matchResponseDTO.secondTeamName }}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/match/', matchResponseDTO.matchId]" class="row-link" tabindex="-1">
+                {{ matchResponseDTO.date }}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/match/', matchResponseDTO.matchId]" class="row-link" tabindex="-1">
+                &nbsp;&nbsp;{{ matchResponseDTO.firstTeamGoals }} : {{ matchResponseDTO.secondTeamGoals}}
+              </a>
+            </td>
+            <td>
+              <a [routerLink]="['/match/', matchResponseDTO.matchId]" class="row-link" tabindex="-1">
+                {{ matchResponseDTO.refereeFullName }}
+              </a>
+            </td>
         </tr>
       </ng-template>
     </p-table>

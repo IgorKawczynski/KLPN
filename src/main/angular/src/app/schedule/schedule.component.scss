@@ -30,3 +30,27 @@ main{
   text-align: center;
   font-size: large;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 0.5px solid #ffffff;
+  position: relative;
+}
+
+tr:hover,
+tr:focus-within {
+  background: rgba(7, 129, 23);
+  outline: #21c51b;
+  color: rgb(255, 255, 255);
+}
+
+td > a:first-child {
+  display: flex;
+  padding: 0.1px;
+  text-decoration: none;
+  color: inherit;
+  z-index: 0;
+}

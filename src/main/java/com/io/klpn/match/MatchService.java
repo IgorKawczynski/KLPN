@@ -108,7 +108,7 @@ public class MatchService {
                 MatchResponseDTO matchResponseDTO =
                         new MatchResponseDTO(firstTeam.getName(), secondTeam.getName(),
                                 formattedDate, match.getFirstTeamGoals(),
-                                match.getSecondTeamGoals(), refereeName);
+                                match.getSecondTeamGoals(), refereeName, match.getId());
 
                 matchResponseDTOS.add(matchResponseDTO);
             }

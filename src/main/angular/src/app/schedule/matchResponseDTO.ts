@@ -5,4 +5,5 @@ export class MatchResponseDTO {
     firstTeamGoals!: number;
     secondTeamGoals!: number;
     refereeFullName!: String;
+    matchId!: number;
   }

@@ -34,13 +34,11 @@ export class UserPanelComponent implements OnInit {
     this.id = this.loginService.getId();
     this.userPanelService.getUserEditDTOById().subscribe((response: any) => {
       this.user = response;
-      console.log("USER :: ", this.user);
     })
   }
 
   public updateUser(): void {
     this.userPanelService.putUser(this.user).subscribe((response: any) => {
-      console.log(this.user);
       this.errorsListDto = response;
       if( !this.errorsListDto.listOfErrorsEmpty ) {
         this.errorsListDto.errors.forEach((error) =>
@@ -76,7 +74,6 @@ export class UserPanelComponent implements OnInit {
   }
 
   public btnUpdate() {
-    console.log(this.user)
     this.updateUser();
   }
 }

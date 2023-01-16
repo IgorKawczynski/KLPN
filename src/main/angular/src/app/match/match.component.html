@@ -1,1 +1,41 @@
-<p>match works!</p>
+<main>
+    <app-navbar></app-navbar>
+    <div class="container">
+        <div class="match">
+            <div class="inner-div" style="font-weight: 600; font-size: 40px;">
+                {{ thisMatch.teams }}
+            </div>
+            <div class="inner-div" style="font-weight: 400; font-size: 30px;">
+                {{ thisMatch.date }}
+            </div>
+            <div class="inner-div" style="font-weight: 700; font-size: 50px;">
+                {{ thisMatch.result }}
+            </div>
+        </div>
+        <div class="statistics-table">
+            <p-table [value]="matchStatistics" [paginator]="true" [rows]="4">
+                    <ng-template pTemplate="caption">
+                        <div class="center-caption">
+                            Statystyki meczu
+                        </div>
+                    </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Zdarzenie</th>
+                        <th>Minuta</th>
+                        <th>Indeks zawodnika</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-matchStatisticResponseDTO>
+                    <tr>
+                        <td> {{ matchStatisticResponseDTO.event }}</td>
+                        <td> {{ matchStatisticResponseDTO.minute }}</td>
+                        <td> {{ matchStatisticResponseDTO.studentIndex }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div style="height: 100px;"></div>
+    </div>
+    <app-footer></app-footer>
+  </main>

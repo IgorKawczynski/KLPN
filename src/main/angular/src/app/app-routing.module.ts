@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'users', component: UserComponent },
       { path: 'users/my-profile', component: UserPanelComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'match', component: MatchComponent },
+      { path: 'match/:id', component: MatchComponent },
       { path: 'reservation', component: ReservationComponent },
       { path: 'student', component: StudentComponent },
       { path: 'student/my-team', component: TeamEditComponent },
