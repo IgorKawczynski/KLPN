@@ -20,10 +20,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +44,7 @@ public class TeamService {
             isEveryGivenIndexNumberFound(students, teamDTO.players());
             assignStudentsPositions(students, teamDTO.players());
             assignStudentsRoles(students, teamDTO.players());
+            assignStudentsTshirtNumbers(students);
             assignTeamCaptain(teamDTO.captainId());
             var createdTeam = teamRepository.saveAndFlush(team);
             assignStudentsToTeam(students, createdTeam);
@@ -83,6 +81,22 @@ public class TeamService {
             } else {
                 student.setRole(Role.PLAYER);
             }
+            counter++;
+        }
+    }
+
+    private void assignStudentsTshirtNumbers(List<Student> students) {
+        int counter = 0;
+        var listOfUsedNumbers = new ArrayList<>();
+        while(counter < students.size()) {
+            var student = students.get(counter);
+            Random random = new Random();
+            var nextRandom = random.nextInt(1, 99);
+            while(listOfUsedNumbers.contains(nextRandom)) {
+                nextRandom = random.nextInt(1, 99);
+            }
+            listOfUsedNumbers.add(nextRandom);
+            student.setTshirtNumber(nextRandom);
             counter++;
         }
     }
