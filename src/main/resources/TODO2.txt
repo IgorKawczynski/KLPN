@@ -14,8 +14,6 @@ KRYSTIAN**************************************************************:
 
 
 
-Widok meczów dla sędziego
--poprawa widoku - rozszerzyć tabelę
 
 Widok meczu dla sędziego
 -poprawa widoku
