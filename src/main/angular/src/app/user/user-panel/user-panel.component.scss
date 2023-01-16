@@ -23,15 +23,12 @@ main{
 //}
 
 .responsive-layout {
-  font-family: 'Rubik Bubbles';
+  font-family: 'PremierSans-Light';
   font-size: 30px;
   margin-top: 130px;
   margin-left: 554px;
   margin-bottom: -60px;
-  background-image: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
+  color: black;
 }
 
 .add {
@@ -54,7 +51,7 @@ main{
   box-shadow: 0 0 15px rgba(85, 140, 42, 0.27);
   width: 32%;
   height: 470px;
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: rgba(250, 250, 250, 0.7);
   margin: 0 auto 3%;
   border-radius: 20px;
 }
