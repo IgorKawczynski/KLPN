@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 
+
+
+
 <main>
   <app-navbar></app-navbar>
+
+
+  <p-password style="width: 200%;" [toggleMask]="true" [(ngModel)]="userRequestDto.password" placeholder="Hasło">
+    <ng-template pTemplate="footer" style="width: 200%;">
+      <h4>Hasło</h4>
+    </ng-template>
+    <ng-template pTemplate="footer" style="width: 200%;">
+      <p-divider style="width: 200%;"></p-divider>
+      <p style="width: 200%;" class="mt-2">Propozycja</p>
+      <ul  class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+        <li>At least one lowercase</li>
+        <li>At least one uppercase</li>
+        <li>At least one numeric</li>
+        <li>At least one special character</li>
+        <li>Minimum 8 characters</li>
+      </ul>
+    </ng-template>
+  </p-password>
+
+
   <div class="hero">
     <div class="form-box">
       <p class="login-span">Rejestracja</p>
@@ -24,10 +47,10 @@
               <input type="text" pInputText [(ngModel)]="userRequestDto.email" placeholder="E-mail">
             </div>
 
-            <div class="p-inputgroup input-password">
-              <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-              <input type="password" pInputText [(ngModel)]="userRequestDto.password" placeholder="Hasło">
-            </div>
+
+            <!--              <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>-->
+
+
 
             <div class="p-inputgroup input-index">
               <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>

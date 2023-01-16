@@ -21,11 +21,15 @@ export class RegisterComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private router: Router,
     private messageService: MessageService,
-    private loginService: LoginService
+    public loginService: LoginService
   ){
   }
 
   ngOnInit(): void {
+  }
+
+  btnClick(x: string) {
+    this.router.navigateByUrl(x);
   }
 
   btnRegister(): void {
