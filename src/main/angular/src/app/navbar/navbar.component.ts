@@ -201,23 +201,8 @@ export class NavbarComponent implements OnInit {
             ]
           },
           {
-            label: 'Drużyna',
-            items: [
-              {
-                label: 'Zarejestruj drużynę',
-                icon: 'pi pw-fw pi-pencil',
-                routerLink: "/team"
-              },
-              {
-                label: 'Transfer',
-                icon: 'pi pw-fw pi-arrow-right-arrow-left'
-              },
-              {
-                label: 'Lista Transferowa',
-                icon: 'pi pi-fw pi-calendar',
-                routerLink: "/transfer-list"
-              },
-            ]
+              label: 'Lista Transferowa',
+              routerLink: "/transfer-list"
           },
           {label: 'Tabela', routerLink: "/table"},
           {label: 'Harmonogram', routerLink: "/schedule"},
