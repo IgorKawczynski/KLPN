@@ -25,9 +25,8 @@ export class RefereeMatchesComponent implements OnInit {
   }
 
   public getMatches(): void {
-    // DO TESTÓW
-    // let refereeId: number = this.loginService.getId();
-    this.refereeMatchesService.getMatchesForReferee(1022).subscribe((response: any) =>{
+    let refereeId: number = this.loginService.getId();
+    this.refereeMatchesService.getMatchesForReferee(refereeId).subscribe((response: any) =>{
       this.refereeMatches = response;
     })
   }

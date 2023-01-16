@@ -1,5 +1,5 @@
 main{
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/football-field-2588146.jpg");
   background-position: center;
@@ -20,7 +20,7 @@ main{
   height: 580px;
   width: 1200px;
   position: absolute;
-  top: 64%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   //background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/artificial-turf-1711556.jpg");
@@ -113,7 +113,7 @@ main{
   height: 60px;
   width: 750px;
   position: absolute;
-  top: 75%;
+  top: 70%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -139,7 +139,7 @@ main{
 
 .decision{
   position: absolute;
-  top: 83%;
+  top: 78%;
   left: 50%;
   transform: translateX(-50%);
 
