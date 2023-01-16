@@ -11,6 +11,7 @@ CO POKAZAĆ :
 TODO POPRAWKOWE:
 
 KRYSTIAN**************************************************************:
+
 Widok moje mecze
 -poprawa widoku - rozszerzyć tabelę
 
@@ -34,7 +35,7 @@ Widok zakładania drużyny - GRZES
 -przekierowanie do zakładki kontakt po założeniu drużyny + zmiana komunikatu
 -losowanie numeru koszulki
 
-Dodanie widoku meczu
+Dodanie widoku meczu - ADAM
 -przechodzenie z poziomu listy
 
 Ewenutalnie "stwórz mecz" dla admina -> taki sam jak rezerwacja + id drużyn
