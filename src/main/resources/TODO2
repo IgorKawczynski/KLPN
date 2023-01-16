@@ -16,32 +16,36 @@ CO POKAZAĆ :
 ***DEADLINE 15.01***
 
 TODO POPRAWKOWE:
-Widok profilu użytkownika:
+
+KRYSTIAN**************************************************************:
+Widok moje mecze
+-poprawa widoku - rozszerzyć tabelę
+
+Widok edycji rezerwacji
+-poprawa widoku
+
+Widok meczów dla sędziego
+-poprawa widoku - rozszerzyć tabelę
+
+Widok meczu dla sędziego
+-poprawa widoku
+
+KRYSTIAN^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Widok profilu użytkownika - ADAM:
 -zmienić kolor przycisku z fioletowego (hover też)
 -przycisk do usunięcia konta z aplikacji
 
 Widok rejestracji użytkownika:
 -siła hasła
 
-Widok edycji rezerwacji
--poprawa widoku (@Krystian)
-
 Widok zakładania drużyny
 -przekierowanie do zakładki kontakt po założeniu drużyny + zmiana komunikatu
 -losowanie numeru koszulki
 
-Widok moje mecze
--poprawa widoku - rozszerzyć tabelę (@Krystian)
-
 Navbar admina
 -zmienić przekierowania itd
-
-Widok meczów dla sędziego
--poprawa widoku - rozszerzyć tabelę (@Krystian)
-
-
-Widok meczu dla sędziego
--poprawa widoku (@Krystian)
 
 Dodanie widoku meczu
 -przechodzenie z poziomu listy
