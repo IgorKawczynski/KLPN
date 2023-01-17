@@ -45,12 +45,12 @@ export class RegisterComponent implements OnInit {
         console.log(this.errorsListDto);
         if(!this.errorsListDto.listOfErrorsEmpty) {
           this.errorsListDto.errors.forEach((error) =>
-            this.messageService.add({life:3000, severity:'error', summary:'Register', detail:error})
+            this.messageService.add({life:3000, severity:'error', summary:'Rejestracja', detail:error})
           );
         }
         else{
-          this.messageService.add({life: 3000, severity:'success', summary:'Register', detail:'Rejestracja przebiegła pomyślnie.'});
-          this.messageService.add({life: 5500, severity:'info', summary:'Register', detail:'Możesz zalogować się do swojego konta.'});
+          this.messageService.add({life: 3000, severity:'success', summary:'Rejestracja', detail:'Rejestracja przebiegła pomyślnie.'});
+          this.messageService.add({life: 5500, severity:'info', summary:'Rejestracja', detail:'Możesz zalogować się do swojego konta.'});
           this.router.navigateByUrl('/login');
         }
       });
