@@ -79,11 +79,6 @@ export class NavbarComponent implements OnInit {
               label: 'Drużyna',
               items: [
                 {
-                  label: 'Zarejestruj drużynę',
-                  icon: 'pi pw-fw pi-pencil',
-                  routerLink: "/team"
-                },
-                {
                   label: 'Zarządzaj drużyną',
                   icon: 'pi pw-fw pi-user-edit',
                   routerLink: "/student/my-team"
@@ -133,11 +128,6 @@ export class NavbarComponent implements OnInit {
             {
               label: 'Drużyna',
               items: [
-                {
-                  label: 'Zarejestruj drużynę',
-                  icon: 'pi pw-fw pi-pencil',
-                  routerLink: "/team"
-                },
                 {
                   label: 'Lista Transferowa',
                   icon: 'pi pi-fw pi-calendar',
