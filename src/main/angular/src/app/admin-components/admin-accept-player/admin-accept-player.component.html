@@ -1,7 +1,7 @@
 <main>
     <app-admin-navbar></app-admin-navbar>
     <div class="users-table">
-        <p-table [value]="users" [(selection)]="selectedUsers" [paginator]="true" [rows]="9" [selectionPageOnly]="true">
+        <p-table [value]="users" [(selection)]="selectedUsers" [paginator]="true" [rows]="6" [selectionPageOnly]="true">
             <ng-template pTemplate="caption">
                 <div class="center-caption">
                     Lista użytkowników oczekujących na zaakceptowanie
@@ -36,7 +36,7 @@
             <ng-template pTemplate="summary">
                 <div class="flex-container">
                     <div class="left">
-                        Liczba oczekujących użytkowników: {{users.length}} 
+                        Liczba oczekujących użytkowników: {{users.length}}
                     </div>
                     <div class="right">
                         <div>
