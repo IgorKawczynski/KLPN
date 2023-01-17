@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,7 +40,7 @@ public class MatchDateEditService {
             isPitchSelected(dto.pitch());
             var user = userRepository.getReferenceById(dto.captainId());
             var reservation = reservationRepository.getReferenceById(dto.reservationId());
-            var matchDateEditRequest = new MatchDateEdit(dto.pitch(), dto.newMatchDate(), user, reservation);
+            var matchDateEditRequest = new MatchDateEdit(dto.pitch(), dto.newMatchDate().truncatedTo(ChronoUnit.MINUTES), user, reservation);
             matchDateEditRepository.save(matchDateEditRequest);
         }
         catch (IllegalArgumentException exception) {

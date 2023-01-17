@@ -40,19 +40,20 @@ export class LoginComponent implements OnInit {
         if (res.sessionId != null) {
           if(res.isAdmin == true) {
             this.router.navigateByUrl("/admin");
-            this.messageService.add({life:3000, severity:'info', summary:'Login', detail:" Udało ci się zalogować jako administrator !"})
+            this.messageService.add({life:3000, severity:'info', summary:'Login', detail:" Udało ci się zalogować jako administrator!"})
           }
           else {
             this.router.navigateByUrl("/");
             if(res.isStudent == true) {
-              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
-              this.messageService.add({life:4000, severity:'info', summary:'Login', detail:" Posiadasz konto o statusie studenta !"})
+              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować!"})
+              this.messageService.add({life:4000, severity:'info', summary:'Login', detail:" Posiadasz konto o statusie studenta!"})
             }
             else {
-              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować !"})
+              this.messageService.add({life:4000, severity:'success', summary:'Login', detail:" Udało ci się zalogować!"})
             }
           }
           // NIE ZMIENIAĆ TU NICZEGO, JAK MASZ PYTANIE PISZ : kluseczkidziadka96@onet.pl
+          // TRZEBA TO ROZKMINIĆ
           this.sessionId = res.sessionId;
           localStorage.setItem('email', this.model.email)
           localStorage.setItem('id', res.id)

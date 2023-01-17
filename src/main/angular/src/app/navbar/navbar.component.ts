@@ -21,7 +21,38 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.loginService.isLogged()) {
-      if (this.loginService.isStudent()) {
+      if(this.loginService.isAdmin()) {
+        this.items = [
+          {label: 'Panel administratora', routerLink: "/admin"},
+          {
+            label: 'Rezerwacja',
+            items: [
+              {
+                label: 'Rezerwuj boisko',
+                icon: 'pi pi-fw pi-calendar',
+                routerLink: "/reservation"
+              },
+              {
+                label: 'Zarządzaj rezerwacją',
+                icon: 'pi pi-fw pi-cog',
+                routerLink: "/reservation-list"
+              },
+              {
+                label: 'Historia rezerwacji',
+                icon: 'pi pi-fw pi-clock',
+                routerLink: "/reservation-history"
+              }
+            ]
+          },
+          {label: 'Tabela', routerLink: "/table"},
+          {label: 'Harmonogram', routerLink: "/schedule"},
+          {label: 'Kontakt', routerLink: "/contact"}   
+        ];
+        this.itemsRight = [
+          {label: 'Administrator ' + this.loginService.getName() || undefined, routerLink: "/users/my-profile"}
+        ]
+      }
+      else if (this.loginService.isStudent()) {
         if (this.loginService.getRole() == 'CAPTAIN') {
           this.items = [
             {

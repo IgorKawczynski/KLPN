@@ -60,8 +60,7 @@ export class MatchDateEditComponent implements OnInit {
   }
 
   public btnConfirm() {
-    console.log('zmiana ;D');
-    console.log(this.matchDateEditDTO);
+    this.matchDateEditDTO.newMatchDate.setHours(this.matchDateEditDTO.newMatchDate.getHours() + 1);
     this.sendMatchDateEditRequest();
   }
 

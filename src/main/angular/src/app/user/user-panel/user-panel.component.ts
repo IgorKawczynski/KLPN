@@ -46,8 +46,8 @@ export class UserPanelComponent implements OnInit {
         );
       }
       else{
-        this.messageService.add({life: 4000, severity:'success', summary:'Panel Użytkownika', detail:'Udało ci się zmienić swoje konto!'});
-        window.location.reload();
+        this.messageService.add({life: 4000, severity:'success', summary:'Panel Użytkownika', detail:'Pomyślnie edytowano dane!'});
+        setTimeout(location.reload.bind(location), 1500);
       }
     });
   }
