@@ -5,10 +5,10 @@
   <div class="hero-img">
     <p class="main-text">{{this.teamName}}</p>
     <div class="content-img">
-      <img *ngIf="this.id%6==0" src="../../assets/img/dziki-logo.jpg" alt="LOGO">
+      <img *ngIf="this.id%6==0" src="../../assets/img/aligator-logo.png" alt="LOGO">
       <img *ngIf="this.id%6==1" src="../../assets/img/kitsune-logo.jpg" alt="LOGO">
-      <img *ngIf="this.id%6==2" src="../../assets/img/sportoweŻaby-logo.jpg" alt="LOGO">
-      <img *ngIf="this.id%6==3" src="../../assets/img/aligator-logo.png" alt="LOGO">
+      <img *ngIf="this.id%6==2" src="../../assets/img/dziki-logo.jpg" alt="LOGO">
+      <img *ngIf="this.id%6==3" src="../../assets/img/sportoweŻaby-logo.jpg" alt="LOGO">
       <img *ngIf="this.id%6==4" src="../../assets/img/spartanie-logo.jpg" alt="LOGO">
       <img *ngIf="this.id%6==5" src="../../assets/img/soccerChampions.jpg" alt="LOGO">
     </div>
@@ -34,9 +34,9 @@
               <td>{{ playerstats.assists }}</td>
               <td>{{ playerstats.redCards }}</td>
               <td>{{ playerstats.ownGoals }}</td>
-              <td *ngIf="playerstats.motmAmount >= 20">🏆{{ playerstats.motmAmount }}</td>
-              <td *ngIf="playerstats.motmAmount >= 10 && playerstats.motmAmount < 20">🥈{{ playerstats.motmAmount }}</td>
-              <td *ngIf="playerstats.motmAmount < 10">{{ playerstats.motmAmount }}</td>
+              <td *ngIf="playerstats.motmAmount >= 10">🏆{{ playerstats.motmAmount }}</td>
+              <td *ngIf="playerstats.motmAmount >= 6 && playerstats.motmAmount < 10">🥈{{ playerstats.motmAmount }}</td>
+              <td *ngIf="playerstats.motmAmount < 6">{{ playerstats.motmAmount }}</td>
             </tr>
           </ng-template>
         </p-table>
