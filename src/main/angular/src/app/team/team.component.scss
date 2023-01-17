@@ -27,7 +27,7 @@ main {
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.86);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,10 +49,8 @@ main {
         align-items: center;
 
         .category{
-          font-size: 25px;
-          background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 17%, rgba(70, 252, 69, 1) 79%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: 30px;
+          color: black;
         }
       }
 
@@ -66,13 +64,11 @@ main {
 
         .category{
           font-size: 30px;
-          background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 17%, rgba(70, 252, 69, 1) 79%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: black;
         }
         .field-checkbox{
           font-size: 20px;
-          color: white;
+          color: black;
         }
       }
 
@@ -112,7 +108,7 @@ main {
         }
 
         .confirm{
-          background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(70,252,69,1) 79%);
+          color: black;
         }
         .confirm:hover{
           background: greenyellow;
@@ -131,9 +127,7 @@ main {
       .right-text{
         font-size: 35px;
         margin-bottom: 20px;
-        background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 17%, rgba(70, 252, 69, 1) 79%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: black;
       }
 
       .list{
@@ -143,7 +137,7 @@ main {
         font-size: 20px;
         list-style-type: number;
         word-spacing: 15px;
-        color: white;
+        color: black;
       }
 
     }
