@@ -44,10 +44,7 @@ export class AdminMatchDateEditRequestsComponent implements OnInit {
       return;
     }
     this.acceptRequests();
-    // setTimeout(location.reload.bind(location), 3000);
-    console.log('akceptacja: ' + this.selectedRequestsId);
     this.clearSelectedRequestsId();
-
   }
 
   public btnReject(): void {
@@ -56,8 +53,6 @@ export class AdminMatchDateEditRequestsComponent implements OnInit {
       return;
     }
     this.rejectRequests();
-    // setTimeout(location.reload.bind(location), 3000);
-    console.log('odrzucenie: ' + this.selectedRequestsId);
     this.clearSelectedRequestsId();
 
   }
@@ -77,6 +72,7 @@ export class AdminMatchDateEditRequestsComponent implements OnInit {
       }
       else {
         this.messageService.add({life: 8000, severity:'success', summary:'Zaakceptowano', detail:"Daty spotkań zostały zmienione."})
+        setTimeout(location.reload.bind(location), 1500);
       }
     });
   }
@@ -92,6 +88,7 @@ export class AdminMatchDateEditRequestsComponent implements OnInit {
       }
       else {
         this.messageService.add({life: 8000, severity:'success', summary:'Zaakceptowano', detail:"Wybrane wnioski zostały odrzucone."})
+        setTimeout(location.reload.bind(location), 1500);
       }
     });
   }
